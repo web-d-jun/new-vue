@@ -1,13 +1,30 @@
 <template>
   <div id="app">
-      vue
+      <button @click="increment">
+        count is: {{state.count}} double is : {{state.double}}
+      </button>
+      
   </div>
 </template>
 
 <script lang="ts">
-
+import {reactive, computed} from 'vue'
 export default {
-  name: 'App',
+  setup() {
+    const state = reactive({
+      count: 0,
+      double: computed(() => state.count * 2)
+    })
+
+    const increment = () => {
+        state.count++
+    }
+
+    return {
+      state,
+      increment
+    }
+  }
 }
 </script>
 
