@@ -1,10 +1,5 @@
 <template>
-  <div id="app">
-      <button @click="increment">
-        count is: {{state.count}} double is : {{state.double}}
-      </button>
-      
-  </div>
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
