@@ -1,27 +1,6 @@
 <template>
-  <router-view></router-view>
+  <router-view />
 </template>
-
-<script lang="ts">
-import {reactive, computed} from 'vue'
-export default {
-  setup() {
-    const state = reactive({
-      count: 0,
-      double: computed(() => state.count * 2)
-    })
-
-    const increment = () => {
-        state.count++
-    }
-
-    return {
-      state,
-      increment
-    }
-  }
-}
-</script>
 
 <style>
 #app {
