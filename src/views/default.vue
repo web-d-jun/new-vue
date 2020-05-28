@@ -1,10 +1,39 @@
 <template>
-    <div>
-        default page
+  <div id="defaultView">
+    <Header />
+    <div class="body-content">
+      <Left />
+      <div class="routerView__container">
+        <router-view />
+      </div>
     </div>
+
+    <!-- <Right /> -->
+  </div>
 </template>
-<script>
+<script lang="ts">
+import Header from "@/layout/default/header.vue";
+import Left from "@/layout/default/left.vue";
 export default {
-    name: 'Default'
-}
+  name: "Default",
+  components: {
+    Header,
+    Left
+  }
+};
 </script>
+<style lang="scss" scoped>
+#defaultView {
+  width: 100%;
+  height: 100%;
+  .body-content {
+    display: flex;
+    flex: 1;
+  }
+  .routerView__container {
+    border: 1px solid;
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>

@@ -1,11 +1,14 @@
 <template>
-    <div id="rightContainer">
-        right
-    </div>
+  <div id="rightContainer">right</div>
 </template>
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from "vue";
 export default defineComponent({
-    name: 'rightContainer'
-})
+  name: "rightContainer"
+});
 </script>
+<style lang="scss" scoped>
+  #rightContainer {
+    
+  }
+</style>

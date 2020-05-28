@@ -3,9 +3,15 @@ import Default from "../views/default.vue";
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/",
+    path: "/default",
     name: "Default",
     component: Default,
+    children: [
+      {
+        path: "/default/dashboard",
+        component: () => import("@/page/default_view/dashboard.vue"),
+      },
+    ],
   },
 ];
 
