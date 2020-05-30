@@ -1,13 +1,23 @@
 <template>
-  <div id="leftContainer">left</div>
+  <div id="leftContainer">
+    <div v-for="item in menuList" :key="item.name">{{item.name}}</div>
+  </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, readonly, onMounted } from "vue";
 import Menu from "@/menu.ts";
 export default defineComponent({
   name: "leftContainer",
   setup() {
-    console.log(Menu)
+    const menuList = readonly<object>(Menu);
+    console.log(Menu);
+    onMounted(() => {
+      console.log('?')
+    });
+
+    return {
+      menuList
+    };
   }
 });
 </script>
@@ -16,5 +26,7 @@ export default defineComponent({
   width: 250px;
   border: 1px solid;
   flex: none;
+}
+@media all and (max-width: 1024px) {
 }
 </style>
