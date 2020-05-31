@@ -29,6 +29,7 @@ export default {
   .body-content {
     display: flex;
     flex: 1;
+    height: calc(100% - 54px);
   }
   .routerView__container {
     border: 1px solid;
