@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="menu-button__container">
-      <i class="fas fa-bars" @click></i>
+      <i class="fas fa-bars"></i>
     </div>
     <div class="title__container">Vue3</div>
   </div>
@@ -11,9 +11,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Header",
-  setup() {
-    
-  }
+  
 });
 </script>
 <style lang="scss" scoped>

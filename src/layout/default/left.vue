@@ -6,13 +6,14 @@
 <script lang="ts">
 import { defineComponent, readonly, onMounted } from "vue";
 import Menu from "@/menu.ts";
+import { useStore } from 'vuex';
 export default defineComponent({
   name: "leftContainer",
   setup() {
     const menuList = readonly<object>(Menu);
-    onMounted(() => {
-      console.log("?");
-    });
+    const  store = useStore();
+    
+    console.log(store.state.leftDrawer);
 
     return {
       menuList
