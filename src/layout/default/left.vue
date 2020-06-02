@@ -1,19 +1,20 @@
 <template>
   <div id="leftContainer">
     <!-- <div v-for="item in menuList" :key="item.name">{{item.name}}</div> -->
+    {{$store.state.leftDrawer}}
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, readonly, onMounted } from "vue";
 import Menu from "@/menu.ts";
-import { useStore } from 'vuex';
+import { useStore } from "vuex";
 export default defineComponent({
   name: "leftContainer",
   setup() {
     const menuList = readonly<object>(Menu);
-    const  store = useStore();
+    const store = useStore();
+
     
-    console.log(store.state.leftDrawer);
 
     return {
       menuList
