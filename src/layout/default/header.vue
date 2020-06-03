@@ -18,10 +18,7 @@ export default defineComponent({
 
     const useHandleLeftDrawer = () => {
       const showLeftDrawer = () => {
-        
         store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
-
-        console.log(store.state.leftDrawer)
       };
       return { showLeftDrawer };
     };
