@@ -52,5 +52,6 @@ export default defineComponent({
   flex: none;
   display: flex;
   flex-direction: column;
+  background-color: rgb(50,50,72);
 }
 </style>

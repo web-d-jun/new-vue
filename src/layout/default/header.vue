@@ -36,6 +36,7 @@ export default defineComponent({
   height: 48px;
   border: 1px solid;
   align-items: center;
+  background-color: rgb(70,71,117);
   .menu-button__container {
     flex: none;
     width: 50px;
