@@ -2,28 +2,36 @@
   <transition name="slide-fade">
     <div id="leftContainer" v-if="$store.state.leftDrawer">
       <List>
-        <div v-for="item in menuList" :key="item.name">{{item.name}}</div>
+        <List-item v-for="item in menuList" :key="item.name">
+          <List-item-action>
+            <i class="material-icons">{{ item.icon }}</i>
+          </List-item-action>
+          <List-item-title>{{ item.name }}</List-item-title>
+          <Line v-if="item.line" />
+        </List-item>
       </List>
     </div>
   </transition>
 </template>
 <script lang="ts">
-import {
-  defineComponent,
-  readonly,
-  onMounted,
-  watchEffect,
-  reactive
-} from "vue";
+import { defineComponent, readonly } from "vue";
 import Menu from "@/menu.ts";
 import { useStore } from "vuex";
 import { MutationTypes } from "../../store/mutation-types";
 import List from "@/components/list.vue";
+import ListItem from "@/components/listItem.vue";
+import ListItemAction from "@/components/list_item_action.vue";
+import ListItemTitle from "@/components/list_item_title.vue";
+import Line from "@/components/line.vue";
 
 export default defineComponent({
   name: "leftContainer",
   components: {
-    List
+    List,
+    ListItem,
+    ListItemAction,
+    ListItemTitle,
+    Line
   },
   setup() {
     const menuList = readonly<object>(Menu);
@@ -53,6 +61,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   background-color: rgb(50, 50, 72);
+  border: 1px solid transparent;
 }
 .slide-fade-enter-active {
   transition: all 300ms ease;

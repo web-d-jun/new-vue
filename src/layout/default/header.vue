@@ -34,9 +34,10 @@ export default defineComponent({
 #header {
   display: flex;
   height: 48px;
-  border: 1px solid;
+  border: 1px solid transparent;
   align-items: center;
-  background-color: rgb(70,71,117);
+  background-color: rgb(70, 71, 117);
+  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   .menu-button__container {
     flex: none;
     width: 50px;

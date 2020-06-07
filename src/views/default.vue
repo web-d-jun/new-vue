@@ -32,7 +32,7 @@ export default {
     height: calc(100% - 54px);
   }
   .routerView__container {
-    border: 1px solid;
+    border: 1px solid transparent;
     width: 100%;
     height: 100%;
   }

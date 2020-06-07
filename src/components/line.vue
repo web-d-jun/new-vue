@@ -1,17 +1,14 @@
 <template>
-  <div id="listItem">
-    <slot />
-  </div>
+  <div id="Line"></div>
 </template>
 <script>
 export default {
-  name: "ListItem"
+  name: "Line"
 };
 </script>
 <style lang="scss" scoped>
-#listItem {
-  display: flex;
-  flex-wrap: wrap;
+#Line {
   width: 100%;
+  border-top: 1px solid #fff;
 }
 </style>

@@ -1,17 +1,14 @@
 <template>
-  <div id="listItem">
+  <div id="listItemTitle">
     <slot />
   </div>
 </template>
 <script>
 export default {
-  name: "ListItem"
+  name: "ListItemTitle"
 };
 </script>
 <style lang="scss" scoped>
-#listItem {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+#listItemTitle {
 }
 </style>

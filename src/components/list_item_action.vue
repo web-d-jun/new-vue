@@ -1,17 +1,15 @@
 <template>
-  <div id="listItem">
+  <div id="listItemAction">
     <slot />
   </div>
 </template>
 <script>
 export default {
-  name: "ListItem"
+  name: "listItemAction"
 };
 </script>
 <style lang="scss" scoped>
-#listItem {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+#listItemAction {
+    
 }
 </style>
