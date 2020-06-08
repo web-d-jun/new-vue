@@ -13,5 +13,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  align-items: center;
 }
 </style>

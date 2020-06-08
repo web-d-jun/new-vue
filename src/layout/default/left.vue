@@ -62,6 +62,9 @@ export default defineComponent({
   flex-direction: column;
   background-color: rgb(50, 50, 72);
   border: 1px solid transparent;
+  .material-icons {
+    font-size: 28px;
+  }
 }
 .slide-fade-enter-active {
   transition: all 300ms ease;

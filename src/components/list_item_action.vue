@@ -10,6 +10,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 #listItemAction {
-    
+  display: flex;
+  align-items: center;
 }
 </style>
