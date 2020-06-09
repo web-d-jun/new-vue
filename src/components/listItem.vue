@@ -16,5 +16,9 @@ export default {
   align-items: center;
   height: 50px;
   color: rgb(199, 199, 199);
+  &:hover {
+    cursor: pointer;
+    background-color: #43435e;
+  }
 }
 </style>

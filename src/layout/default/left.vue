@@ -69,6 +69,8 @@ export default defineComponent({
     margin-left: 30px;
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 100%;
     .material-icons {
       font-size: 24px;
     }
