@@ -14,5 +14,7 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   align-items: center;
+  height: 50px;
+  color: rgb(199, 199, 199);
 }
 </style>

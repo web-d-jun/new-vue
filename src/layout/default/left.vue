@@ -3,10 +3,12 @@
     <div id="leftContainer" v-if="$store.state.leftDrawer">
       <List>
         <List-item v-for="item in menuList" :key="item.name">
-          <List-item-action>
-            <i class="material-icons">{{ item.icon }}</i>
-          </List-item-action>
-          <List-item-title>{{ item.name }}</List-item-title>
+          <div class="wrap">
+            <List-item-action>
+              <i class="material-icons">{{ item.icon }}</i>
+            </List-item-action>
+            <List-item-title>{{ item.name }}</List-item-title>
+          </div>
           <Line v-if="item.line" />
         </List-item>
       </List>
@@ -62,10 +64,17 @@ export default defineComponent({
   flex-direction: column;
   background-color: rgb(50, 50, 72);
   border: 1px solid transparent;
-  .material-icons {
-    font-size: 28px;
+
+  .wrap {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    .material-icons {
+      font-size: 24px;
+    }
   }
 }
+
 .slide-fade-enter-active {
   transition: all 300ms ease;
 }

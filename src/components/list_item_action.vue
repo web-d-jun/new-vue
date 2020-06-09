@@ -12,5 +12,6 @@ export default {
 #listItemAction {
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 </style>
