@@ -21,5 +21,4 @@ npm run lint
 ```
 ### Library
 ```
-- smooth-scrollbar
 ```
