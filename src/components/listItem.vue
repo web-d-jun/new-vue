@@ -1,5 +1,5 @@
 <template>
-  <div id="listItem" class="material-ripple" @click="handleRippleShow">
+  <div id="listItem">
     <!-- <div class="animation" v-if="rippleShowState.value"></div> -->
     <slot />
   </div>
@@ -9,13 +9,7 @@ import { ref, reactive, toRefs } from "vue";
 export default {
   name: "ListItem",
   setup() {
-    const handleRippleShow = () => {
-      console.log('?')
-    };
-
-    return {
-      handleRippleShow
-    };
+    return {};
   }
 };
 </script>
@@ -28,6 +22,9 @@ export default {
   align-items: center;
   height: 50px;
   color: rgb(199, 199, 199);
+  background-position: center;
+  transition: all 0.8s;
+
   .animation {
     position: absolute;
     width: 2px;
@@ -38,6 +35,7 @@ export default {
   &:hover {
     cursor: pointer;
     background-color: #43435e;
+    background: #599fd8;
   }
 }
 </style>

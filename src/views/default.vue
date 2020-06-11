@@ -33,8 +33,11 @@ export default {
   }
   .routerView__container {
     border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: auto;
   }
 }
 </style>
