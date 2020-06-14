@@ -26,6 +26,10 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
+  background-image: url("../assets/default/background2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .body-content {
     display: flex;
     flex: 1;

@@ -62,7 +62,7 @@ export default defineComponent({
   flex: none;
   display: flex;
   flex-direction: column;
-  background-color: rgb(50, 50, 72);
+  background-color: rgba(36, 41, 44, 0.3);
   border: 1px solid transparent;
 
   .wrap {
