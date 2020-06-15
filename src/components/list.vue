@@ -4,13 +4,19 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../store/mutation-types";
+import Scrollbar from "smooth-scrollbar";
 export default defineComponent({
   name: "ListContainer",
   setup() {
     const store = useStore();
+    onMounted(() => {
+      console.log(document.querySelector('#listContainer'));
+    })
+    
+    // Scrollbar.init(document.querySelector);
 
     const useHandleScroll = () => {
       const handleScroll = (event: any) => {
