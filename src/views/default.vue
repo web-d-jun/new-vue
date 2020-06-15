@@ -3,7 +3,7 @@
     <Header />
     <div class="body-content">
       <Left />
-      <div class="routerView__container">
+      <div class="routerView__container" @scroll.passive="handleScroll">
         <router-view />
       </div>
     </div>
@@ -14,11 +14,30 @@
 <script lang="ts">
 import Header from "@/layout/default/header.vue";
 import Left from "@/layout/default/left.vue";
+import { useStore } from "vuex";
+import { MutationTypes } from "../store/mutation-types";
 export default {
   name: "Default",
   components: {
     Header,
     Left
+  },
+  setup() {
+    const store = useStore();
+
+    const useHandleScroll = () => {
+      const handleScroll = (event: any) => {
+        if (event.target.scrollTop > 0) {
+          store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
+        } else {
+          store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
+        }
+      };
+      return { handleScroll };
+    };
+
+    const { handleScroll } = useHandleScroll();
+    return { handleScroll };
   }
 };
 </script>

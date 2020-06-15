@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header" :class="{ showBoxShdow: $store.state.showBoxShdow }">
     <div class="menu-button__container">
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
@@ -36,8 +36,11 @@ export default defineComponent({
   height: 48px;
   border: 1px solid transparent;
   align-items: center;
-  background-color: rgba(36, 41, 44, 0.8);
-  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: transparent;
+
+  &.showBoxShdow {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
   .menu-button__container {
     flex: none;
     width: 50px;

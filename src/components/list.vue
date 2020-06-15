@@ -1,12 +1,31 @@
 <template>
-  <div id="listContainer">
+  <div id="listContainer" @scroll.passive="handleScroll">
     <slot />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
+import { MutationTypes } from "../store/mutation-types";
 export default defineComponent({
-  name: "ListContainer"
+  name: "ListContainer",
+  setup() {
+    const store = useStore();
+
+    const useHandleScroll = () => {
+      const handleScroll = (event: any) => {
+        if (event.target.scrollTop > 0) {
+          store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
+        } else {
+          store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
+        }
+      };
+      return { handleScroll };
+    };
+
+    const { handleScroll } = useHandleScroll();
+    return { handleScroll };
+  }
 });
 </script>
 <style lang="scss" scoped>
