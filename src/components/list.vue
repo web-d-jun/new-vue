@@ -13,10 +13,8 @@ export default defineComponent({
   setup() {
     const store = useStore();
     onMounted(() => {
-      console.log(document.querySelector('#listContainer'));
-    })
-    
-    // Scrollbar.init(document.querySelector);
+      Scrollbar.init(document.querySelector<any>("#listContainer"));
+    });
 
     const useHandleScroll = () => {
       const handleScroll = (event: any) => {
