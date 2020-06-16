@@ -3,7 +3,7 @@
     <Header />
     <div class="body-content">
       <Left />
-      <div class="routerView__container" @scroll.passive="handleScroll">
+      <div id="routerView" class="routerView__container" data-scrollbar>
         <router-view />
       </div>
     </div>
@@ -14,8 +14,13 @@
 <script lang="ts">
 import Header from "@/layout/default/header.vue";
 import Left from "@/layout/default/left.vue";
+import { onMounted } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../store/mutation-types";
+import Scrollbar from "smooth-scrollbar";
+import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
+Scrollbar.use(OverscrollPlugin);
+
 export default {
   name: "Default",
   components: {
@@ -24,20 +29,18 @@ export default {
   },
   setup() {
     const store = useStore();
-
-    const useHandleScroll = () => {
-      const handleScroll = (event: any) => {
-        if (event.target.scrollTop > 0) {
+    onMounted(() => {
+      const scrollbar = Scrollbar.init(
+        document.querySelector<any>("#routerView")
+      );
+      scrollbar.addListener(status => {
+        if (status.offset.y > 0) {
           store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
         } else {
           store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
         }
-      };
-      return { handleScroll };
-    };
-
-    const { handleScroll } = useHandleScroll();
-    return { handleScroll };
+      });
+    });
   }
 };
 </script>

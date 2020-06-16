@@ -1,5 +1,5 @@
 <template>
-  <div id="listContainer" @scroll.passive="handleScroll">
+  <div id="listContainer" data-scrollbar>
     <slot />
   </div>
 </template>
@@ -8,27 +8,18 @@ import { defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../store/mutation-types";
 import Scrollbar from "smooth-scrollbar";
+import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
+Scrollbar.use(OverscrollPlugin);
+
 export default defineComponent({
   name: "ListContainer",
   setup() {
     const store = useStore();
     onMounted(() => {
-      Scrollbar.init(document.querySelector<any>("#listContainer"));
+      const scrollbar = Scrollbar.init(
+        document.querySelector<any>("#listContainer")
+      );
     });
-
-    const useHandleScroll = () => {
-      const handleScroll = (event: any) => {
-        if (event.target.scrollTop > 0) {
-          store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
-        } else {
-          store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
-        }
-      };
-      return { handleScroll };
-    };
-
-    const { handleScroll } = useHandleScroll();
-    return { handleScroll };
   }
 });
 </script>
