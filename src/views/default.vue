@@ -28,6 +28,7 @@ export default {
     Left
   },
   setup() {
+    
     const store = useStore();
     onMounted(() => {
       const scrollbar = Scrollbar.init(
