@@ -5,7 +5,6 @@
   </div>
 </template>
 <script>
-import { ref, reactive, toRefs } from "vue";
 export default {
   name: "ListItem",
   setup() {
