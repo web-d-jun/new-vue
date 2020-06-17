@@ -2,7 +2,11 @@
   <transition name="slide-fade">
     <div id="leftContainer" v-if="$store.state.leftDrawer">
       <List>
-        <List-item v-for="item in menuList" :key="item.name">
+        <List-item
+          v-for="item in menuList"
+          :key="item.name"
+          @click.exact="handleRouterGo(item.path)"
+        >
           <div class="wrap">
             <List-item-action>
               <i class="material-icons">{{ item.icon }}</i>
@@ -25,6 +29,7 @@ import ListItem from "@/components/listItem.vue";
 import ListItemAction from "@/components/list_item_action.vue";
 import ListItemTitle from "@/components/list_item_title.vue";
 import Line from "@/components/line.vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "leftContainer",
@@ -38,6 +43,7 @@ export default defineComponent({
   setup() {
     const menuList = readonly<object>(Menu);
     const store = useStore();
+    const router = useRouter();
 
     window.addEventListener("resize", () => {
       if (window.innerWidth < 1024) {
@@ -47,8 +53,16 @@ export default defineComponent({
       }
     });
 
+    const useHandleRouterGo = () => {
+      const handleRouterGo = (path: string) => {
+        router.push(path);
+      };
+      return { handleRouterGo };
+    };
+    const { handleRouterGo } = useHandleRouterGo();
     return {
-      menuList
+      menuList,
+      handleRouterGo
     };
   }
 });
