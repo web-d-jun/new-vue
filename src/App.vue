@@ -7,7 +7,7 @@ export default {
   name: "App",
 
   setup() {
-    router.push("/default/dashboard");
+    router.push("/default/dashboard/");
   }
 };
 </script>
