@@ -1,13 +1,27 @@
 <template>
   <div id="dashboardContainer">
-    <div class="data-container__wrap" v-for="i in 8" :key="i">
-      <div class="data-container">{{ i }}</div>
+    <div class="data-container__wrap" v-for="(item,index) in dashBoardDataState.value" :key="index">
+      <div class="data-container">
+        <div class="data__header">{{item.title}}</div>
+        <div class="data__body">{{item.data}}</div>
+        <div class="data__footer"></div>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import dashBoardData from "@/api/dashboard";
+import { reactive } from "vue";
 export default {
-  name: "Dashboard"
+  name: "Dashboard",
+  setup() {
+    const dashBoardDataState = reactive({
+      value: dashBoardData
+    });
+    return {
+      dashBoardDataState
+    };
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -27,6 +41,17 @@ export default {
       border: 1px solid black;
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .data__header {
+        width: 100%;
+      }
+      .data__body {
+        width: 100%;
+      }
+      .data__footer {
+        width: 100%;
+      }
     }
   }
 }
