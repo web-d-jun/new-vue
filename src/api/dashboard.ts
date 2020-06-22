@@ -5,8 +5,52 @@ interface Data {
 
 const data: Data[] = [
   {
-    title: "스마트 전단 행사",
-    data: Math.random() * 10,
+    title: "Data1",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data2",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data3",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data4",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data5",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data6",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data7",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data8",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data9",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data10",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data11",
+    data: Math.ceil(Math.random() * 100),
+  },
+  {
+    title: "Data12",
+    data: Math.ceil(Math.random() * 100),
   },
 ];
 
