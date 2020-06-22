@@ -45,6 +45,8 @@ export default {
       height: 100%;
       display: flex;
       flex-wrap: wrap;
+      border: 1px solid transparent;
+      border-radius: 10px;
       &::before {
         position: absolute;
         content: " ";
@@ -56,6 +58,8 @@ export default {
         background: rgb(0, 0, 0);
         opacity: 0.4;
         z-index: -1;
+        border: 1px solid transparent;
+        border-radius: 10px;
       }
       .data-contents {
         padding: 10px;
