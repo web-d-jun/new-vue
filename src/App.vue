@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 <script>
 import router from "./router";
@@ -7,7 +9,7 @@ export default {
   name: "App",
 
   setup() {
-    router.push("/default/dashboard/");
+    // router.push("/login/");
   }
 };
 </script>
