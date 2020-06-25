@@ -6,7 +6,7 @@
           v-for="item in menuList"
           :key="item.name"
           @click.exact="handleRouterGo(item.path)"
-        > 
+        >
           <div class="wrap">
             <List-item-action>
               <i class="material-icons">{{ item.icon }}</i>
