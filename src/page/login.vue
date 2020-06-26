@@ -2,7 +2,7 @@
   <div id="loginContainer">
     <div class="left-contents">Welcome to my world</div>
     <div class="right-contents">
-      <j-input :label="'te222333335453454355453121st'">111</j-input>
+      <j-input :label="'11'">111</j-input>
     </div>
     <!-- <button type="button" @click="handleLogin">Login</button> -->
   </div>
