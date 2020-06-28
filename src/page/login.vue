@@ -2,7 +2,11 @@
   <div id="loginContainer">
     <div class="left-contents">Welcome to my world</div>
     <div class="right-contents">
-      <j-input :label="'11'">111</j-input>
+      <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
+      <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
+      <div class="button-wrap">
+        <button class="button">Login</button>
+      </div>
     </div>
     <!-- <button type="button" @click="handleLogin">Login</button> -->
   </div>
@@ -38,8 +42,13 @@ export default {
   height: 100%;
   display: flex;
   font-size: 20px;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   .left-contents {
-    flex: 2;
+    flex: 3;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -55,6 +64,27 @@ export default {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 80px;
+    .button-wrap {
+      display: flex;
+      flex: 1;
+      align-items: flex-end;
+    }
+    .button {
+      width: 100%;
+      height: 50px;
+      border: 1px solid transparent;
+      outline: 0;
+      border-radius: 10px;
+      color: #fff;
+      transition: all 0.5ms ease-in;
+      font-size: 20px;
+      &:hover {
+        cursor: pointer;
+        background: linear-gradient(45deg, #d5007d, #e53935);
+        transition: all 0.5ms ease-in;
+      }
+    }
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="input-container">
-    <input class="input" />
+    <div class="label">{{propsObj.label}}</div>
+    <input class="input" :type="propsObj.mode === 'input' ? 'input' : 'password'" />
     <span class="focus-input"></span>
   </div>
 </template>
@@ -10,16 +11,17 @@ export default defineComponent({
   name: "InputContainer",
   props: {
     label: String,
+    mode: String
   },
   setup(props) {
-    console.log(props);
     const propsObj = reactive({
       label: props.label,
+      mode: props.mode
     });
     return {
-      propsObj,
+      propsObj
     };
-  },
+  }
 });
 </script>
 <style lang="scss" scoped>
@@ -27,11 +29,20 @@ export default defineComponent({
   position: relative;
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 15px;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  .label {
+    color: #858585;
+  }
   .input {
     width: 100%;
     height: 50px;
     background: transparent;
-    font-size: 14px;
+    font-size: 17px;
     color: #555555;
     line-height: 1.2;
     border: none;
