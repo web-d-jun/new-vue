@@ -92,6 +92,8 @@ export default {
       transition: all 0.5ms ease-in;
       font-size: 20px;
       margin-bottom: 10px;
+      background: linear-gradient(45deg, #d5007d, #e53935);
+      position: relative;
       &:hover {
         cursor: pointer;
         background: linear-gradient(45deg, #d5007d, #e53935);
