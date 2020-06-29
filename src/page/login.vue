@@ -5,7 +5,10 @@
       <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
       <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
       <div class="button-wrap">
-        <button class="button">Login</button>
+        <div class="button-container">
+          <button class="button" @click="handleSignIn">로그인</button>
+          <button class="button" @click="handleSignUp">새로가입</button>
+        </div>
       </div>
     </div>
     <!-- <button type="button" @click="handleLogin">Login</button> -->
@@ -23,14 +26,19 @@ export default {
     const router = inject("routerSymbol", [{}]);
 
     const useHandleLogin = () => {
-      const handleLogin = () => {
+      const handleSignIn = () => {
         console.log(router.push("/default/"));
       };
-      return { handleLogin };
+      const handleSignUp = () => {
+        console.log("handleSignUp");
+      };
+      return { handleSignIn, handleSignUp };
     };
-    const { handleLogin } = useHandleLogin();
+
+    const { handleSignIn, handleSignUp } = useHandleLogin();
     return {
-      handleLogin
+      handleSignIn,
+      handleSignUp
     };
   }
 };
@@ -69,6 +77,10 @@ export default {
       display: flex;
       flex: 1;
       align-items: flex-end;
+      flex-wrap: wrap;
+      .button-container {
+        width: 100%;
+      }
     }
     .button {
       width: 100%;
@@ -79,6 +91,7 @@ export default {
       color: #fff;
       transition: all 0.5ms ease-in;
       font-size: 20px;
+      margin-bottom: 10px;
       &:hover {
         cursor: pointer;
         background: linear-gradient(45deg, #d5007d, #e53935);
