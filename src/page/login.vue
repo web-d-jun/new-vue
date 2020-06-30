@@ -1,21 +1,37 @@
 <template>
   <div id="loginContainer">
     <div class="left-contents">Welcome to my world</div>
-    <div class="right-contents">
-      <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
-      <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
-      <div class="button-wrap">
-        <div class="button-container">
-          <button class="button" @click="handleSignIn">로그인</button>
-          <button class="button" @click="handleSignUp">새로가입</button>
+    <div class="flip-container">
+      <div class="right-contents" :class="[{flip: signUpMode}]">
+        <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
+        <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
+        <div class="button-wrap">
+          <div class="button-container">
+            <button class="button" @click="handleSignIn">로그인</button>
+            <button class="button" @click="handleSignUp">새로가입</button>
+          </div>
+        </div>
+      </div>
+      <div class="sign-up-container" :class="[{flip: !signUpMode}]">
+        <div class="sign-up-contents">
+          <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
+          <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
+          <j-input :label="'이메일을 입력하세요'" :mode="'input'" />
+          <j-input :label="'주소를 입력하세요'" :mode="'input'" />
+          <div class="button-wrap">
+            <div class="button-container">
+              <button class="button" @click="handleSignUpSave">가입하기</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <!-- <button type="button" @click="handleLogin">Login</button> -->
   </div>
 </template>
 <script lang="ts">
-import { inject } from "vue";
+import { inject, ref } from "vue";
 import jInput from "@/components/input/j_input.vue";
 export default {
   name: "loginContainer",
@@ -24,21 +40,28 @@ export default {
   },
   setup() {
     const router = inject("routerSymbol", [{}]);
+    const signUpMode = ref(false);
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
         console.log(router.push("/default/"));
       };
       const handleSignUp = () => {
-        console.log("handleSignUp");
+        signUpMode.value = true;
       };
-      return { handleSignIn, handleSignUp };
+      const handleSignUpSave = () => {
+        signUpMode.value = false;
+        console.log("저장!");
+      };
+      return { handleSignIn, handleSignUp, handleSignUpSave };
     };
 
-    const { handleSignIn, handleSignUp } = useHandleLogin();
+    const { handleSignIn, handleSignUp, handleSignUpSave } = useHandleLogin();
     return {
       handleSignIn,
-      handleSignUp
+      handleSignUp,
+      handleSignUpSave,
+      signUpMode
     };
   }
 };
@@ -68,38 +91,67 @@ export default {
     font-size: 5em;
     font-family: "Piedra", cursive;
   }
-  .right-contents {
+  .flip-container {
     flex: 1;
-    display: flex;
-    flex-direction: column;
     padding: 80px;
-    .button-wrap {
+    position: relative;
+    .right-contents {
       display: flex;
-      flex: 1;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      .button-container {
-        width: 100%;
+      flex-direction: column;
+      transition: all 0.5s ease-in;
+      height: 100%;
+      &.flip {
+        transform: rotateY(270deg);
       }
     }
-    .button {
+    .sign-up-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s ease-in;
+      height: 100%;
       width: 100%;
-      height: 50px;
-      border: 1px solid transparent;
-      outline: 0;
-      border-radius: 10px;
-      color: #fff;
-      transition: all 0.5ms ease-in;
-      font-size: 20px;
-      margin-bottom: 10px;
-      background: linear-gradient(45deg, #d5007d, #e53935);
-      position: relative;
-      &:hover {
-        cursor: pointer;
-        background: linear-gradient(45deg, #d5007d, #e53935);
-        transition: all 0.5ms ease-in;
+      transform: rotateY(0deg);
+      &.flip {
+        transform: rotateY(-270deg);
+      }
+      .sign-up-contents {
+        padding: 80px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.5s ease-in;
+        height: 100%;
       }
     }
+  }
+}
+.button-wrap {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  .button-container {
+    width: 100%;
+  }
+}
+.button {
+  width: 100%;
+  height: 50px;
+  border: 1px solid transparent;
+  outline: 0;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 0.5ms ease-in;
+  font-size: 20px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #d5007d, #e53935);
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(45deg, #d5007d, #e53935);
+    transition: all 0.5ms ease-in;
   }
 }
 </style>
