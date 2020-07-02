@@ -101,7 +101,8 @@ export default {
       transition: all 0.5s ease-in;
       height: 100%;
       &.flip {
-        transform: rotateY(270deg);
+        transform: rotateY(-90deg);
+        transition: all 0.3s ease-in;
       }
     }
     .sign-up-container {
@@ -110,12 +111,13 @@ export default {
       left: 0;
       display: flex;
       flex-direction: column;
-      transition: all 0.5s ease-in;
       height: 100%;
       width: 100%;
       transform: rotateY(0deg);
+      transition: all 0.5s ease-in;
       &.flip {
-        transform: rotateY(-270deg);
+        transform: rotateY(-90deg);
+        transition: all 0.3s ease-in;
       }
       .sign-up-contents {
         padding: 80px;
