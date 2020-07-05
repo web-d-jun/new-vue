@@ -1,7 +1,11 @@
 <template>
   <div class="input-container">
     <div class="label">{{propsObj.label}}</div>
-    <input class="input" :type="propsObj.mode === 'input' ? 'input' : 'password'" />
+    <input
+      class="input"
+      :type="propsObj.mode === 'input' ? 'input' : 'password'"
+      :placeholder="propsObj.placeholder"
+    />
     <span class="focus-input"></span>
   </div>
 </template>
@@ -11,12 +15,14 @@ export default defineComponent({
   name: "InputContainer",
   props: {
     label: String,
-    mode: String
+    mode: String,
+    placeholder: String
   },
   setup(props) {
     const propsObj = reactive({
       label: props.label,
-      mode: props.mode
+      mode: props.mode,
+      placeholder: props.placeholder
     });
     return {
       propsObj

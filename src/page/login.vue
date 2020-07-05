@@ -3,8 +3,8 @@
     <div class="left-contents">Welcome to my world</div>
     <div class="flip-container">
       <div class="right-contents" :class="[{flip: signUpMode}]">
-        <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
-        <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
+        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'아이디를 입력하세요.'" />
+        <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" />
         <div class="button-wrap">
           <div class="button-container">
             <button class="button" @click="handleSignIn">로그인</button>
@@ -14,10 +14,10 @@
       </div>
       <div class="sign-up-container" :class="[{flip: !signUpMode}]">
         <div class="sign-up-contents">
-          <j-input :label="'아이디를 입력하세요'" :mode="'input'" />
-          <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" />
-          <j-input :label="'이메일을 입력하세요'" :mode="'input'" />
-          <j-input :label="'주소를 입력하세요'" :mode="'input'" />
+          <j-input :label="'아이디'" :mode="'input'" :placeholder="'아이디를 입력하세요.'" />
+          <j-input :label="'비밀번호'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" />
+          <j-input :label="'이메일'" :mode="'input'" :placeholder="'cjy874545@gamil.com'" />
+          <j-input :label="'주소'" :mode="'input'" :placeholder="'주소를 입력하세요.'" />
           <div class="button-wrap">
             <div class="button-container">
               <button class="button" @click="handleSignUpSave">가입하기</button>
