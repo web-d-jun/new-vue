@@ -3,7 +3,7 @@
     <div class="left-contents">Welcome to my world</div>
     <div class="flip-container">
       <div class="right-contents" :class="[{flip: signUpMode}]">
-        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'아이디를 입력하세요.'" />
+        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'" />
         <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" />
         <div class="button-wrap">
           <div class="button-container">
@@ -14,10 +14,15 @@
       </div>
       <div class="sign-up-container" :class="[{flip: !signUpMode}]">
         <div class="sign-up-contents">
-          <j-input :label="'아이디'" :mode="'input'" :placeholder="'아이디를 입력하세요.'" />
+          <j-input
+            :label="'아이디'"
+            :mode="'input'"
+            :value="bar"
+            @input="val => bar = val.target.value"
+            :placeholder="'ex) cjy874545@gamil.com'"
+          />
           <j-input :label="'비밀번호'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" />
-          <j-input :label="'이메일'" :mode="'input'" :placeholder="'cjy874545@gamil.com'" />
-          <j-input :label="'주소'" :mode="'input'" :placeholder="'주소를 입력하세요.'" />
+          <input type="text" v-model="test" />
           <div class="button-wrap">
             <div class="button-container">
               <button class="button" @click="handleSignUpSave">가입하기</button>
@@ -31,7 +36,7 @@
   </div>
 </template>
 <script lang="ts">
-import { inject, ref } from "vue";
+import { inject, ref, reactive } from "vue";
 import jInput from "@/components/input/j_input.vue";
 export default {
   name: "loginContainer",
@@ -40,7 +45,12 @@ export default {
   },
   setup() {
     const router = inject("routerSymbol", [{}]);
+    const firebase = inject("firebaseSymbol", "");
+    console.log(firebase);
     const signUpMode = ref(false);
+
+    const test = ref(0);
+    const bar = ref("");
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
@@ -51,6 +61,8 @@ export default {
       };
       const handleSignUpSave = () => {
         signUpMode.value = false;
+        console.log(test.value);
+        console.log(bar.value);
         console.log("저장!");
       };
       return { handleSignIn, handleSignUp, handleSignUpSave };
@@ -58,6 +70,8 @@ export default {
 
     const { handleSignIn, handleSignUp, handleSignUpSave } = useHandleLogin();
     return {
+      test,
+      bar,
       handleSignIn,
       handleSignUp,
       handleSignUpSave,
