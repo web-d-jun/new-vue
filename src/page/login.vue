@@ -17,12 +17,17 @@
           <j-input
             :label="'아이디'"
             :mode="'input'"
-            :value="bar"
-            @input="val => bar = val.target.value"
+            :value="personInfo.id"
+            @input="val => personInfo.id = val.target.value"
             :placeholder="'ex) cjy874545@gamil.com'"
           />
-          <j-input :label="'비밀번호'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" />
-          <input type="text" v-model="test" />
+          <j-input
+            :label="'비밀번호'"
+            :mode="'number'"
+            :value="personInfo.pw"
+            @input="val => personInfo.pw = val.target.value"
+            :placeholder="'비밀번호를 입력하세요.'"
+          />
           <div class="button-wrap">
             <div class="button-container">
               <button class="button" @click="handleSignUpSave">가입하기</button>
@@ -38,6 +43,10 @@
 <script lang="ts">
 import { inject, ref, reactive } from "vue";
 import jInput from "@/components/input/j_input.vue";
+interface PersonInfo {
+  id: string;
+  pw: string;
+}
 export default {
   name: "loginContainer",
   components: {
@@ -49,8 +58,10 @@ export default {
     console.log(firebase);
     const signUpMode = ref(false);
 
-    const test = ref(0);
-    const bar = ref("");
+    const personInfo: PersonInfo = reactive({
+      id: "",
+      pw: ""
+    });
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
@@ -61,8 +72,7 @@ export default {
       };
       const handleSignUpSave = () => {
         signUpMode.value = false;
-        console.log(test.value);
-        console.log(bar.value);
+        console.log(personInfo);
         console.log("저장!");
       };
       return { handleSignIn, handleSignUp, handleSignUpSave };
@@ -70,8 +80,7 @@ export default {
 
     const { handleSignIn, handleSignUp, handleSignUpSave } = useHandleLogin();
     return {
-      test,
-      bar,
+      personInfo,
       handleSignIn,
       handleSignUp,
       handleSignUpSave,
