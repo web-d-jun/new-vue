@@ -48,9 +48,7 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
-  background-image: url("../assets/default/background2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgb(43, 41, 41);
 
   .body-content {
     display: flex;
