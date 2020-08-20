@@ -76,7 +76,7 @@ export default defineComponent({
   flex: none;
   display: flex;
   flex-direction: column;
-  background-color: rgba(36, 41, 44, 0.3);
+  background-color: rgb(43, 41, 41);
   border: 1px solid transparent;
 
   .wrap {

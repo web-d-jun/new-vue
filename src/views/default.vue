@@ -48,7 +48,7 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
-  background-color: rgb(43, 41, 41);
+  background-color: #272525;
 
   .body-content {
     display: flex;
