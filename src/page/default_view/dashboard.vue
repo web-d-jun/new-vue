@@ -55,7 +55,7 @@ export default {
         left: 0;
         top: 0;
         border: 1px solid;
-        background: rgb(0, 0, 0);
+        background: rgb(22, 22, 22);
         opacity: 0.4;
         z-index: -1;
         border: 1px solid transparent;
