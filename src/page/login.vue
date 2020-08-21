@@ -65,7 +65,7 @@ export default {
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
-        console.log(router.push("/default/dashboard"));
+        router.push("/default/dashboard")
       };
       const handleSignUp = () => {
         signUpMode.value = true;
