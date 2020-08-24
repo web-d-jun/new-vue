@@ -57,9 +57,6 @@ export default defineComponent({
   .title__container {
     width: 50px;
     text-align: center;
-    background: linear-gradient(45deg, #d5007d, #e53935);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     &:hover {
       cursor: pointer;
       text-shadow: 2px 0 5px #d5007d;
