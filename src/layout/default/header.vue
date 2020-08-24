@@ -42,7 +42,7 @@ export default defineComponent({
   height: 48px;
   border: 1px solid transparent;
   align-items: center;
-  background-color: transparent;
+  background: linear-gradient(45deg, #d5007d, #e53935);
   color: #fff;
 
   &.showBoxShdow {
@@ -62,7 +62,7 @@ export default defineComponent({
     -webkit-text-fill-color: transparent;
     &:hover {
       cursor: pointer;
-      background: linear-gradient(45deg, #d5007d, #e53935);;
+      text-shadow: 2px 0 5px #d5007d;
       -webkit-text-fill-color: #fff;
     }
   }
