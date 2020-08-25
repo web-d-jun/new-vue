@@ -2,6 +2,15 @@
   <div id="dashboardContainer">
     <div class="data-container__wrap" v-for="(item,index) in dashBoardDataState.value" :key="index">
       <div class="data-container">
+         <v-alert type="success">
+      I'm a success alert.
+    </v-alert>
+    <v-badge
+          color="pink"
+          dot
+        >
+          Item One
+        </v-badge>
         <div class="data-contents">
           <div class="data__header">{{item.title}}</div>
           <div class="data__body">{{item.data}}</div>
