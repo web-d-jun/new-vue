@@ -7,7 +7,6 @@ import "firebase/auth";
 import fireBaseConfig from "./plugins/firebase";
 const app = createApp(App);
 firebase.initializeApp(fireBaseConfig);
-console.log(taaest)
 app.use(router);
 app.use(store);
 app.provide("routerSymbol", router);
