@@ -1,0 +1,21 @@
+{
+    "short_name": "study",
+    "name": "this study",
+    "icon": [
+        {
+            "src": "/img/icons/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/icons/android-chrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#fff",
+    "display": "standalone",
+    "theme_color": "#3367D6",
+    "scope": "/"
+}

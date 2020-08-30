@@ -1,3 +1,5 @@
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
 module.exports = {
   rules: [
     {
@@ -5,7 +7,7 @@ module.exports = {
       use: [
         "vue-style-loader",
         "css-loader",
-        'sass-loader',
+        "sass-loader",
         {
           loader: "sass-loader",
           // Requires sass-loader@^8.0.0
@@ -18,12 +20,21 @@ module.exports = {
           },
         },
         {
-          loader: 'sass-resources-loader',
+          loader: "sass-resources-loader",
           options: {
-            resources: './src/common.scss',
+            resources: "./src/common.scss",
           },
-        }
+        },
       ],
     },
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      publicPath: "/",
+      title: "TEST1",
+      showErrors: true,
+    }),
   ],
 };

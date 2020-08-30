@@ -5,6 +5,7 @@ import { store } from "./store";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import fireBaseConfig from "./plugins/firebase";
+import './registerServiceWorker.ts';
 const app = createApp(App);
 firebase.initializeApp(fireBaseConfig);
 app.use(router);
