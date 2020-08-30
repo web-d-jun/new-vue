@@ -1,7 +1,7 @@
 {
     "short_name": "study",
     "name": "this",
-    "icon": [
+    "icons": [
         {
             "src": "/img/icons/android-chrome-192x192.png",
             "type": "image/png",
