@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -19,7 +19,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function() {
-          navigator.serviceWorker.register("sw.js").then(
+          navigator.serviceWorker.register("/sw.js").then(
             function(registration) {
               console.log("serviceWorker registration success with scope");
             },
