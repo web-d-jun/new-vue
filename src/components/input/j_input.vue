@@ -5,6 +5,7 @@
       class="input"
       :type="propsObj.mode === 'input' ? 'input' : 'password'"
       :placeholder="propsObj.placeholder"
+      :value="value"
     />
     <span class="focus-input"></span>
   </div>
@@ -16,7 +17,8 @@ export default defineComponent({
   props: {
     label: String,
     mode: String,
-    placeholder: String
+    placeholder: String,
+    value: [String, Number]
   },
   setup(props) {
     const propsObj = reactive({
