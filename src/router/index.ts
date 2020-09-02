@@ -4,7 +4,7 @@ import defaultPages from "./defaultPages";
 const routes: RouteRecordRaw[] = [
   {
     path: "/login/",
-    name: "login",
+    name: "Login",
     component: () => import("@/page/login.vue"),
   },
   {
@@ -26,6 +26,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  
+  
   if (!to.matched.length) {
     next("/not-found/");
   }

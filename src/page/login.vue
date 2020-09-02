@@ -3,7 +3,7 @@
     <div class="left-contents">Welcome to my world</div>
     <div class="flip-container">
       <div class="right-contents" :class="[{flip: signUpMode}]">
-        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'"  :value="'test'"/>
+        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'"  :value="'testt'"/>
         <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" :value="'testtest'" />
         <div class="button-wrap">
           <div class="button-container">
