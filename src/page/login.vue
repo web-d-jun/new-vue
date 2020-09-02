@@ -191,6 +191,9 @@ export default {
       }
       .right-contents {
         height: 80%;
+        .input-container {
+          border-bottom: 1px solid rgb(236, 236, 236);
+        }
       }
     }
   }
