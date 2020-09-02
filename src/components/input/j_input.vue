@@ -36,7 +36,7 @@ export default defineComponent({
 .input-container {
   position: relative;
   width: 100%;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #fff;
   margin-bottom: 15px;
   -ms-user-select: none;
   -moz-user-select: -moz-none;

@@ -1,10 +1,20 @@
 <template>
-  <div id="loginContainer">
+  <div class="loginContainer" v-if="deviceMode === 'pc'">
     <div class="left-contents">Welcome to my world</div>
     <div class="flip-container">
       <div class="right-contents" :class="[{flip: signUpMode}]">
-        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'"  :value="'testt'"/>
-        <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" :value="'testtest'" />
+        <j-input
+          :label="'아이디를 입력하세요'"
+          :mode="'input'"
+          :placeholder="'이메일을 입력하세요.'"
+          :value="'testt'"
+        />
+        <j-input
+          :label="'비밀번호를 입력하세요'"
+          :mode="'number'"
+          :placeholder="'비밀번호를 입력하세요.'"
+          :value="'testtest'"
+        />
         <div class="button-wrap">
           <div class="button-container">
             <button class="button" @click="handleSignIn">로그인</button>
@@ -39,6 +49,55 @@
 
     <!-- <button type="button" @click="handleLogin">Login</button> -->
   </div>
+  <div class="loginContainer" v-if="deviceMode === 'mob'">
+    <div class="left-contents mobile">
+      <div class="flip-container">
+        <div class="right-contents" :class="[{flip: signUpMode}]">
+          <j-input
+            :label="'아이디를 입력하세요'"
+            :mode="'input'"
+            :placeholder="'이메일을 입력하세요.'"
+            :value="'testt'"
+          />
+          <j-input
+            :label="'비밀번호를 입력하세요'"
+            :mode="'number'"
+            :placeholder="'비밀번호를 입력하세요.'"
+            :value="'testtest'"
+          />
+          <div class="button-wrap">
+            <div class="button-container">
+              <button class="button" @click="handleSignIn">로그인</button>
+              <button class="button" @click="handleSignUp">새로가입</button>
+            </div>
+          </div>
+        </div>
+        <div class="sign-up-container" :class="[{flip: !signUpMode}]">
+          <div class="sign-up-contents">
+            <j-input
+              :label="'아이디'"
+              :mode="'input'"
+              :value="personInfo.id"
+              @input="val => personInfo.id = val.target.value"
+              :placeholder="'ex) cjy874545@gamil.com'"
+            />
+            <j-input
+              :label="'비밀번호'"
+              :mode="'number'"
+              :value="personInfo.pw"
+              @input="val => personInfo.pw = val.target.value"
+              :placeholder="'비밀번호를 입력하세요.'"
+            />
+            <div class="button-wrap">
+              <div class="button-container">
+                <button class="button" @click="handleSignUpSave">가입하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import { inject, ref, reactive } from "vue";
@@ -57,6 +116,11 @@ export default {
     const firebase = inject("firebaseSymbol", "");
     console.log(firebase);
     const signUpMode = ref(false);
+    const deviceMode = ref("pc");
+
+    if (window.innerWidth <= 1390) {
+      deviceMode.value = "mob";
+    }
 
     const personInfo: PersonInfo = reactive({
       id: "",
@@ -65,7 +129,7 @@ export default {
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
-        router.push("/default/dashboard")
+        router.push("/default/dashboard");
       };
       const handleSignUp = () => {
         signUpMode.value = true;
@@ -84,14 +148,15 @@ export default {
       handleSignIn,
       handleSignUp,
       handleSignUpSave,
-      signUpMode
+      signUpMode,
+      deviceMode
     };
   }
 };
 </script>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Piedra&display=swap");
-#loginContainer {
+.loginContainer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -113,6 +178,21 @@ export default {
     justify-content: center;
     font-size: 5em;
     font-family: "Piedra", cursive;
+    &.mobile {
+      font-size: 1.6em;
+      flex: 1;
+      width: 100%;
+      font-family: Georgia, "Malgun Gothic", serif;
+      display: flex;
+      align-items: center;
+      .flip-container {
+        display: flex;
+        align-items: center;
+      }
+      .right-contents {
+        height: 80%;
+      }
+    }
   }
   .flip-container {
     flex: 1;
