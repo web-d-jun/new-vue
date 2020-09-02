@@ -5,17 +5,26 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/login/",
     name: "Login",
+    meta: {
+      title: 'Login'
+    },
     component: () => import("@/page/login.vue"),
   },
   {
     path: "/default/",
     name: "Default",
     component: () => import("@/views/default.vue"),
+    meta: {
+      title: 'Default'
+    },
     children: defaultPages,
   },
   {
     path: "/not-found/",
     name: "404",
+    meta: {
+      title: '404'
+    },
     component: () => import("@/page/404.vue"),
   },
 ];
@@ -25,10 +34,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  document.title = to.name;
-  
-  
+router.beforeEach((to, from, next) => {  
+  document.title = to.meta.title;
   if (!to.matched.length) {
     next("/not-found/");
   }

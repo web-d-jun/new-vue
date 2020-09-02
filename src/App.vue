@@ -9,6 +9,7 @@ export default {
   name: "App",
 
   setup() {
+    console.log(router)
     router.push("/login/");
   }
 };
