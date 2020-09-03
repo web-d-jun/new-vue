@@ -179,7 +179,7 @@ export default {
     font-size: 5em;
     font-family: "Piedra", cursive;
     &.mobile {
-      font-size: 1.6em;
+      font-size: 1.3em;
       flex: 1;
       width: 100%;
       font-family: Georgia, "Malgun Gothic", serif;
