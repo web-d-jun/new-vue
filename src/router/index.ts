@@ -3,6 +3,14 @@ import defaultPages from "./defaultPages";
 
 const routes: RouteRecordRaw[] = [
   {
+    path: "/main/",
+    name: "Main",
+    meta: {
+      title: 'Main'
+    },
+    component: () => import('@/page/main.vue')
+  },
+  {
     path: "/login/",
     name: "Login",
     meta: {
