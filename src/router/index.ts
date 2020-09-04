@@ -1,15 +1,8 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
 import defaultPages from "./defaultPages";
+import mainPageRouter from './mainPages';
 
 const routes: RouteRecordRaw[] = [
-  {
-    path: "/main/",
-    name: "Main",
-    meta: {
-      title: 'Main'
-    },
-    component: () => import('@/page/main.vue')
-  },
   {
     path: "/login/",
     name: "Login",
@@ -17,6 +10,15 @@ const routes: RouteRecordRaw[] = [
       title: 'Login'
     },
     component: () => import("@/page/login.vue"),
+  },
+  {
+    path: "/main/",
+    name: "Main",
+    meta: {
+      title: 'Main'
+    },
+    component: () => import('@/views/main.vue'),
+    children: mainPageRouter
   },
   {
     path: "/default/",
