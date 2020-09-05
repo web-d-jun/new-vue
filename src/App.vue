@@ -20,6 +20,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

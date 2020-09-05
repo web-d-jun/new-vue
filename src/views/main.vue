@@ -2,18 +2,36 @@
   <div class="main__container">
     <div class="main__contents">
       <div class="title__container">
-        <div class="title__contents">IAM</div>
-        <div class="sub-title__content"><small>Idea Accomplished Men</small></div>
+        <div class="title__contents">
+          <div class="inner__text">IAM</div>
+        </div>
+        <div class="sub-title__content">
+          <small>Idea Accomplished Men</small>
+        </div>
       </div>
       <div class="scroll__container">
         <div class="scroll__contents">
           <div class="text">scroll down</div>
-          <div class="icon"><i class="fas fa-chevron-down"></i></div>
+          <div class="icon" @click="handleScrollDown">
+            <i class="fas fa-chevron-down"></i>
+          </div>
         </div>
       </div>
     </div>
-    <div class="aos-all">
-      <div class="aos-item" data-aos="zoom-out-down">1</div>
+    <div id="targetAosContainer" class="scroll__target" />
+    <div class="aos__container">
+      <div class="wrap">
+        <div class="aos-item" data-aos="zoom-out-down">1</div>
+      </div>
+      <div class="wrap">
+        <div class="aos-item" data-aos="zoom-out-down">1</div>
+      </div>
+      <div class="wrap">
+        <div class="aos-item" data-aos="zoom-out-down">1</div>
+      </div>
+      <div class="wrap">
+        <div class="aos-item" data-aos="zoom-out-down">1</div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,7 +39,16 @@
 import { ref } from "vue";
 
 export default {
-  name: "Main"
+  name: "Main",
+
+  setup() {
+    const handleScrollDown = () => {
+      location.href = "#targetAosContainer";
+    };
+    return {
+      handleScrollDown
+    };
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -43,6 +70,9 @@ export default {
       .title__contents {
         font-size: 50px;
         letter-spacing: 70px;
+        .inner__text {
+          text-indent: 1.2em;
+        }
       }
       .sub-title__content {
         letter-spacing: 20px;
@@ -54,26 +84,73 @@ export default {
       position: absolute;
       width: 100%;
       text-align: center;
-      bottom: 80px;
+      bottom: 60px;
       .scroll__contents {
         .text {
           margin-bottom: 15px;
         }
         .icon {
-          
+          animation-name: moving;
+          animation-iteration-count: infinite;
+          animation-duration: 2s;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
   }
-  .aos-item {
-    width: 200px;
+  .scroll__target {
+    width: 100%;
     height: 200px;
-    margin: 0 auto;
-    padding-top: 75px;
-    background: #000;
-    text-align: center;
-    color: #fff;
-    font-size: 3em;
+  }
+  .aos__container {
+    padding-bottom: 100px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .wrap {
+      width: 50%;
+      height: 700px;
+      .aos-item {
+        width: 400px;
+        height: 200px;
+        margin: 0 auto;
+        padding-top: 75px;
+        background: #000;
+        text-align: center;
+        color: #fff;
+        font-size: 3em;
+      }
+    }
+  }
+}
+
+@keyframes moving {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .aos__container {
+    .wrap {
+      width: 100% !important;
+    }
+    .aos-item {
+      width: 100% !important;
+    }
+    .sub-title__content {
+      letter-spacing: 10px;
+    }
   }
 }
 </style>
