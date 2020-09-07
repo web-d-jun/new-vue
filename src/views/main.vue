@@ -21,16 +21,19 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+          <img :src="require('../assets/img/main/first_app.png')" alt="" />
+          <div class="image__title">first-app</div>
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
       </div>
     </div>
   </div>
@@ -46,9 +49,9 @@ export default {
       location.href = "#targetAosContainer";
     };
     return {
-      handleScrollDown
+      handleScrollDown,
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -67,6 +70,8 @@ export default {
       text-align: center;
       width: 100%;
       transform: translate(0, -50%);
+      animation-name: zoomIn;
+      animation-duration: 1.5s;
       .title__contents {
         font-size: 50px;
         letter-spacing: 70px;
@@ -106,23 +111,46 @@ export default {
   }
   .aos__container {
     padding-bottom: 100px;
-    padding-left: 80px;
-    padding-right: 80px;
     display: flex;
     flex-wrap: wrap;
 
     .wrap {
-      width: 50%;
+      width: 100%;
       height: 700px;
       .aos-item {
-        width: 400px;
-        height: 200px;
-        margin: 0 auto;
-        padding-top: 75px;
-        background: #000;
-        text-align: center;
-        color: #fff;
-        font-size: 3em;
+        &.aos-item--custom {
+          position: relative;
+          width: 400px;
+          height: 200px;
+          background: #000;
+          text-align: center;
+          color: #fff;
+          font-size: 3em;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .image__title {
+          color: rgb(44, 44, 44);
+          font-size: 28px;
+        }
+      }
+      &:nth-child(odd) {
+        .aos-item {
+          left: 25%;
+        }
+      }
+      &:nth-child(even) {
+        .aos-item {
+          right: -50%;
+        }
       }
     }
   }
@@ -137,6 +165,19 @@ export default {
   }
   100% {
     transform: translateY(0%);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
