@@ -21,33 +21,41 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="handleGoPage('login')">
           <img :src="require('../assets/img/main/first_app.png')" alt="" />
-          <div class="image__title">first-app</div>
+          <div class="image__title"><small>하나</small></div>
         </div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+          <small>둘</small>
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>셋</small></div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">1</div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>넷</small></div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 
 export default {
   name: "Main",
 
   setup() {
+    const router = inject('routerSymbol', [{}]);
     const handleScrollDown = () => {
       location.href = "#targetAosContainer";
     };
+
+    const handleGoPage = () => {
+      router.push()
+    }
+    
     return {
       handleScrollDown,
     };
@@ -111,8 +119,8 @@ export default {
   }
   .aos__container {
     padding-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
 
     .wrap {
       width: 100%;
@@ -131,13 +139,13 @@ export default {
 
         &:hover {
           cursor: pointer;
-          transform: scale(1.1);
         }
         img {
           width: 100%;
           height: 100%;
         }
         .image__title {
+          background-color: transparent;
           color: rgb(44, 44, 44);
           font-size: 28px;
         }
@@ -170,8 +178,8 @@ export default {
 
 @keyframes zoomIn {
   0% {
-    transform: scale(0.2);
-    opacity: 0.2;
+    transform: scale(0.1);
+    opacity: 0.1;
   }
   50% {
     opacity: 0.7;
@@ -183,11 +191,26 @@ export default {
 
 @media screen and (max-width: 875px) {
   .aos__container {
+    padding: 0 20px;
     .wrap {
+      display: flex;
       width: 100% !important;
+      &:nth-child(odd) {
+        justify-content: flex-start;
+        .aos-item {
+          left: 0% !important;
+        }
+      }
+      &:nth-child(even) {
+        justify-content: flex-end;
+        .aos-item {
+          right: 0 !important;
+        }
+      }
     }
-    .aos-item {
-      width: 100% !important;
+    .aos-item--custom {
+      width: 60% !important;
+      
     }
     .sub-title__content {
       letter-spacing: 10px;
