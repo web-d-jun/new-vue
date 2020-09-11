@@ -21,9 +21,15 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="handleGoPage('login')">
-          <img :src="require('../assets/img/main/first_app.png')" alt="" />
-          <div class="image__title"><small>하나</small></div>
+        <div
+          class="aos-item aos-item--custom"
+          data-aos="zoom-out-down"
+          @click="handleGoPage('firstApp')"
+        >
+          <img :src="require('../assets/img/main/first_app.png')" alt />
+          <div class="image__title">
+            <small>하나</small>
+          </div>
         </div>
       </div>
       <div class="wrap">
@@ -32,10 +38,14 @@
         </div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>셋</small></div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+          <small>셋</small>
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>넷</small></div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+          <small>넷</small>
+        </div>
       </div>
     </div>
   </div>
@@ -47,19 +57,21 @@ export default {
   name: "Main",
 
   setup() {
-    const router = inject('routerSymbol', [{}]);
+    const router = inject("routerSymbol", [{}]);
     const handleScrollDown = () => {
       location.href = "#targetAosContainer";
     };
 
-    const handleGoPage = () => {
-      router.push()
-    }
-    
-    return {
-      handleScrollDown,
+    const handleGoPage = (type: string) => {
+      if (type === "firstApp") {
+        router.push('/login/');
+      }
     };
-  },
+
+    return {
+      handleScrollDown
+    };
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -134,11 +146,16 @@ export default {
           text-align: center;
           color: #fff;
           font-size: 3em;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+            0 6px 6px rgba(0, 0, 0, 0.23);
         }
 
         &:hover {
           cursor: pointer;
+          animation-name: Shake;
+          animation-duration: 2s;
+          animation-iteration-count: 1;
+          transform: rotate(0deg);
         }
         img {
           width: 100%;
@@ -176,6 +193,21 @@ export default {
   }
 }
 
+@keyframes Shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes zoomIn {
   0% {
     transform: scale(0.1);
@@ -210,7 +242,6 @@ export default {
     }
     .aos-item--custom {
       width: 60% !important;
-      
     }
     .sub-title__content {
       letter-spacing: 10px;
