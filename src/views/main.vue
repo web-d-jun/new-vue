@@ -21,32 +21,45 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item" data-aos="fade-up-right" @click="goPage('firstApp')">
+          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item" data-aos="fade-up-left" @click="goPage('firstApp')">
+          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item" data-aos="fade-up-right" @click="goPage('firstApp')">
+          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="zoom-out-down">1</div>
+        <div class="aos-item" data-aos="fade-up-left" @click="goPage('firstApp')">
+          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
+import { ref, inject } from "vue";
 
 export default {
   name: "Main",
 
   setup() {
+    const router = inject("routerSymbol", [{}]);
     const handleScrollDown = () => {
       location.href = "#targetAosContainer";
     };
+    const goPage = () => {
+      router.push('/login/')
+    };
     return {
-      handleScrollDown
+      handleScrollDown,
+      goPage
     };
   }
 };
@@ -114,15 +127,27 @@ export default {
     .wrap {
       width: 50%;
       height: 700px;
+      // border: 1px solid red;;
       .aos-item {
         width: 400px;
         height: 200px;
         margin: 0 auto;
-        padding-top: 75px;
-        background: #000;
         text-align: center;
-        color: #fff;
+        color: #000;
         font-size: 3em;
+        &:hover {
+          cursor: pointer;
+          animation-name: Shake;
+          animation-duration: 2s;
+          animation-iteration-count: 1;
+          transform: rotate(0deg);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          background-repeat: none;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -140,6 +165,21 @@ export default {
   }
 }
 
+@keyframes Shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @media screen and (max-width: 875px) {
   .aos__container {
     .wrap {
@@ -147,6 +187,7 @@ export default {
     }
     .aos-item {
       width: 100% !important;
+      height: 100px !important;
     }
     .sub-title__content {
       letter-spacing: 10px;
