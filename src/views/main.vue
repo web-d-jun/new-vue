@@ -21,47 +21,45 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div class="aos-item" data-aos="fade-up-right" @click="goPage('firstApp')">
-          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="handleGoPage('login')">
+          <img :src="require('../assets/img/main/first_app.png')" alt="" />
+          <div class="image__title"><small>하나</small></div>
         </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="fade-up-left" @click="goPage('firstApp')">
-          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
+          <small>둘</small>
         </div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="fade-up-right" @click="goPage('firstApp')">
-          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
-        </div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>셋</small></div>
       </div>
       <div class="wrap">
-        <div class="aos-item" data-aos="fade-up-left" @click="goPage('firstApp')">
-          <img :src="require('../assets/img/main/first_app.png')" alt="img" />
-        </div>
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down"><small>넷</small></div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { ref, inject } from "vue";
+import { inject, ref } from "vue";
 
 export default {
   name: "Main",
 
   setup() {
-    const router = inject("routerSymbol", [{}]);
+    const router = inject('routerSymbol', [{}]);
     const handleScrollDown = () => {
       location.href = "#targetAosContainer";
     };
-    const goPage = () => {
-      router.push('/login/')
-    };
+
+    const handleGoPage = () => {
+      router.push()
+    }
+    
     return {
       handleScrollDown,
-      goPage
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -80,6 +78,8 @@ export default {
       text-align: center;
       width: 100%;
       transform: translate(0, -50%);
+      animation-name: zoomIn;
+      animation-duration: 1.5s;
       .title__contents {
         font-size: 50px;
         letter-spacing: 70px;
@@ -119,34 +119,45 @@ export default {
   }
   .aos__container {
     padding-bottom: 100px;
-    padding-left: 80px;
-    padding-right: 80px;
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
 
     .wrap {
-      width: 50%;
+      width: 100%;
       height: 700px;
-      // border: 1px solid red;;
       .aos-item {
-        width: 400px;
-        height: 200px;
-        margin: 0 auto;
-        text-align: center;
-        color: #000;
-        font-size: 3em;
+        &.aos-item--custom {
+          position: relative;
+          width: 400px;
+          height: 200px;
+          background: #000;
+          text-align: center;
+          color: #fff;
+          font-size: 3em;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
         &:hover {
           cursor: pointer;
-          animation-name: Shake;
-          animation-duration: 2s;
-          animation-iteration-count: 1;
-          transform: rotate(0deg);
         }
         img {
           width: 100%;
           height: 100%;
-          background-repeat: none;
-          object-fit: contain;
+        }
+        .image__title {
+          background-color: transparent;
+          color: rgb(44, 44, 44);
+          font-size: 28px;
+        }
+      }
+      &:nth-child(odd) {
+        .aos-item {
+          left: 25%;
+        }
+      }
+      &:nth-child(even) {
+        .aos-item {
+          right: -50%;
         }
       }
     }
@@ -165,29 +176,41 @@ export default {
   }
 }
 
-@keyframes Shake {
+@keyframes zoomIn {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0.1);
+    opacity: 0.1;
   }
-  30% {
-    transform: rotate(10deg);
-  }
-  40% {
-    transform: rotate(-10deg);
+  50% {
+    opacity: 0.7;
   }
   100% {
-    transform: rotate(0deg);
+    opacity: 1;
   }
 }
 
 @media screen and (max-width: 875px) {
   .aos__container {
+    padding: 0 20px;
     .wrap {
+      display: flex;
       width: 100% !important;
+      &:nth-child(odd) {
+        justify-content: flex-start;
+        .aos-item {
+          left: 0% !important;
+        }
+      }
+      &:nth-child(even) {
+        justify-content: flex-end;
+        .aos-item {
+          right: 0 !important;
+        }
+      }
     }
-    .aos-item {
-      width: 100% !important;
-      height: 100px !important;
+    .aos-item--custom {
+      width: 60% !important;
+      
     }
     .sub-title__content {
       letter-spacing: 10px;
