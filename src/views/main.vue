@@ -69,7 +69,8 @@ export default {
     };
 
     return {
-      handleScrollDown
+      handleScrollDown,
+      handleGoPage
     };
   }
 };
