@@ -3,8 +3,9 @@
     <div class="menu-button__container">
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
-    <div class="title__container" @click="handleRouter"></div>
-    <div class="option-butons__container"></div>
+    <div class="option-butons__container">
+      <div class="button-logout"><i class="fas fa-sign-out-alt"></i></div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -69,7 +70,13 @@ export default defineComponent({
     }
   }
   .option-butons__container {
+    display: flex;
+    flex: 1;
+    height: 100%;
     border: 1px solid red;
+    .button-logout {
+      color: #fff
+    }
   }
 }
 </style>
