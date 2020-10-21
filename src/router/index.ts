@@ -1,13 +1,14 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
 import defaultPages from "./defaultPages";
-import mainPageRouter from './mainPages';
+import mainPageRouter from "./mainPages";
+import * as Comm from "../assets/ts/common";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/login/",
     name: "Login",
     meta: {
-      title: 'Login'
+      title: "Login",
     },
     component: () => import("@/page/login.vue"),
   },
@@ -15,17 +16,17 @@ const routes: RouteRecordRaw[] = [
     path: "/main/",
     name: "Main",
     meta: {
-      title: 'Main'
+      title: "Main",
     },
-    component: () => import('@/views/main.vue'),
-    children: mainPageRouter
+    component: () => import("@/views/main.vue"),
+    children: mainPageRouter,
   },
   {
     path: "/default/",
     name: "Default",
     component: () => import("@/views/default.vue"),
     meta: {
-      title: 'Default'
+      title: "Default",
     },
     children: defaultPages,
   },
@@ -33,24 +34,36 @@ const routes: RouteRecordRaw[] = [
     path: "/not-found/",
     name: "404",
     meta: {
-      title: '404'
+      title: "404",
     },
     component: () => import("@/page/404.vue"),
   },
 ];
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
-router.beforeEach((to, from, next) => {  
+router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
-  if (!to.matched.length) {
-    next("/not-found/");
+
+  
+  if (to.path.endsWith("/")) {
+    Comm.setCookie("recentPage", to.path, 1);
+    
+    if(to.path === '/') {
+      next('/main/');
+    }else {
+      next();
+    }
+
+    if (!to.matched.length) {
+      next("/not-found/");
+    }
+    
+  } else {
+    next({ path: to.path + "/", query: to.query, hash: to.hash });
   }
-  if (to.path.endsWith("/")) next();
-  else next({ path: to.path + "/", query: to.query, hash: to.hash });
 });
 
 export default router;

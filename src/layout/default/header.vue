@@ -3,14 +3,12 @@
     <div class="menu-button__container">
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
-    <div class="title__container" @click="handleRouter">Vue3</div>
-    <div class="option-butons__container">
-      
-    </div>
+    <div class="title__container" @click="handleRouter"></div>
+    <div class="option-butons__container"></div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent,inject } from "vue";
+import { defineComponent, inject } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../../store/mutation-types";
 
@@ -28,8 +26,8 @@ export default defineComponent({
     };
 
     const handleRouter = () => {
-      router.push("/default/dashboard")
-    }
+      router.push("/default/dashboard");
+    };
 
     const { showLeftDrawer } = useHandleLeftDrawer();
     return {
@@ -54,8 +52,11 @@ export default defineComponent({
     flex: none;
     width: 50px;
     text-align: center;
-    font-size: 24px;
+    font-size: 30px;
     color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .title__container {
     width: 50px;
@@ -69,7 +70,6 @@ export default defineComponent({
   }
   .option-butons__container {
     border: 1px solid red;
-
   }
 }
 </style>

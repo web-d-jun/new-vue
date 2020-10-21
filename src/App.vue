@@ -9,7 +9,9 @@ export default {
   name: "App",
 
   setup() {
-    router.push("/main/");
+    
+    // router.push("/main/");
+    // router.push('recentPage')
   }
 };
 </script>
