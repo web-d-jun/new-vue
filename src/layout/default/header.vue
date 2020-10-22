@@ -12,7 +12,7 @@
       </div>
       <div
         class="button button--logout shadow"
-        @click="handleButtonGroup('/logout/')"
+        @click="handleButtonGroup('/login/')"
       >
         <i class="fas fa-sign-out-alt"></i> <sub>Logout</sub>
       </div>
