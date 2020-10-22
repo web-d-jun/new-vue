@@ -4,7 +4,18 @@
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
     <div class="option-butons__container">
-      <div class="button-logout"><i class="fas fa-sign-out-alt"></i></div>
+      <div
+        class="button button--main shadow"
+        @click="handleButtonGroup('/main/')"
+      >
+        <i class="fas fa-home"></i> <sub>IAM</sub>
+      </div>
+      <div
+        class="button button--logout shadow"
+        @click="handleButtonGroup('/logout/')"
+      >
+        <i class="fas fa-sign-out-alt"></i> <sub>Logout</sub>
+      </div>
     </div>
   </div>
 </template>
@@ -30,10 +41,14 @@ export default defineComponent({
       router.push("/default/dashboard");
     };
 
+    const handleButtonGroup = (type: string) => {
+      router.push(type);
+    };
     const { showLeftDrawer } = useHandleLeftDrawer();
     return {
       showLeftDrawer,
-      handleRouter
+      handleRouter,
+      handleButtonGroup
     };
   }
 });
@@ -73,9 +88,33 @@ export default defineComponent({
     display: flex;
     flex: 1;
     height: 100%;
-    border: 1px solid red;
-    .button-logout {
-      color: #fff
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5px;
+    .button {
+      width: 100px;
+      height: 35px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 35px;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      &--logout {
+        color: #fff;
+      }
+      &--main {
+        color: #fff;
+      }
+      &.circle {
+        border-radius: 50%;
+      }
+      &:hover {
+        cursor: pointer;
+        &.shadow {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+            0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+      }
     }
   }
 }
