@@ -51,6 +51,9 @@
   </div>
   <div class="loginContainer" v-if="deviceMode === 'mob'">
     <div class="left-contents mobile">
+      <div class="logo-container">
+        <img :src="require('../assets/img/logo.png')" alt="" style="width: 100px; height: 100px;">
+      </div>
       <div class="flip-container">
         <div class="right-contents" :class="[{flip: signUpMode}]">
           <j-input
@@ -185,6 +188,9 @@ export default {
       font-family: Georgia, "Malgun Gothic", serif;
       display: flex;
       align-items: center;
+      .logo-container {
+        padding-top: 50px;
+      }
       .flip-container {
         display: flex;
         align-items: center;
@@ -199,7 +205,7 @@ export default {
   }
   .flip-container {
     flex: 1;
-    padding: 80px;
+    padding: 30px 80px 80px 80px;
     position: relative;
     .right-contents {
       display: flex;
