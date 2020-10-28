@@ -35,6 +35,7 @@ export default {
     cursor: pointer;
     background-color: #43435e;
     background: #272525;
+    box-shadow:  0 0 1rem #43435e;
   }
 }
 </style>

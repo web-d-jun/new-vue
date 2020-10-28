@@ -29,6 +29,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const router = inject("routerSymbol", [{}]);
+    // const MutationTypes = inject("MutationTypes",  );
 
     const useHandleLeftDrawer = () => {
       const showLeftDrawer = () => {
