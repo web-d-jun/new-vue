@@ -7,13 +7,15 @@
         <router-view />
       </div>
     </div>
-
-    <!-- <Right /> -->
+    <div class="right-container">
+      <Right />
+    </div>
   </div>
 </template>
 <script lang="ts">
 import Header from "@/layout/default/header.vue";
 import Left from "@/layout/default/left.vue";
+import Right from "@/layout/default/right.vue";
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../store/mutation-types";
@@ -25,7 +27,8 @@ export default {
   name: "Default",
   components: {
     Header,
-    Left
+    Left,
+    Right
   },
   setup() {
     const store = useStore();
@@ -45,6 +48,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import url('../assets/style/index.scss');
 #defaultView {
   width: 100%;
   height: 100%;
@@ -62,6 +66,14 @@ export default {
     width: 100%;
     height: 100%;
     overflow: auto;
+  }
+  .right-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    right: 0;
+    top: 0;;
   }
 }
 </style>
