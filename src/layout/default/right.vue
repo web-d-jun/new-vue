@@ -1,19 +1,23 @@
 <template>
-  <div id="rightContainer">
+  <div id="rightContainer" :class="{ expand: $store.state.rightDrawer }">
     <div class="right-container__tab" @click="showRightDrawer">menu</div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-import { useStore} from "vuex";
+import { defineComponent, inject } from "vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "rightContainer",
   setup() {
-    
     const store = useStore();
+    const _m: any = inject("MutationTypes", {});
+
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
-        // store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
+        store.commit(
+          _m.MutationTypes.CHANGE_RIGHT_DRAWER,
+          !store.state.rightDrawer
+        );
       };
       return { showRightDrawer };
     };
@@ -27,28 +31,33 @@ export default defineComponent({
 <style lang="scss" scoped>
 #rightContainer {
   position: relative;
-  width: 300px;
+  width: 0px;
   height: 100%;
   border: 1px solid red;
+  transition: all 1s ease-in-out;
+  &.expand {
+    width: 300px;
+  }
   .right-container__tab {
     position: absolute;
     writing-mode: vertical-rl;
-    left: -35px;
+    left: -20px;
     top: 30%;
-    width: 35px;
+    width: 20px;
     height: 130px;
     border: 0.4px solid #fff;
     border-left: 0;
     transform: translate(0, -30%) rotate(180deg);
     border-radius: 0 6px 6px 0;
     text-align: center;
-    line-height: 35px;
+    line-height: 20px;
     letter-spacing: 10px;
     color: $defaultColor;
     outline: 0;
     background: #37375a;
     animation: flicker 1.5s infinite alternate;
     @include cursor(pointer);
+    @include user-select(none);
   }
 }
 @keyframes flicker {

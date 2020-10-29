@@ -6,3 +6,10 @@
     cursor: $value;
   }
 }
+
+@mixin user-select($type) {
+  -webkit-user-select: $type; /* Chrome all / Safari all */
+  -moz-user-select: $type; /* Firefox all */
+  -ms-user-select: $type; /* IE 10+ */
+  user-select: $type; /* Likely future */
+}

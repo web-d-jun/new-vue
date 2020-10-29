@@ -48,7 +48,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import url('../assets/style/index.scss');
 #defaultView {
   width: 100%;
   height: 100%;
@@ -71,9 +70,9 @@ export default {
     position: fixed;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: calc(100% - #{$headerHeight});
     right: 0;
-    top: 0;;
+    bottom: 0;
   }
 }
 </style>

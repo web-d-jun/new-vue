@@ -57,7 +57,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 #header {
   display: flex;
-  height: 48px;
+  height: $headerHeight;
   border: 1px solid transparent;
   align-items: center;
   background: linear-gradient(45deg, #d5007d, #e53935);
