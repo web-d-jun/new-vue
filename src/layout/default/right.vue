@@ -54,7 +54,6 @@ export default defineComponent({
     letter-spacing: 10px;
     color: $defaultColor;
     outline: 0;
-    background: #37375a;
     animation: flicker 1.5s infinite alternate;
     @include cursor(pointer);
     @include user-select(none);
@@ -73,8 +72,8 @@ export default defineComponent({
       0 0 2px #272525, 0 0 4px #272525, 0 0 6px #272525, 0 0 8px #272525,
       0 0 10px #272525;
 
-    box-shadow: 0 0 2px 1px #fff, inset 0 0 2px 1px #fff, 0 0 4px 5px#37375a,
-      inset 0 0 4px 5px #37375a, 0 0 6px 6px #37375a, inset 0 0 6px 6px #37375a;
+    box-shadow: 0 0 2px 1px #fff, inset 0 0 2px 1px #fff
+      
   }
   20%,
   24%,
