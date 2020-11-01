@@ -1,6 +1,12 @@
 <template>
   <div id="rightContainer" :class="{ expand: $store.state.rightDrawer }">
-    <div class="right-container__tab" @click="showRightDrawer">menu</div>
+    <div
+      class="right-container__tab"
+      @click="showRightDrawer"
+      @mousedown="handleDrag"
+    >
+      menu
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -19,11 +25,25 @@ export default defineComponent({
           !store.state.rightDrawer
         );
       };
-      return { showRightDrawer };
+      const handleDrag = (downEvent: object) => {
+        console.log(downEvent, this);
+        const handleMouseMove = (moveEvent: object) => {
+          console.log(moveEvent);
+        };
+        document.addEventListener("mousemove", handleMouseMove);
+
+        const handleMouseUp = () => {
+          console.log("up");
+          document.removeEventListener("mousemove", handleMouseMove);
+        };
+        document.addEventListener("mouseup", handleMouseUp);
+      };
+      return { showRightDrawer, handleDrag };
     };
-    const { showRightDrawer } = useHandleRightDrawer();
+    const { showRightDrawer, handleDrag } = useHandleRightDrawer();
     return {
-      showRightDrawer
+      showRightDrawer,
+      handleDrag
     };
   }
 });
@@ -72,8 +92,7 @@ export default defineComponent({
       0 0 2px #272525, 0 0 4px #272525, 0 0 6px #272525, 0 0 8px #272525,
       0 0 10px #272525;
 
-    box-shadow: 0 0 2px 1px #fff, inset 0 0 2px 1px #fff
-      
+    box-shadow: 0 0 2px 1px #fff, inset 0 0 2px 1px #fff;
   }
   20%,
   24%,
