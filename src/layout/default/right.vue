@@ -10,13 +10,15 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from "vue";
+import { defineComponent, inject, ref } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
   name: "rightContainer",
   setup() {
     const store = useStore();
     const _m: any = inject("MutationTypes", {});
+    const rightDragX = ref(0);
+    const countValue = ref(1);
 
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
@@ -25,14 +27,24 @@ export default defineComponent({
           !store.state.rightDrawer
         );
       };
-      const handleDrag = (downEvent: object) => {
-        console.log(downEvent, this);
-        const handleMouseMove = (moveEvent: object) => {
-          console.log(moveEvent);
+      const handleDrag = (): void => {
+        const handleMouseMove = () => {
+          rightDragX.value += countValue.value;
+          console.log(rightDragX.value);
+
+          (document.getElementById(
+            "rightContainer"
+          ) as HTMLElement).style.width = rightDragX.value + "px";
         };
         document.addEventListener("mousemove", handleMouseMove);
 
         const handleMouseUp = () => {
+          if (rightDragX.value > 50) {
+            (document.getElementById(
+              "rightContainer"
+            ) as HTMLElement).style.width = "300px";
+          }
+
           console.log("up");
           document.removeEventListener("mousemove", handleMouseMove);
         };
@@ -54,7 +66,7 @@ export default defineComponent({
   width: 0px;
   height: 100%;
   border: 1px solid red;
-  transition: all 1s ease-in-out;
+  transition: all 0.2s ease-in-out;
   &.expand {
     width: 300px;
   }
