@@ -24,17 +24,24 @@
         <div
           class="aos-item aos-item--custom"
           data-aos="zoom-out-down"
-          @click="handleGoPage('firstApp')"
+          @click="router.push('/login/')"
         >
           <img :src="require('../assets/img/main/first_app.png')" alt />
           <div class="image__title">
-            <small>하나</small>
+            <small>app</small>
           </div>
         </div>
       </div>
       <div class="wrap">
-        <div class="aos-item aos-item--custom" data-aos="zoom-out-down">
-          <small>둘</small>
+        <div
+          class="aos-item aos-item--custom"
+          data-aos="zoom-out-down"
+          @click="router.push('/study/')"
+        >
+          <img :src="require('../assets/img/main/study.jpg')" alt />
+          <div class="image__title">
+            <small>study</small>
+          </div>
         </div>
       </div>
       <div class="wrap">
@@ -62,15 +69,9 @@ export default {
       location.href = "#targetAosContainer";
     };
 
-    const handleGoPage = (type: string) => {
-      if (type === "firstApp") {
-        router.push('/login/');
-      }
-    };
-
     return {
       handleScrollDown,
-      handleGoPage
+      router
     };
   }
 };
@@ -137,7 +138,7 @@ export default {
 
     .wrap {
       width: 100%;
-      height: 700px;
+      height: 400px;
       .aos-item {
         &.aos-item--custom {
           position: relative;

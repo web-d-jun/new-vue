@@ -1,25 +1,18 @@
 <template>
   <div id="rightContainer" :class="{ expand: $store.state.rightDrawer }">
-    <div
-      class="right-container__tab"
-      @click="showRightDrawer"
-      @mousedown="handleDrag"
-    >
+    <div class="right-container__tab" @click="showRightDrawer">
       menu
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject, ref } from "vue";
+import { defineComponent, inject, reactive, ref } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
   name: "rightContainer",
   setup() {
     const store = useStore();
     const _m: any = inject("MutationTypes", {});
-    const rightDragX = ref(0);
-    const countValue = ref(1);
-
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
         store.commit(
@@ -27,35 +20,12 @@ export default defineComponent({
           !store.state.rightDrawer
         );
       };
-      const handleDrag = (): void => {
-        const handleMouseMove = () => {
-          rightDragX.value += countValue.value;
-          console.log(rightDragX.value);
-
-          (document.getElementById(
-            "rightContainer"
-          ) as HTMLElement).style.width = rightDragX.value + "px";
-        };
-        document.addEventListener("mousemove", handleMouseMove);
-
-        const handleMouseUp = () => {
-          if (rightDragX.value > 50) {
-            (document.getElementById(
-              "rightContainer"
-            ) as HTMLElement).style.width = "300px";
-          }
-
-          console.log("up");
-          document.removeEventListener("mousemove", handleMouseMove);
-        };
-        document.addEventListener("mouseup", handleMouseUp);
-      };
-      return { showRightDrawer, handleDrag };
+      return { showRightDrawer };
     };
-    const { showRightDrawer, handleDrag } = useHandleRightDrawer();
+
+    const { showRightDrawer } = useHandleRightDrawer();
     return {
-      showRightDrawer,
-      handleDrag
+      showRightDrawer
     };
   }
 });

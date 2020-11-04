@@ -1,6 +1,7 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
 import defaultPages from "./defaultPages";
 import mainPageRouter from "./mainPages";
+import studyPagesRouter from "./studyPages";
 import * as Comm from "../assets/ts/common";
 
 const routes: RouteRecordRaw[] = [
@@ -31,6 +32,15 @@ const routes: RouteRecordRaw[] = [
     children: defaultPages,
   },
   {
+    path: "/study/",
+    name: "Study",
+    component: () => import("@/views/study.vue"),
+    meta: {
+      title: "Study",
+    },
+    children: studyPagesRouter,
+  },
+  {
     path: "/not-found/",
     name: "404",
     meta: {
@@ -47,20 +57,18 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
 
-  
   if (to.path.endsWith("/")) {
     Comm.setCookie("recentPage", to.path, 1);
-    
-    if(to.path === '/') {
-      next('/main/');
-    }else {
+
+    if (to.path === "/") {
+      next("/main/");
+    } else {
       next();
     }
 
     if (!to.matched.length) {
       next("/not-found/");
     }
-    
   } else {
     next({ path: to.path + "/", query: to.query, hash: to.hash });
   }
