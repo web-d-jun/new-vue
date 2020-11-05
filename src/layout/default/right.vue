@@ -15,10 +15,7 @@ export default defineComponent({
     const _m: any = inject("MutationTypes", {});
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
-        store.commit(
-          _m.MutationTypes.CHANGE_RIGHT_DRAWER,
-          !store.state.rightDrawer
-        );
+        store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, !store.state.rightDrawer);
       };
       return { showRightDrawer };
     };
@@ -70,9 +67,7 @@ export default defineComponent({
   54%,
   56%,
   100% {
-    text-shadow: -2px -2px 1rem #fff, 2px 2px 1rem rgb(158, 157, 157),
-      0 0 2px #272525, 0 0 4px #272525, 0 0 6px #272525, 0 0 8px #272525,
-      0 0 10px #272525;
+    text-shadow: -2px -2px 1rem #fff, 2px 2px 1rem rgb(158, 157, 157), 0 0 2px #272525, 0 0 4px #272525, 0 0 6px #272525, 0 0 8px #272525, 0 0 10px #272525;
 
     box-shadow: 0 0 2px 1px #fff, inset 0 0 2px 1px #fff;
   }
