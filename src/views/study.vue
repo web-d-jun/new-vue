@@ -6,26 +6,35 @@
     <div class="box__container"></div>
     <div class="title">THIS IS STUDY</div>
   </div>
+  <Cursor />
 </template>
 
 <script lang="ts">
+import Cursor from '@/components/mouse/cursor.vue';
 export default {
   name: 'study',
+  components: {
+    Cursor,
+  },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .study__container {
   @include user-select(none);
+  overflow: hidden;
+  cursor: none;
   .menu__container {
     position: fixed;
     right: 30px;
     top: 10%;
-    @include cursor(pointer);
     .contents {
       width: 100%;
       color: $defaultColor;
       text-align: right;
       font-size: 20px;
+      &:hover {
+        color: red;
+      }
       &::before {
         content: ' ';
         width: 10px;
