@@ -1,5 +1,8 @@
 <template>
   <div class="study__container">
+    <div class="menu__container">
+      <div class="contents">MENU</div>
+    </div>
     <div class="box__container"></div>
     <div class="title">THIS IS STUDY</div>
   </div>
@@ -13,6 +16,28 @@ export default {
 <style lang="scss">
 .study__container {
   @include user-select(none);
+  .menu__container {
+    position: fixed;
+    right: 30px;
+    top: 10%;
+    @include cursor(pointer);
+    .contents {
+      width: 100%;
+      color: $defaultColor;
+      text-align: right;
+      font-size: 20px;
+      &::before {
+        content: ' ';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        left: -20px;
+        top: 5px;
+      }
+    }
+  }
   position: relative;
   width: 100%;
   height: 100%;
