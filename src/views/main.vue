@@ -21,11 +21,7 @@
     <div id="targetAosContainer" class="scroll__target" />
     <div class="aos__container">
       <div class="wrap">
-        <div
-          class="aos-item aos-item--custom"
-          data-aos="zoom-out-down"
-          @click="router.push('/login/')"
-        >
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/login/')">
           <img :src="require('../assets/img/main/first_app.png')" alt />
           <div class="image__title">
             <small>app</small>
@@ -33,11 +29,7 @@
         </div>
       </div>
       <div class="wrap">
-        <div
-          class="aos-item aos-item--custom"
-          data-aos="zoom-out-down"
-          @click="router.push('/study/')"
-        >
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/study/')">
           <img :src="require('../assets/img/main/study.jpg')" alt />
           <div class="image__title">
             <small>study</small>
@@ -58,26 +50,27 @@
   </div>
 </template>
 <script lang="ts">
-import { inject, ref } from "vue";
+import { inject } from 'vue';
 
 export default {
-  name: "Main",
+  name: 'Main',
 
   setup() {
-    const router = inject("routerSymbol", [{}]);
+    const router = inject('routerSymbol', [{}]);
     const handleScrollDown = () => {
-      location.href = "#targetAosContainer";
+      location.href = '#targetAosContainer';
     };
 
     return {
       handleScrollDown,
-      router
+      router,
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
 .main__container {
+  position: relative;
   width: 100%;
   height: 100%;
   .main__contents {
@@ -120,6 +113,7 @@ export default {
           animation-name: moving;
           animation-iteration-count: infinite;
           animation-duration: 2s;
+          outline: 0;
           &:hover {
             cursor: pointer;
           }
@@ -148,8 +142,7 @@ export default {
           text-align: center;
           color: #fff;
           font-size: 3em;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-            0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
 
         &:hover {
