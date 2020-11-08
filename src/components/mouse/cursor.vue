@@ -40,5 +40,6 @@ export default defineComponent({
   border: 1px solid $defaultColor;
   border-radius: 50%;
   cursor: none;
+  pointer-events: none;
 }
 </style>
