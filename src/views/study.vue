@@ -1,20 +1,43 @@
 <template>
   <div class="study__container">
     <div class="menu__container">
-      <div class="contents">MENU</div>
+      <div class="menu-title" @click="showRightDrawer">MENU</div>
+      <div class="menu__contents">
+        <Right />
+      </div>
     </div>
     <div class="box__container"></div>
     <div class="title">THIS IS STUDY</div>
   </div>
-  <Cursor />
+  <Cursor v-if="!$store.state.isMobile" />
 </template>
 
 <script lang="ts">
+import { inject } from 'vue';
+import { useStore } from 'vuex';
+import Right from '@/layout/study/right.vue';
 import Cursor from '@/components/mouse/cursor.vue';
 export default {
   name: 'study',
   components: {
     Cursor,
+    Right,
+  },
+  setup() {
+    const store = useStore();
+    console.log(store.state.isMobile);
+    const _m: any = inject('MutationTypes');
+    const useHandleRightDrawer = () => {
+      const showRightDrawer = () => {
+        store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, !store.state.rightDrawer);
+      };
+      return { showRightDrawer };
+    };
+
+    const { showRightDrawer } = useHandleRightDrawer();
+    return {
+      showRightDrawer,
+    };
   },
 };
 </script>
@@ -27,13 +50,13 @@ export default {
     position: fixed;
     right: 30px;
     top: 10%;
-    .contents {
+    .menu-title {
       width: 100%;
       color: $defaultColor;
       text-align: right;
       font-size: 20px;
       &:hover {
-        color: red;
+        color: $signColor2;
       }
       &::before {
         content: ' ';
@@ -45,6 +68,14 @@ export default {
         left: -20px;
         top: 5px;
       }
+    }
+    .menu__contents {
+      position: absolute;
+      right: -30px;
+      top: 45px;
+      width: 100vw;
+      max-width: 250px;
+      z-index: 1;
     }
   }
   position: relative;
@@ -73,6 +104,7 @@ export default {
     text-shadow: -2rem 0 9px $defaultColor, 0px 6rem 5px $defaultColor, 4.6rem 2.3rem 3px $defaultColor, 0 -4rem 3px $defaultColor;
     color: transparent;
     transition: all 0.2s ease-out;
+    z-index: -1;
   }
 }
 @media screen and (min-width: 1000px) {
