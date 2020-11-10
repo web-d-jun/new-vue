@@ -1,10 +1,10 @@
 <template>
   <div class="study__container">
+    <div class="menu__contents">
+      <Right />
+    </div>
     <div class="menu__container">
       <div class="menu-title" @click="showRightDrawer">MENU</div>
-      <div class="menu__contents">
-        <Right />
-      </div>
     </div>
     <div class="box__container"></div>
     <div class="title">THIS IS STUDY</div>
@@ -46,6 +46,12 @@ export default {
   @include user-select(none);
   overflow: hidden;
   cursor: none;
+  .menu__contents {
+    position: fixed;
+    right: -30px;
+    top: 45px;
+    width: 100%;
+  }
   .menu__container {
     position: fixed;
     right: 30px;
@@ -68,14 +74,6 @@ export default {
         left: -20px;
         top: 5px;
       }
-    }
-    .menu__contents {
-      position: absolute;
-      right: -30px;
-      top: 45px;
-      width: 100vw;
-      max-width: 250px;
-      z-index: 1;
     }
   }
   position: relative;

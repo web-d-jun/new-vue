@@ -15,12 +15,13 @@ export default defineComponent({
 .right__container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 0%;
   height: 100%;
   transition: all 0.2s ease-in-out;
   opacity: 0;
   &.expand {
     opacity: 1;
+    width: 100%;
   }
   .right__contents {
     width: 100%;
