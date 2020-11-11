@@ -25,7 +25,6 @@ export default {
   },
   setup() {
     const store = useStore();
-    console.log(store.state.isMobile);
     const _m: any = inject('MutationTypes');
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
