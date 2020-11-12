@@ -26,6 +26,23 @@ export default defineComponent({
   &.expand {
     opacity: 1;
     width: 100%;
+    .introduction {
+      &--text1 {
+        &::after {
+          animation: textWrite 3s steps(16) 1s 1 normal both;
+        }
+      }
+      &--text2 {
+        &::after {
+          animation: textWrite 3s steps(14) 4s 1 normal both;
+        }
+      }
+      &--text3 {
+        &::after {
+          animation: textWrite 3s steps(15) 7s 1 normal both;
+        }
+      }
+    }
   }
   .right__contents {
     width: 100%;
@@ -43,11 +60,10 @@ export default defineComponent({
         width: 1px;
         word-break: break-word;
         margin-left: 5vh;
-        line-height: 30px;
+        line-height: 28px;
         &::after {
           position: absolute;
           content: ' ';
-          border: 1px solid red;
           position: absolute;
           bottom: 0%;
           left: 0;
@@ -55,14 +71,25 @@ export default defineComponent({
           width: 23px;
           background-color: #1e1f21;
         }
-        &--text1 {
-        }
-        &--text2 {
-        }
-        &--text3 {
-        }
       }
     }
+  }
+}
+@keyframes textWrite {
+  0% {
+    height: 100%;
+  }
+  25% {
+    height: 75%;
+  }
+  50% {
+    height: 50%;
+  }
+  75% {
+    height: 25%;
+  }
+  100% {
+    height: 0%;
   }
 }
 </style>
