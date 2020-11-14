@@ -33,10 +33,10 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/study/",
-    name: "Study | 공부",
+    name: "Study",
     component: () => import("@/views/study.vue"),
     meta: {
-      title: "Study",
+      title: "Study | 공부",
     },
     children: studyPagesRouter,
   },
