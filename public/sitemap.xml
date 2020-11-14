@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+	    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://imjun.netlify.app/</loc>
-  <lastmod>2020-11-14T10:48:13+00:00</lastmod>
+   <loc>https://imjun.netlify.app/</loc>
+   <lastmod>2020-11-14T10:48:13+00:00</lastmod>
+   <changefreq>always</changefreq>
 </url>
 
+<url>
+   <loc>https://imjun.netlify.app/study/</loc>
+   <lastmod>2020-11-14T10:48:13+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
 
 </urlset>
