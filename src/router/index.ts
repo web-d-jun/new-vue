@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
     path: "/login/",
     name: "Login",
     meta: {
-      title: "Login",
+      title: "Login | 로그인",
     },
     component: () => import("@/page/login.vue"),
   },
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     path: "/main/",
     name: "Main",
     meta: {
-      title: "Main",
+      title: "Main | 메인화면",
     },
     component: () => import("@/views/main.vue"),
     children: mainPageRouter,
@@ -33,7 +33,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/study/",
-    name: "Study",
+    name: "Study | 공부",
     component: () => import("@/views/study.vue"),
     meta: {
       title: "Study",
