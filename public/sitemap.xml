@@ -10,7 +10,13 @@
 <url>
   <loc>https://imjun.netlify.app/</loc>
   <lastmod>2020-11-14T16:23:44+00:00</lastmod>
+   <changefreq>always</changefreq>
 </url>
 
+<url>
+  <loc>https://imjun.netlify.app/study/</loc>
+  <lastmod>2020-11-15T03:35:22+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
 
 </urlset>
