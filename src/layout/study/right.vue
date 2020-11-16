@@ -1,6 +1,13 @@
 <template>
   <div :class="['right__container', { expand: $store.state.rightDrawer }]">
     <div class="right__contents">
+      <div class="list__container">
+        <div class="list__contents">
+          <div class="contents-title">
+            Typescript
+          </div>
+        </div>
+      </div>
       <div class="introduction__container">
         <div class="introduction introduction--text1">동짓달 기나긴 밤을 한 허리를 베어내어</div>
         <div class="introduction introduction--text2">춘풍 이불 아래 서리서리 넣었다가</div>
@@ -49,11 +56,22 @@ export default defineComponent({
     border: 1px solid;
     height: 800px;
     background: $darkBackground;
+    .list__container {
+      width: 100%;
+      height: 100%;
+      border: 1px solid red;
+      .list__contents {
+        .contents-title {
+          color: $defaultColor;
+        }
+      }
+    }
     .introduction__container {
+      position: fixed;
       display: flex;
       flex-direction: row-reverse;
-      margin-right: 13vh;
-      margin-top: 12vh;
+      right: 7vh;
+      top: 15vh;
       .introduction {
         position: relative;
         color: $defaultColor;
