@@ -4,7 +4,18 @@
       <div class="list__container">
         <div class="list__contents flex flex-wrap">
           <div class="contents">
-            <div class="title">vue3</div>
+            <div class="title">1. vue3</div>
+
+            <ul class="list">
+              <li @click="$router.push('test')">1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+            </ul>
+          </div>
+          <div class="contents">
+            <div class="title">2. Typescript</div>
 
             <ul class="list">
               <li>1.test</li>
@@ -15,18 +26,7 @@
             </ul>
           </div>
           <div class="contents">
-            <div class="title">Typescript</div>
-
-            <ul class="list">
-              <li>1.test</li>
-              <li>1.test</li>
-              <li>1.test</li>
-              <li>1.test</li>
-              <li>1.test</li>
-            </ul>
-          </div>
-          <div class="contents">
-            <div class="title">CSS</div>
+            <div class="title">3. CSS</div>
             <ul class="list">
               <li>1.test</li>
               <li>1.test</li>
@@ -46,12 +46,22 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+
 export default defineComponent({
   name: 'right',
-  setup() {
-    // console.log(Axios)
-  }
+  setup(props, context) {
+    console.log(context,'??')
+
+    
+    
+    const goPage = (url: string) => {
+      console.log(url)
+    };
+    return {
+      goPage,
+    };
+  },
 });
 </script>
 <style lang="scss" scoped>
@@ -89,9 +99,10 @@ export default defineComponent({
     height: 800px;
     background: $darkBackground;
     .list__container {
-      width: 100%;
+      width: 80%;
       height: 100%;
-
+      padding-left: 30px;
+      padding-top: 10px;
       .list__contents {
         animation: listShow 2s;
         animation-delay: 2s;
