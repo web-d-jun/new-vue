@@ -9,7 +9,7 @@
     <div class="box__container"></div>
     <div class="title">THIS IS STUDY</div>
   </div>
-  <Cursor v-if="!$store.state.isMobile" />
+  <!-- <Cursor v-if="!$store.state.isMobile" /> -->
 </template>
 
 <script lang="ts">
@@ -17,13 +17,18 @@ import { inject } from 'vue';
 import { useStore } from 'vuex';
 import Right from '@/layout/study/right.vue';
 import Cursor from '@/components/mouse/cursor.vue';
+
 export default {
   name: 'study',
   components: {
-    Cursor,
+    // Cursor,
     Right,
   },
   setup() {
+    const http: any = inject('http');
+    http.get('/mock/test.json').then((res: object) => {
+      console.log(res);
+    });
     const store = useStore();
     const _m: any = inject('MutationTypes');
     const useHandleRightDrawer = () => {
@@ -44,7 +49,7 @@ export default {
 .study__container {
   @include user-select(none);
   overflow: hidden;
-  cursor: none;
+  // cursor: none;
   .menu__contents {
     position: fixed;
     right: -30px;
