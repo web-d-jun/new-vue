@@ -2,9 +2,38 @@
   <div :class="['right__container', { expand: $store.state.rightDrawer }]">
     <div class="right__contents">
       <div class="list__container">
-        <div class="list__contents">
-          <div class="contents-title">
-            Typescript
+        <div class="list__contents flex flex-wrap">
+          <div class="contents">
+            <div class="title">vue3</div>
+
+            <ul class="list">
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+            </ul>
+          </div>
+          <div class="contents">
+            <div class="title">Typescript</div>
+
+            <ul class="list">
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+            </ul>
+          </div>
+          <div class="contents">
+            <div class="title">CSS</div>
+            <ul class="list">
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+              <li>1.test</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -20,6 +49,9 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'right',
+  setup() {
+    // console.log(Axios)
+  }
 });
 </script>
 <style lang="scss" scoped>
@@ -59,10 +91,22 @@ export default defineComponent({
     .list__container {
       width: 100%;
       height: 100%;
-      border: 1px solid red;
+
       .list__contents {
-        .contents-title {
-          color: $defaultColor;
+        animation: listShow 2s;
+        animation-delay: 2s;
+
+        .contents {
+          min-width: 150px;
+          .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: $defaultColor;
+          }
+          .list {
+            list-style: none;
+            color: $defaultColor;
+          }
         }
       }
     }
@@ -108,6 +152,18 @@ export default defineComponent({
   }
   100% {
     height: 0%;
+  }
+}
+
+@keyframes listShow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
