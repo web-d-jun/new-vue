@@ -41,7 +41,7 @@ const routes: RouteRecordRaw[] = [
     children: studyPagesRouter,
   },
   {
-    path: "/not-found/",
+    path: "/:catchAll(.*)",
     name: "404",
     meta: {
       title: "404",
