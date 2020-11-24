@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     path: "/main/",
     name: "Main",
     meta: {
-      title: "Main | 메인화면",
+      title: "ImJun is back 룰루랄라~~",
     },
     component: () => import("@/views/main.vue"),
     children: mainPageRouter,
