@@ -15,6 +15,9 @@
         "jest"
       ],
       "paths": {
+        "~common_ts/*": [
+          "src/common/ts/*",
+        ],
         "@/*": [
           "src/*"
         ]

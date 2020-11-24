@@ -6,6 +6,7 @@ module.exports = {
     resolve: {
       alias: {
         '~img': path.join(__dirname, 'src/assets/img'),
+        '~common_ts': path.join(__dirname, 'src/common/ts'),
       },
     },
   },

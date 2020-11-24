@@ -47,16 +47,16 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
-
+import { useRouter } from '@/common/ts/function';
 export default defineComponent({
   name: 'right',
-  setup(props, context) {
-    console.log(context,'??')
+  setup() {
+    const router = useRouter();
 
-    
-    
+    // router.push('/pass')
+
     const goPage = (url: string) => {
-      console.log(url)
+      console.log(url);
     };
     return {
       goPage,
