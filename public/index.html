@@ -5,7 +5,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCHPW7LZ19"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
 
       gtag('config', 'G-ZCHPW7LZ19');
@@ -18,6 +20,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -27,14 +31,14 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
-          navigator.serviceWorker.register("/sw.js").then(
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(
             function(registration) {
-              console.log("serviceWorker registration success with scope");
+              console.log('serviceWorker registration success with scope');
             },
             function(err) {
-              console.log("serviceWorker registration failed: ", err);
+              console.log('serviceWorker registration failed: ', err);
             }
           );
         });

@@ -5,16 +5,18 @@
 </template>
 <script>
 export default {
-  name: "App",
+  name: 'App',
 
   setup() {
-    
     // router.push("/main/");
     // router.push('recentPage')
-  }
+  },
 };
 </script>
 <style>
+* {
+  font-family: 'Nanum Brush Script', cursive;
+}
 html,
 body {
   margin: 0;

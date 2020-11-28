@@ -10,6 +10,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 #listItemTitle {
-  font-size: 15px;
+  font-size: 20px;
 }
 </style>
