@@ -113,7 +113,7 @@ export default {
       animation-name: zoomIn;
       animation-duration: 1.5s;
       .title__contents {
-        font-size: 50px;
+        font-size: 65px;
         letter-spacing: 70px;
         .inner__text {
           text-indent: 1.2em;
@@ -122,6 +122,7 @@ export default {
       .sub-title__content {
         letter-spacing: 20px;
         padding-top: 20px;
+        font-size: 25px;
       }
     }
 

@@ -47,6 +47,7 @@ export default defineComponent({
   outline: 0;
   border: 1px solid transparent;
   border-radius: $borderRadius;
+  font-size: 20px;
   &:active {
     opacity: 0.7;
   }
