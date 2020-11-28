@@ -1,5 +1,10 @@
 <template>
   <div class="main__container">
+    <div class="header__contents">
+      <div class="button__container">
+        <j-button :title="'IAM PICK'" />
+      </div>
+    </div>
     <div class="main__contents">
       <div class="title__container">
         <div class="title__contents">
@@ -52,9 +57,13 @@
 <script lang="ts">
 import { inject } from 'vue';
 
+import jButton from '@/components/button/j-button.vue';
+
 export default {
   name: 'Main',
-
+  components: {
+    jButton,
+  },
   setup() {
     const router = inject('routerSymbol', [{}]);
     const handleScrollDown = () => {
@@ -73,6 +82,22 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  .header__contents {
+    position: absolute;
+    display: flex;
+    flex: 1;
+    padding: 0 8px;
+    height: 10%;
+    justify-content: flex-end;
+    align-items: center;
+    right: 0;
+    z-index: 1;
+    .button__container {
+      width: 100px;
+      height: 50%;
+      @include cursor(pointer);
+    }
+  }
   .main__contents {
     width: 100%;
     height: 100vh;

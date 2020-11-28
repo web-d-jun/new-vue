@@ -7,7 +7,7 @@
             <div class="title">1. vue3</div>
 
             <ul class="list">
-              <li @click="$router.push('test')">1.test</li>
+              <li @click="$router.push('vue3/suspense')">1.test</li>
               <li>1.test</li>
               <li>1.test</li>
               <li>1.test</li>

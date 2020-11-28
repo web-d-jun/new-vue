@@ -13,3 +13,7 @@
   -ms-user-select: $type; /* IE 10+ */
   user-select: $type; /* Likely future */
 }
+
+@mixin button-background() {
+  background: linear-gradient(45deg, #d5007d, #e53935);
+}
