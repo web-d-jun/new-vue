@@ -235,9 +235,6 @@ export default {
         }
       }
     }
-    .aos-item--custom {
-      width: 60% !important;
-    }
     .sub-title__content {
       letter-spacing: 10px;
     }
