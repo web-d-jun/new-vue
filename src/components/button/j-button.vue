@@ -27,7 +27,7 @@ export default defineComponent({
     };
 
     onBeforeUnmount(() => {
-      window.addEventListener('beforeinstallprompt', (e) => {
+      window.addEventListener('beforeinstallprompt', () => {
         deferredPrompt.value = null;
       });
     });
