@@ -32,8 +32,8 @@ export default defineComponent({
   position: relative;
   width: 0px;
   height: 100%;
-  border: 1px solid red;
   transition: all 0.2s ease-in-out;
+  background-color: $darkBackground;
   &.expand {
     width: 300px;
   }
