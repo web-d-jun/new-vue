@@ -14,7 +14,6 @@
     "@types/aos": "^3.0.3",
     "aos": "^2.3.4",
     "axios": "^0.21.0",
-    "axios-progress-bar": "^1.2.0",
     "buefy": "^0.9.2",
     "core-js": "^3.6.4",
     "firebase": "^7.15.5",
