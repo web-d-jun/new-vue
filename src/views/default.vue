@@ -1,7 +1,7 @@
 <template>
   <div id="defaultView">
     <Header />
-    <div class="body-content">
+    <div class="body-contents">
       <Left />
       <div id="routerView" class="routerView__container" data-scrollbar>
         <router-view />
@@ -34,7 +34,7 @@ export default {
     const store = useStore();
     onMounted(() => {
       const scrollbar = Scrollbar.init(document.querySelector('#routerView') as HTMLDivElement);
-      scrollbar.addListener(status => {
+      scrollbar.addListener((status) => {
         if (status.offset.y > 0) {
           store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
         } else {
@@ -51,10 +51,11 @@ export default {
   height: 100%;
   background-color: #272525;
 
-  .body-content {
+  .body-contents {
     display: flex;
     flex: 1;
     height: calc(100% - 54px);
+    position: relative;
   }
   .routerView__container {
     border: 1px solid transparent;

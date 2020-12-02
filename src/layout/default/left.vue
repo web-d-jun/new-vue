@@ -2,11 +2,7 @@
   <transition name="slide-fade">
     <div id="leftContainer" v-if="$store.state.leftDrawer">
       <List>
-        <List-item
-          v-for="item in menuList"
-          :key="item.name"
-          @click.exact="handleRouterGo(item.path)"
-        >
+        <List-item v-for="item in menuList" :key="item.name" @click.exact="handleRouterGo(item.path)">
           <div class="wrap">
             <List-item-action>
               <i class="material-icons">{{ item.icon }}</i>
@@ -20,32 +16,32 @@
   </transition>
 </template>
 <script lang="ts">
-import { defineComponent, readonly } from "vue";
-import Menu from "@/menu.ts";
-import { useStore } from "vuex";
-import { MutationTypes } from "../../store/mutation-types";
-import List from "@/components/list.vue";
-import ListItem from "@/components/listItem.vue";
-import ListItemAction from "@/components/list_item_action.vue";
-import ListItemTitle from "@/components/list_item_title.vue";
-import Line from "@/components/line.vue";
-import { useRouter } from "vue-router";
+import { defineComponent, readonly } from 'vue';
+import Menu from '@/menu.ts';
+import { useStore } from 'vuex';
+import { MutationTypes } from '../../store/mutation-types';
+import List from '@/components/list.vue';
+import ListItem from '@/components/listItem.vue';
+import ListItemAction from '@/components/list_item_action.vue';
+import ListItemTitle from '@/components/list_item_title.vue';
+import Line from '@/components/line.vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
-  name: "leftContainer",
+  name: 'leftContainer',
   components: {
     List,
     ListItem,
     ListItemAction,
     ListItemTitle,
-    Line
+    Line,
   },
   setup() {
     const menuList = readonly<object>(Menu);
     const store = useStore();
     const router = useRouter();
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       if (window.innerWidth < 1024) {
         store.commit(MutationTypes.CHANGE_LEFT_DRAWER, false);
       } else if (window.innerWidth > 1024) {
@@ -62,13 +58,13 @@ export default defineComponent({
     const { handleRouterGo } = useHandleRouterGo();
     return {
       menuList,
-      handleRouterGo
+      handleRouterGo,
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
-@import "@/common.scss";
+@import '@/common.scss';
 #leftContainer {
   width: 250px;
   height: 100%;
@@ -78,6 +74,9 @@ export default defineComponent({
   flex-direction: column;
   background-color: rgb(43, 41, 41);
   border: 1px solid transparent;
+  position: absolute;
+  left: 0;
+  z-index: 1;
 
   .wrap {
     margin-left: 30px;
