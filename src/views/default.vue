@@ -1,6 +1,7 @@
 <template>
   <div id="defaultView">
     <Header />
+    <ProgressBar v-if="$store.state.leftDrawer"/>
     <div class="body-contents">
       <Left />
       <div id="routerView" class="routerView__container" data-scrollbar>
@@ -16,6 +17,7 @@
 import Header from '@/layout/default/header.vue';
 import Left from '@/layout/default/left.vue';
 import Right from '@/layout/default/right.vue';
+import ProgressBar from '@/components/progress/bar.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../store/mutation-types';
@@ -29,6 +31,7 @@ export default {
     Header,
     Left,
     Right,
+    ProgressBar,
   },
   setup() {
     const store = useStore();
@@ -50,6 +53,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #272525;
+  overflow: hidden;
 
   .body-contents {
     display: flex;

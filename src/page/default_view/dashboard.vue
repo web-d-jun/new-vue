@@ -23,6 +23,21 @@ export default {
     const dashBoardDataState = reactive({
       value: dashBoardData
     });
+
+    if (document.readyState === 'loading') {
+      console.log('1')
+    }
+    if (document.readyState === 'interactive') {
+      console.log('2')
+    }
+
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'complete') {
+        console.log('3')
+      }
+    });
+
+
     return {
       dashBoardDataState
     };

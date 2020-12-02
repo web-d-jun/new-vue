@@ -16,7 +16,7 @@
 import { inject } from 'vue';
 import { useStore } from 'vuex';
 import Right from '@/layout/study/right.vue';
-import Cursor from '@/components/mouse/cursor.vue';
+// import Cursor from '@/components/mouse/cursor.vue';
 
 export default {
   name: 'study',

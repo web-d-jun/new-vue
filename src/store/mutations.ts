@@ -7,6 +7,7 @@ export type Mutations<S = State> = {
   [MutationTypes.SHOW_HEADER_SHADOW](state: S, payload: boolean): void;
   [MutationTypes.CHANGE_RIGHT_DRAWER](state: S, payload: boolean): void;
   [MutationTypes.CHANGE_IS_MOBILE](state: S, payload: boolean): void;
+  [MutationTypes.CHANGE_PROGRESS_BAR_PERCENT](state: S, payload: string): void;
 };
 
 export const mutations: MutationTree<State> & Mutations = {
@@ -21,5 +22,8 @@ export const mutations: MutationTree<State> & Mutations = {
   },
   [MutationTypes.CHANGE_IS_MOBILE](state, payload: boolean) {
     state.isMobile = payload;
+  },
+  [MutationTypes.CHANGE_PROGRESS_BAR_PERCENT](state, payload: string) {
+    state.progressBarPercent = payload;
   },
 };
