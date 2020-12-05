@@ -1,11 +1,10 @@
 <template>
   <div id="dashboardContainer">
-    <div class="data-container__wrap" v-for="(item,index) in dashBoardDataState.value" :key="index">
+    <div class="data-container__wrap" v-for="(item, index) in dashBoardDataState.value" :key="index">
       <div class="data-container">
-         
         <div class="data-contents">
-          <div class="data__header">{{item.title}}</div>
-          <div class="data__body">{{item.data}}</div>
+          <div class="data__header">{{ item.title }}</div>
+          <div class="data__body">{{ item.data }}</div>
           <div class="data__footer"></div>
         </div>
       </div>
@@ -13,35 +12,37 @@
   </div>
 </template>
 <script>
-import dashBoardData from "@/api/dashboard";
-import { reactive } from "vue";
+import dashBoardData from '@/api/dashboard';
+import { reactive, onMounted } from 'vue';
+import useProgressBar from '@/composables/useProgressBar.ts';
 
 export default {
-  name: "Dashboard",
-  
+  name: 'Dashboard',
+
   setup() {
     const dashBoardDataState = reactive({
-      value: dashBoardData
+      value: dashBoardData,
     });
 
-    if (document.readyState === 'loading') {
-      console.log('1')
-    }
-    if (document.readyState === 'interactive') {
-      console.log('2')
-    }
+    // if (document.readyState === 'loading') {
+    //   console.log('1')
+    // }
+    // if (document.readyState === 'interactive') {
+    //   console.log('2')
+    // }
 
-    document.addEventListener('readystatechange', () => {
-      if (document.readyState === 'complete') {
-        console.log('3')
-      }
-    });
-
+    // document.addEventListener('readystatechange', () => {
+    //   if (document.readyState === 'complete') {
+    //     console.log('3')
+    //   }
+    // });
+    const { setProgressBar } = useProgressBar();
+    onMounted(setProgressBar);
 
     return {
-      dashBoardDataState
+      dashBoardDataState,
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -67,7 +68,7 @@ export default {
       border-radius: 10px;
       &::before {
         position: absolute;
-        content: " ";
+        content: ' ';
         width: 100%;
         height: 100%;
         left: 0;

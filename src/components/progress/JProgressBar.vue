@@ -1,33 +1,23 @@
 <template>
   <div class="progress-bar__container" :style="{ width: $store.state.progressBarPercent }"></div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted, nextTick } from 'vue';
+import { useStore } from 'vuex';
 export default defineComponent({
   name: 'JProgressBar',
   setup() {
-    // const set = reactive({
-    //   width: '0%',
-    // });
-    // if (document.readyState === 'loading') {
-    //   set.width = '5%';
-    //   console.log('bar 1')
-    // }
-    // if (document.readyState === 'interactive') {
-    //   set.width = '30%';
-    //   console.log('bar 2')
-    // }
+    const store = useStore();
+    console.log(store.state.progressBarPercent, 'store.state.progressBarPercent');
+    onMounted(() => {
+      console.log('onmounted')
+      nextTick(() => {
+        console.log("nextTick")
+      })
+    });
+    
 
-    // document.addEventListener('readystatechange', () => {
-    //   if (document.readyState === 'complete') {
-    //     set.width = '100%';
-    //     console.log('bar 3')
-    //   }
-    // });
-
-    return {
-      //   set,
-    };
+    return {};
   },
 });
 </script>

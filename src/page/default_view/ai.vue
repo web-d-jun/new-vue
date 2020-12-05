@@ -2,17 +2,13 @@
   <div>ai</div>
 </template>
 <script lang="ts">
-import { onMounted, inject } from 'vue';
-import { useStore } from 'vuex';
+import { onMounted } from 'vue';
+import useProgressBar from '@/composables/useProgressBar.ts';
 export default {
   name: 'Ai',
   setup() {
-    const _m: any = inject('MutationTypes');
-    const store = useStore();
-
-    onMounted(() => {
-      store.commit(_m.MutationTypes.CHANGE_PROGRESS_BAR_PERCENT, '100%');
-    });
+    const { setProgressBar } = useProgressBar();
+    onMounted(setProgressBar);
     return {};
   },
 };

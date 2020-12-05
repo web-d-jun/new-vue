@@ -4,6 +4,7 @@ export const state = {
   rightDrawer: false,
   isMobile: false,
   progressBarPercent: '0%',
+  showProgressBar: false,
 };
 
 export type State = typeof state;
