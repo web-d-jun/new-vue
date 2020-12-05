@@ -1,5 +1,11 @@
 const menu: object[] = [
   {
+    name: "Dashboard",
+    icon: "dashboard",
+    line: true,
+    path: "/default/dashboard",
+  },
+  {
     name: "인공지능",
     icon: "brightness_auto",
     line: true,
