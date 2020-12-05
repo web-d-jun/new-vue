@@ -4,7 +4,7 @@
 <script>
 import { defineComponent } from 'vue';
 export default defineComponent({
-  name: 'progressBar',
+  name: 'JProgressBar',
   setup() {
     // const set = reactive({
     //   width: '0%',

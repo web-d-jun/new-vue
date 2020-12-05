@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "Line"
+  name: "JLines"
 };
 </script>
 <style lang="scss" scoped>

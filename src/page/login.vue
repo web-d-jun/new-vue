@@ -104,7 +104,7 @@
 </template>
 <script lang="ts">
 import { inject, ref, reactive } from "vue";
-import jInput from "@/components/input/j_input.vue";
+import jInput from "@/components/input/JInput.vue";
 interface PersonInfo {
   id: string;
   pw: string;

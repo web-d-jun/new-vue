@@ -4,7 +4,7 @@
 <script lang="ts">
 import { defineComponent, onBeforeUnmount, ref } from 'vue';
 export default defineComponent({
-  name: 'j-button',
+  name: 'JButton',
   props: {
     title: {
       default: '버튼',

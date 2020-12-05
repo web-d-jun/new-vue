@@ -4,9 +4,9 @@
       <List>
         <List-item v-for="item in menuList" :key="item.name" @click.exact="handleRouterGo(item.path)">
           <div class="wrap">
-            <List-item-action>
+            <list-item-action>
               <i class="material-icons">{{ item.icon }}</i>
-            </List-item-action>
+            </list-item-action>
             <List-item-title>{{ item.name }}</List-item-title>
           </div>
           <Line v-if="item.line" />
@@ -22,9 +22,9 @@ import { useStore } from 'vuex';
 import { MutationTypes } from '../../store/mutation-types';
 import List from '@/components/list.vue';
 import ListItem from '@/components/listItem.vue';
-import ListItemAction from '@/components/list_item_action.vue';
+import ListItemAction from '@/components/JListItemAction.vue';
 import ListItemTitle from '@/components/list_item_title.vue';
-import Line from '@/components/line.vue';
+import Line from '@/components/JLines.vue';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({

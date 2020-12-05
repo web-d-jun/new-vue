@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
 export default defineComponent({
-  name: "InputContainer",
+  name: "JInput",
   props: {
     label: String,
     mode: String,

@@ -1,7 +1,7 @@
 <template>
   <div id="defaultView">
     <Header />
-    <ProgressBar v-if="$store.state.leftDrawer"/>
+    <JProgressBar v-if="$store.state.leftDrawer"/>
     <div class="body-contents">
       <Left />
       <div id="routerView" class="routerView__container" data-scrollbar>
@@ -17,7 +17,7 @@
 import Header from '@/layout/default/header.vue';
 import Left from '@/layout/default/left.vue';
 import Right from '@/layout/default/right.vue';
-import ProgressBar from '@/components/progress/bar.vue';
+import JProgressBar from '@/components/progress/JProgressBar.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../store/mutation-types';
@@ -31,7 +31,7 @@ export default {
     Header,
     Left,
     Right,
-    ProgressBar,
+    JProgressBar,
   },
   setup() {
     const store = useStore();

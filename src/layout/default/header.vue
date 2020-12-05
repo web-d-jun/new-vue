@@ -4,7 +4,7 @@
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
     <div class="option-butons__container">
-      <j-button :title="'I-PICK'" />
+      <JButton :title="'I-PICK'" />
       <div
         class="button button--main shadow"
         @click="handleButtonGroup('/main/')"
@@ -24,12 +24,12 @@
 import { defineComponent, inject } from "vue";
 import { useStore } from "vuex";
 import { MutationTypes } from "../../store/mutation-types";
-import jButton from '@/components/button/j-button.vue';
+import JButton from '@/components/button/JButton.vue';
 
 export default defineComponent({
   name: "Header",
   components: {
-    jButton,
+    JButton,
   },
   setup() {
     const store = useStore();

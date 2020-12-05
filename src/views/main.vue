@@ -2,7 +2,7 @@
   <div class="main__container">
     <div class="header__contents">
       <div class="button__container">
-        <j-button :title="'IAM PICK'" />
+        <JButton :title="'IAM PICK'" />
       </div>
     </div>
     <div class="main__contents">
@@ -57,12 +57,12 @@
 <script lang="ts">
 import { inject } from 'vue';
 
-import jButton from '@/components/button/j-button.vue';
+import JButton from '@/components/button/JButton.vue';
 
 export default {
   name: 'Main',
   components: {
-    jButton,
+    JButton,
   },
   setup() {
     const router = inject('routerSymbol', [{}]);

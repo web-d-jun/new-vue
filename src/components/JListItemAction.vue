@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "listItemAction"
+  name: "JListItemAction"
 };
 </script>
 <style lang="scss" scoped>

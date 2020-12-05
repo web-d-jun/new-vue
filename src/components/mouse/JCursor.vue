@@ -4,7 +4,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted, reactive } from 'vue';
 export default defineComponent({
-  name: 'cursor',
+  name: 'JCursor',
   setup() {
     interface Mouse {
       x: string;
