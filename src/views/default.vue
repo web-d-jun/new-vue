@@ -1,7 +1,7 @@
 <template>
   <div id="defaultView">
     <Header />
-    <JProgressBar v-if="$store.state.showProgressBar"/>
+    <JProgressBar/>
     <div class="body-contents">
       <Left />
       <div id="routerView" class="routerView__container" data-scrollbar>

@@ -1,22 +1,11 @@
 <template>
-  <div class="progress-bar__container" :style="{ width: $store.state.progressBarPercent }"></div>
+  <div :class="['progress-bar__container', { show: $store.state.showProgressBar }]" :style="{ width: $store.state.progressBarPercent }"></div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, nextTick } from 'vue';
-import { useStore } from 'vuex';
+import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'JProgressBar',
   setup() {
-    const store = useStore();
-    console.log(store.state.progressBarPercent, 'store.state.progressBarPercent');
-    onMounted(() => {
-      console.log('onmounted')
-      nextTick(() => {
-        console.log("nextTick")
-      })
-    });
-    
-
     return {};
   },
 });
@@ -29,5 +18,9 @@ export default defineComponent({
   transition: width 0.3s ease-in-out;
   position: absolute;
   z-index: 2;
+  opacity: 0;
+  &.show {
+    opacity: 1;
+  }
 }
 </style>

@@ -9,9 +9,17 @@ export default function useProgressBar() {
     store.commit(_m.MutationTypes.SHOW_PROGRESS_BAR, true);
   };
 
+  const resetProgressBar = () => {
+    store.commit(_m.MutationTypes.SHOW_PROGRESS_BAR, false);
+    store.commit(_m.MutationTypes.CHANGE_PROGRESS_BAR_PERCENT, '0%');
+  };
+
   const setProgressBar = () => {
     showProgressBar();
     store.commit(_m.MutationTypes.CHANGE_PROGRESS_BAR_PERCENT, '100%');
+    setTimeout(() => {
+      resetProgressBar();
+    }, 1000);
   };
 
   return {
