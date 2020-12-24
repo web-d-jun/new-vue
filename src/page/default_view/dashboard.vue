@@ -1,10 +1,18 @@
 <template>
   <div id="dashboardContainer">
+    <canvas id="myChart"></canvas>
     <div class="data-container__wrap" v-for="(item, index) in dashBoardDataState.value" :key="index">
-      <div class="data-container">
+      <div class="data-container front">
         <div class="data-contents">
           <div class="data__header">{{ item.title }}</div>
           <div class="data__body">{{ item.data }}</div>
+          <div class="data__footer"></div>
+        </div>
+      </div>
+      <div class="data-container back">
+        <div class="data-contents">
+          <div class="data__header">back</div>
+          <div class="data__body">{{ index }}</div>
           <div class="data__footer"></div>
         </div>
       </div>
@@ -15,6 +23,7 @@
 import dashBoardData from '@/api/dashboard';
 import { reactive, onMounted } from 'vue';
 import useProgressBar from '@/composables/useProgressBar.ts';
+import Chart from 'chart.js';
 
 export default {
   name: 'Dashboard',
@@ -37,7 +46,14 @@ export default {
     //   }
     // });
     const { setProgressBar } = useProgressBar();
-    onMounted(setProgressBar);
+    onMounted(() => {
+      setProgressBar();
+      const ctx = { value: document.getElementById('myChart') };
+      new Chart(ctx.value, {
+        type: 'bar',
+        data: [12, 19, 3, 5, 2, 3],
+      });
+    });
 
     return {
       dashBoardDataState,
@@ -54,18 +70,36 @@ export default {
   margin: auto;
 
   .data-container__wrap {
+    position: relative;
     width: 430px;
     height: 200px;
-    padding: 10px;
+    margin: 10px;
     transition: all 300ms ease-in;
+
+    &:hover {
+      .front {
+        transform: rotateY(-180deg);
+      }
+      .back {
+        transform: rotateY(0deg) !important;
+      }
+    }
     .data-container {
-      position: relative;
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
       display: flex;
       flex-wrap: wrap;
       border: 1px solid transparent;
       border-radius: 10px;
+      backface-visibility: hidden;
+      transition: all 1.2s;
+      &.back {
+        transform: rotateY(180deg);
+        // backface-visibility: hidden;
+      }
       &::before {
         position: absolute;
         content: ' ';
