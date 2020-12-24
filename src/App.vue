@@ -15,7 +15,7 @@ export default {
 </script>
 <style>
 * {
-  font-family: 'Nanum Brush Script', cursive;
+  font-family:  'Noto Sans CJK KR'
 }
 html,
 body {
