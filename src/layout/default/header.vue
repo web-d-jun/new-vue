@@ -1,39 +1,32 @@
 <template>
-  <div id="header" :class="{ showBoxShdow: $store.state.showBoxShdow }">
-    <div class="menu-button__container">
+  <div class="header" :class="{ showBoxShdow: $store.state.showBoxShdow }">
+    <div class="header__icon__container" v-if="$store.state.isMobile">
+      <img :src="require('@/assets/img/logo.png')" alt="" />
+    </div>
+    <div class="menu-button__container" v-if="!$store.state.isMobile">
       <i class="fas fa-bars" @click="showLeftDrawer"></i>
     </div>
-    <div class="option-butons__container">
+    <div class="option-butons__container" v-if="!$store.state.isMobile">
       <JButton :title="'I-PICK'" />
-      <div
-        class="button button--main shadow"
-        @click="handleButtonGroup('/main/')"
-      >
-        <i class="fas fa-home"></i> <sub>IAM</sub>
-      </div>
-      <div
-        class="button button--logout shadow"
-        @click="handleButtonGroup('/login/')"
-      >
-        <i class="fas fa-sign-out-alt"></i> <sub>Logout</sub>
-      </div>
+      <div class="button button--main shadow" @click="handleButtonGroup('/main/')"><i class="fas fa-home"></i> <sub>IAM</sub></div>
+      <div class="button button--logout shadow" @click="handleButtonGroup('/login/')"><i class="fas fa-sign-out-alt"></i> <sub>Logout</sub></div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from "vue";
-import { useStore } from "vuex";
-import { MutationTypes } from "../../store/mutation-types";
+import { defineComponent, inject } from 'vue';
+import { useStore } from 'vuex';
+import { MutationTypes } from '../../store/mutation-types';
 import JButton from '@/components/button/JButton.vue';
 
 export default defineComponent({
-  name: "Header",
+  name: 'Header',
   components: {
     JButton,
   },
   setup() {
     const store = useStore();
-    const router = inject("routerSymbol", [{}]);
+    const router = inject('routerSymbol', [{}]);
     // const MutationTypes = inject("MutationTypes",  );
 
     const useHandleLeftDrawer = () => {
@@ -44,7 +37,7 @@ export default defineComponent({
     };
 
     const handleRouter = () => {
-      router.push("/default/dashboard");
+      router.push('/default/dashboard');
     };
 
     const handleButtonGroup = (type: string) => {
@@ -54,13 +47,13 @@ export default defineComponent({
     return {
       showLeftDrawer,
       handleRouter,
-      handleButtonGroup
+      handleButtonGroup,
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
-#header {
+.header {
   display: flex;
   height: $headerHeight;
   border: 1px solid transparent;
@@ -69,6 +62,17 @@ export default defineComponent({
 
   &.showBoxShdow {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .header__icon__container {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   .menu-button__container {
     flex: none;
@@ -117,8 +121,7 @@ export default defineComponent({
       &:hover {
         cursor: pointer;
         &.shadow {
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-            0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
       }
     }

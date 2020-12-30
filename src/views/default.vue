@@ -1,22 +1,30 @@
 <template>
-  <div id="defaultView">
-    <Header />
-    <JProgressBar/>
-    <div class="body-contents">
-      <Left />
-      <div id="routerView" class="routerView__container" data-scrollbar>
-        <router-view />
+  <Suspense>
+    <template #default>
+      <div id="defaultView">
+        <Header />
+        <JProgressBar />
+        <div :class="['body-contents', {mobile: $store.state.isMobile}]">
+          <Left />
+          <div id="routerView" class="routerView__container" data-scrollbar>
+            <router-view />
+          </div>
+        </div>
+        <div class="right-container">
+          <Right v-if="!$store.state.isMobile"/>
+        </div>
+        <Bottom v-if="$store.state.isMobile" />
       </div>
-    </div>
-    <div class="right-container">
-      <Right />
-    </div>
-  </div>
+    </template>
+    <template #fallback> loading... </template>
+  </Suspense>
 </template>
 <script lang="ts">
 import Header from '@/layout/default/header.vue';
 import Left from '@/layout/default/left.vue';
 import Right from '@/layout/default/right.vue';
+import Bottom from '@/layout/default/bottomBar.vue';
+
 import JProgressBar from '@/components/progress/JProgressBar.vue';
 import { onMounted } from 'vue';
 import { useStore } from 'vuex';
@@ -31,6 +39,7 @@ export default {
     Header,
     Left,
     Right,
+    Bottom,
     JProgressBar,
   },
   setup() {
@@ -60,6 +69,10 @@ export default {
     flex: 1;
     height: calc(100% - 54px);
     position: relative;
+    overflow: hidden;
+    &.mobile {
+      height: calc(100% - 110px);
+    }
   }
   .routerView__container {
     border: 1px solid transparent;
