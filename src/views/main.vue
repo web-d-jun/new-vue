@@ -29,7 +29,7 @@
         <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/login/')">
           <img :src="require('../assets/img/main/first_app.png')" alt />
           <div class="image__title">
-            <small>app</small>
+            <small>Business</small>
           </div>
         </div>
       </div>
@@ -55,8 +55,8 @@
   </div>
 </template>
 <script lang="ts">
-import { inject } from 'vue';
-
+import { inject, ref } from 'vue';
+import axios, { AxiosResponse, AxiosInstance } from 'axios';
 import JButton from '@/components/button/JButton.vue';
 
 export default {

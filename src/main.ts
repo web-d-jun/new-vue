@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp , createSSRApp} from 'vue';
 import App from './App.vue';
 import router from './router';
 import { store } from './store';
@@ -10,7 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import * as Comm from './assets/ts/common';
 import * as MutationTypes from './store/mutation-types';
-import http from '@/http/common.ts';
+// import {http, AxiosResponse} from '@/http/common.ts';
 
 AOS.init({
   duration: 1200,
@@ -26,7 +26,7 @@ const app = createApp(App);
 firebase.initializeApp(fireBaseConfig);
 app.use(router);
 app.use(store);
-app.provide('http', http)
+// app.provide('http', http)
 app.provide('routerSymbol', router);
 app.provide('firebaseSymbol', firebase);
 app.provide('Comm', Comm);

@@ -1,8 +1,16 @@
-import axios from 'axios';
+import axios  from 'axios';
 
-export default axios.create({
+const http = axios.create({
   baseURL: '/',
   headers: {
     'Content-type': 'application/json',
   },
 });
+
+// export  interface Response {
+//     AxiosRespons: AxiosResponse
+// }
+export  {
+  http,
+}
+
