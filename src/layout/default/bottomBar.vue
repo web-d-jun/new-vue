@@ -1,7 +1,7 @@
 <template>
   <div class="bottom__container">
-    <div class="button__contents" v-for="item in buttons" :key="item.id" @click="handleGoPage(item)">
-      <button type="button" class="button">
+    <div :class="['button__contents', { selected: item.selected }]" v-for="item in buttons.items" :key="item.id">
+      <button type="button" class="button" @click="[handleButtonOperation(item.name), handleCheckedButton(item)]">
         <div class="icon" v-html="item.icon" />
         <div class="name">{{ item.name }}</div>
       </button>
@@ -9,68 +9,88 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../../store/mutation-types';
 
+interface Buttons {
+  id: number;
+  name: string;
+  icon: string;
+  selected: boolean;
+}
 export default defineComponent({
   name: 'Bottom',
   setup() {
     const store = useStore();
     const router = inject('routerSymbol', [{}]);
-    const buttons: object[] = [
-      {
-        id: 1,
-        name: 'menu',
-        icon: '<i class="fas fa-align-left"></i>',
-      },
-      {
-        id: 2,
-        name: 'event',
-        icon: '<i class="fas fa-list"></i>',
-      },
-      {
-        id: 3,
-        name: 'IAM',
-        icon: '<i class="fas fa-home"></i>',
-      },
-      {
-        id: 4,
-        name: 'dashboard',
-        icon: '<i class="fas fa-chart-line"></i>',
-      },
-      {
-        id: 4,
-        name: 'profile',
-        icon: '<i class="fas fa-user"></i>',
-      },
-    ];
+    store.commit(MutationTypes.CHANGE_LEFT_DRAWER, false);
+    const buttons = reactive({
+      items: [
+        {
+          id: 1,
+          name: 'menu',
+          icon: '<i class="fas fa-align-left"></i>',
+          selected: false,
+        },
+        {
+          id: 2,
+          name: 'event',
+          icon: '<i class="fas fa-list"></i>',
+          selected: false,
+        },
+        {
+          id: 3,
+          name: 'IAM',
+          icon: '<i class="fas fa-home"></i>',
+          selected: false,
+        },
+        {
+          id: 4,
+          name: 'dashboard',
+          icon: '<i class="fas fa-chart-line"></i>',
+          selected: false,
+        },
+        {
+          id: 4,
+          name: 'profile',
+          icon: '<i class="fas fa-user"></i>',
+          selected: false,
+        },
+      ],
+    });
+
     // const MutationTypes = inject("MutationTypes",  );
 
-    const useHandleLeftDrawer = () => {
-      const showLeftDrawer = () => {
-        store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
-      };
-      return { showLeftDrawer };
+    const handleButtonOperation = (name: string) => {
+      switch (name) {
+        case 'menu':
+          store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
+          break;
+        case 'event':
+          router.push('/');
+          break;
+        case 'IAM':
+          router.push('/');
+          break;
+        case 'dashboard':
+          router.push('/main/dashboard/');
+          break;
+        case 'profile':
+          alert('준비중');
+          break;
+        default:
+          console.log('why??');
+      }
+    };
+    const handleCheckedButton = (obj: Buttons) => {
+      obj.selected = !obj.selected;
     };
 
-    const handleRouter = () => {
-      router.push('/default/dashboard');
-    };
-
-    const handleButtonGroup = (type: string) => {
-      router.push(type);
-    };
-    const handleGoPage = (obj: object) => {
-      console.log(obj);
-    };
-    const { showLeftDrawer } = useHandleLeftDrawer();
     return {
-      showLeftDrawer,
-      handleRouter,
-      handleButtonGroup,
       buttons,
-      handleGoPage,
+      handleButtonOperation,
+      handleCheckedButton,
     };
   },
 });
@@ -85,6 +105,7 @@ export default defineComponent({
   box-shadow: 0 0 1rem #43435e;
   .button__contents {
     flex: 1;
+
     .button {
       width: 100%;
       height: 100%;
@@ -97,6 +118,13 @@ export default defineComponent({
       .name {
         font-size: 12px;
         color: $blackFontColor;
+      }
+    }
+    &.selected {
+      .icon,
+      .name {
+        color: $signColor2;
+        transition: color 0.3s ease-in-out;
       }
     }
   }
