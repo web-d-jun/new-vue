@@ -1,14 +1,19 @@
 <template>
-    <div>
-        smartEventList
-    </div>
+  <div>smartEventList</div>
 </template>
 
 <script lang="ts">
+import useProgressBar from '@/composables/useProgressBar.ts';
+import { onMounted } from 'vue';
 export default {
-    name: 'smartEventList'
-}
+  name: 'smartEventList',
+  setup() {
+    const { setProgressBar } = useProgressBar();
+    onMounted(() => {
+      setProgressBar();
+    });
+  },
+};
 </script>
 <style lang="scss" scopd>
-    
 </style>

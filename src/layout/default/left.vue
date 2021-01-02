@@ -94,7 +94,7 @@ export default defineComponent({
   transition: all 300ms ease;
 }
 .slide-fade-leave-active {
-  transition: all 800ms cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 400ms cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {

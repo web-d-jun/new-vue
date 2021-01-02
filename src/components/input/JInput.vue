@@ -1,35 +1,30 @@
 <template>
   <div class="input-container">
-    <div class="label">{{propsObj.label}}</div>
-    <input
-      class="input"
-      :type="propsObj.mode === 'input' ? 'input' : 'password'"
-      :placeholder="propsObj.placeholder"
-      :value="value"
-    />
+    <div class="label">{{ propsObj.label }}</div>
+    <input class="input" :type="propsObj.mode === 'input' ? 'input' : 'password'" :placeholder="propsObj.placeholder" :value="value" />
     <span class="focus-input"></span>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive } from 'vue';
 export default defineComponent({
-  name: "JInput",
+  name: 'JInput',
   props: {
     label: String,
     mode: String,
     placeholder: String,
-    value: [String, Number]
+    value: [String, Number],
   },
   setup(props) {
     const propsObj = reactive({
       label: props.label,
       mode: props.mode,
-      placeholder: props.placeholder
+      placeholder: props.placeholder,
     });
     return {
-      propsObj
+      propsObj,
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
@@ -68,7 +63,7 @@ export default defineComponent({
     left: 0;
     pointer-events: none;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -2px;
       left: 0;
@@ -80,6 +75,12 @@ export default defineComponent({
       -o-transition: all 0.4s;
       background: linear-gradient(45deg, #d5007d, #e53935);
     }
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .label {
+    font-size: 17px;
   }
 }
 </style>

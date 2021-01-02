@@ -1,7 +1,7 @@
 <template>
   <div class="bottom__container">
     <div :class="['button__contents', { selected: item.selected }]" v-for="item in buttons.items" :key="item.id">
-      <button type="button" class="button" @click="[handleButtonOperation(item.name), handleCheckedButton(item)]">
+      <button type="button" class="button" @click="[handleButtonOperation(item.name)]">
         <div class="icon" v-html="item.icon" />
         <div class="name">{{ item.name }}</div>
       </button>
@@ -68,13 +68,13 @@ export default defineComponent({
           store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
           break;
         case 'event':
-          router.push('/');
+          router.push('/default/smartview-event-list/');
           break;
         case 'IAM':
-          router.push('/');
+          router.push('/main/');
           break;
         case 'dashboard':
-          router.push('/main/dashboard/');
+          router.push('/default/dashboard/');
           break;
         case 'profile':
           alert('준비중');
@@ -83,14 +83,10 @@ export default defineComponent({
           console.log('why??');
       }
     };
-    const handleCheckedButton = (obj: Buttons) => {
-      obj.selected = !obj.selected;
-    };
 
     return {
       buttons,
       handleButtonOperation,
-      handleCheckedButton,
     };
   },
 });

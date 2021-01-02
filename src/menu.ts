@@ -27,7 +27,7 @@ const menu: object[] = [
     name: "스마트전단문자",
     icon: "create",
     line: false,
-    path: "/default/smartview-sms-list",
+    path: "/default/smartview-event-list",
   },
   {
     name: "스마트POP",
