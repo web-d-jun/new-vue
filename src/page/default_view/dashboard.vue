@@ -1,7 +1,8 @@
 <template>
+  <JTitle title="Dashboard" />
   <div id="dashboardContainer">
-    <canvas id="myChart"></canvas>
-    <div class="data-container__wrap" v-for="(item, index) in dashBoardDataState.value" :key="index">
+    <!-- <canvas id="myChart"></canvas> -->
+    <div :class="['data-container__wrap', { mobileClick: mobileClickStatus }]" v-for="(item, index) in dashBoardDataState.value" :key="index">
       <div class="data-container front">
         <div class="data-contents">
           <div class="data__header">{{ item.title }}</div>
@@ -21,38 +22,39 @@
 </template>
 <script>
 import dashBoardData from '@/api/dashboard';
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, ref } from 'vue';
+import { useStore } from 'vuex';
+/**
+ * @type composables
+ */
 import useProgressBar from '@/composables/useProgressBar.ts';
+/**
+ * @type components
+ */
+import JTitle from '@/components/title/JTitle.vue';
+
 import Chart from 'chart.js';
 
 export default {
   name: 'Dashboard',
+  components: {
+    JTitle,
+  },
 
   setup() {
+    const store = useStore();
     const dashBoardDataState = reactive({
       value: dashBoardData,
     });
 
-    // if (document.readyState === 'loading') {
-    //   console.log('1')
-    // }
-    // if (document.readyState === 'interactive') {
-    //   console.log('2')
-    // }
-
-    // document.addEventListener('readystatechange', () => {
-    //   if (document.readyState === 'complete') {
-    //     console.log('3')
-    //   }
-    // });
     const { setProgressBar } = useProgressBar();
     onMounted(() => {
       setProgressBar();
-      const ctx = { value: document.getElementById('myChart') };
-      new Chart(ctx.value, {
-        type: 'bar',
-        data: [12, 19, 3, 5, 2, 3],
-      });
+      // const ctx = { value: document.getElementById('myChart') };
+      // new Chart(ctx.value, {
+      //   type: 'bar',
+      //   data: [12, 19, 3, 5, 2, 3],
+      // });
     });
 
     return {
@@ -75,7 +77,6 @@ export default {
     height: 200px;
     margin: 10px;
     transition: all 300ms ease-in;
-
     &:hover {
       .front {
         transform: rotateY(-180deg);
@@ -84,6 +85,7 @@ export default {
         transform: rotateY(0deg) !important;
       }
     }
+
     .data-container {
       position: absolute;
       left: 0;
