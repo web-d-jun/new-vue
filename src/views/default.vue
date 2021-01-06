@@ -71,7 +71,7 @@ export default {
     position: relative;
     overflow: hidden;
     &.mobile {
-      height: calc(100% - 110px);
+      height: calc(100% - 108px);
     }
   }
   .routerView__container {

@@ -23,7 +23,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .title__container {
-  width: 100%;
   height: 40px;
 //   border-bottom: 1px solid #a9a;
   background-color: #2d2d2d;
