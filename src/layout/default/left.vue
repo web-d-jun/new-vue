@@ -1,19 +1,17 @@
 <template>
-  <transition name="slide-fade">
-    <div id="leftContainer" v-if="$store.state.leftDrawer">
-      <List>
-        <List-item v-for="item in menuList" :key="item.name" @click.exact="handleRouterGo(item.path)">
-          <div class="wrap">
-            <list-item-action>
-              <i class="material-icons">{{ item.icon }}</i>
-            </list-item-action>
-            <List-item-title>{{ item.name }}</List-item-title>
-          </div>
-          <Line v-if="item.line" />
-        </List-item>
-      </List>
-    </div>
-  </transition>
+  <div id="leftContainer" :class="[{ expand: $store.state.leftDrawer }]">
+    <List>
+      <List-item v-for="item in menuList" :key="item.name" @click.exact="handleRouterGo(item.path)">
+        <div class="wrap">
+          <list-item-action>
+            <i class="material-icons">{{ item.icon }}</i>
+          </list-item-action>
+          <List-item-title>{{ item.name }}</List-item-title>
+        </div>
+        <Line v-if="item.line" />
+      </List-item>
+    </List>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, readonly } from 'vue';
@@ -75,8 +73,17 @@ export default defineComponent({
   background-color: rgb(43, 41, 41);
   border: 1px solid transparent;
   position: absolute;
-  left: 0;
   z-index: 1;
+  transition: all 400ms cubic-bezier(1, 0.5, 0.8, 1);
+  
+  opacity: 0;
+  transform: translateX(-250px);
+  &.expand {
+    transition: all 400ms ease-in;  
+    left: 0;
+    transform: translateX(0);
+    opacity: 1;
+  }
 
   .wrap {
     margin-left: 30px;

@@ -63,7 +63,7 @@ export default defineComponent({
     // const MutationTypes = inject("MutationTypes",  );
 
     const handleButtonOperation = (name: string) => {
-      if (store.state.leftDrawer) {
+      if (store.state.leftDrawer && name !== 'menu') {
         store.commit(MutationTypes.CHANGE_LEFT_DRAWER, false);
       }
       switch (name) {
