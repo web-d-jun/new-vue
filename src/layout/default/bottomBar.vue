@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject, reactive } from 'vue';
+import { defineComponent, inject, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../../store/mutation-types';
 
@@ -24,6 +24,9 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const router = inject('routerSymbol', [{}]);
+    const rootDocument = document.getElementById('app') as HTMLDivElement;
+    console.log(rootDocument);
+
     store.commit(MutationTypes.CHANGE_LEFT_DRAWER, false);
     const buttons = reactive({
       items: [
@@ -86,6 +89,17 @@ export default defineComponent({
           console.log('why??');
       }
     };
+    onMounted(() => {
+      /**
+       * @buttonRippleEvent
+       */
+      const buttonsElement = rootDocument.getElementsByClassName('button');
+      Array.prototype.forEach.call(buttonsElement, (e) => {
+        e.addEventListener('click', (event: Event) => {
+          console.log(event);
+        });
+      });
+    });
 
     return {
       buttons,

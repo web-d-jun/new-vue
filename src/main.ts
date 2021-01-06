@@ -32,3 +32,5 @@ app.provide('firebaseSymbol', firebase);
 app.provide('Comm', Comm);
 app.provide('MutationTypes', MutationTypes);
 router.isReady().then(() => app.mount('#app'));
+
+

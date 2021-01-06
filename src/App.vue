@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="appContainer">
     <router-view />
   </div>
 </template>
@@ -25,7 +25,8 @@ body {
   height: 100%;
   scroll-behavior: smooth;
 }
-#app {
+
+#app, #appContainer {
   font-family: Avenir, Helvetica, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
