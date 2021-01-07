@@ -95,8 +95,10 @@ export default defineComponent({
        */
       const buttonsElement = rootDocument.getElementsByClassName('button');
       Array.prototype.forEach.call(buttonsElement, (e) => {
-        e.addEventListener('click', (event: Event) => {
-          console.log(event);
+        e.addEventListener('click', () => {
+          const circle = document.createElement('div');
+          e.appendChild(circle);
+          circle.classList.add('ripple');
         });
       });
     });
@@ -124,6 +126,7 @@ export default defineComponent({
       height: 100%;
       outline: 0;
       border: 0;
+      position: relative;
       .icon {
         font-size: 20px;
         color: $blackFontColor;
@@ -131,6 +134,13 @@ export default defineComponent({
       .name {
         font-size: 12px;
         color: $blackFontColor;
+      }
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.7);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
       }
     }
     &.selected {
@@ -140,6 +150,13 @@ export default defineComponent({
         transition: color 0.3s ease-in-out;
       }
     }
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
   }
 }
 </style>
