@@ -25,7 +25,6 @@ export default defineComponent({
     const store = useStore();
     const router = inject('routerSymbol', [{}]);
     const rootDocument = document.getElementById('app') as HTMLDivElement;
-    console.log(rootDocument);
 
     store.commit(MutationTypes.CHANGE_LEFT_DRAWER, false);
     const buttons = reactive({
@@ -95,10 +94,18 @@ export default defineComponent({
        */
       const buttonsElement = rootDocument.getElementsByClassName('button');
       Array.prototype.forEach.call(buttonsElement, (e) => {
-        e.addEventListener('click', () => {
+        e.addEventListener('click', (event: MouseEvent) => {
           const circle = document.createElement('div');
-          e.appendChild(circle);
           circle.classList.add('ripple');
+          const d = Math.max(e.clientWidth, e.clientHeight);
+          circle.style.width = circle.style.height = d + 'px';
+          circle.style.left = event.clientX - e.offsetLeft - d / 2 + 'px';
+          circle.style.top = event.clientY - e.offsetTop - d / 2 + 'px';
+
+          setTimeout(() => {
+            e.removeChild(circle);
+          }, 2000);
+          e.appendChild(circle);
         });
       });
     });
@@ -127,6 +134,7 @@ export default defineComponent({
       outline: 0;
       border: 0;
       position: relative;
+      overflow: hidden;
       .icon {
         font-size: 20px;
         color: $blackFontColor;
@@ -135,12 +143,12 @@ export default defineComponent({
         font-size: 12px;
         color: $blackFontColor;
       }
-      .ripple {
+      ::v-deep .ripple {
         position: absolute;
         border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(0, 0, 0, 0.5);
         transform: scale(0);
-        animation: ripple 0.6s linear;
+        animation: ripple 0.4s linear;
       }
     }
     &.selected {
