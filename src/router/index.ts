@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     path: "/main/",
     name: "Main",
     meta: {
-      title: "#ImJun @@@ImJun is back",
+      title: "2021 Design",
     },
     component: () => import("@/views/main.vue"),
     children: mainPageRouter,
