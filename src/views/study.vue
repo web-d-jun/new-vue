@@ -15,6 +15,7 @@
 <script lang="ts">
 import { inject } from 'vue';
 import { useStore } from 'vuex';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import Right from '@/layout/study/right.vue';
 // import Cursor from '@/components/mouse/JCursor.vue';
 
@@ -25,8 +26,8 @@ export default {
     Right,
   },
   setup() {
-    const http: any = inject('http');
-    http.get('/mock/test.json').then((res: object) => {
+    const http: AxiosInstance = axios;
+    http.get('/mock/test.json').then((res: AxiosResponse) => {
       console.log(res);
     });
     const store = useStore();
