@@ -31,5 +31,6 @@ export default defineComponent({
   padding-left: 8px;
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
 }
 </style>
