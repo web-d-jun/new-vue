@@ -122,7 +122,7 @@ export default defineComponent({
   display: flex;
   width: 100%;
   height: 56px;
-  background-color: $defaultColor;
+  background-color: #fff;
   border-top: 2px solid #a9a;
   box-shadow: 0 0 1rem #43435e;
   .button__contents {
