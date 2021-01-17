@@ -3,12 +3,12 @@
     <div id="rightContents" class="right__contents">
       <div id="listContainer" class="list__container" data-scrollbar>
         <div class="menu__container flex">
-          <div class="button__wrap"><button class="button">IAM</button></div>
-          <div class="button__wrap"><button class="button">Vue</button></div>
-          <div class="button__wrap"><button class="button">Typescript</button></div>
-          <div class="button__wrap"><button class="button">Javascript</button></div>
-          <div class="button__wrap"><button class="button">AWS</button></div>
-          <div class="button__wrap"><button class="button">CSS</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">IAM</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">Vue</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">Typescript</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">Javascript</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">AWS</button></div>
+          <div class="button__wrap"><button class="button" @click="handleRouterGo('/main')">CSS</button></div>
         </div>
         <JLines />
         <div class="list__contents flex flex-wrap">
@@ -102,14 +102,18 @@ export default defineComponent({
     ];
     // router.push('/pass')
 
-    const goPage = (url: string) => {
-      console.log(url);
+    const useHandleRouterGo = () => {
+      const handleRouterGo = (path: string) => {
+        router.push(path);
+      };
+      return { handleRouterGo };
     };
+    const { handleRouterGo } = useHandleRouterGo();
     onMounted(() => {
       Scrollbar.init(document.querySelector('#listContainer') as HTMLDivElement);
     });
     return {
-      goPage,
+      handleRouterGo,
       dataArray,
     };
   },
@@ -199,8 +203,6 @@ export default defineComponent({
               background-size: 200% 200%;
               background: linear-gradient(45deg, #d5007d, #e53935);
               z-index: -1;
-            }
-            &:hover {
             }
           }
         }

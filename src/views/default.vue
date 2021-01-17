@@ -4,14 +4,14 @@
       <div id="defaultView">
         <Header />
         <JProgressBar />
-        <div :class="['body-contents', {mobile: $store.state.isMobile}]">
+        <div :class="['body-contents', { mobile: $store.state.isMobile }]">
           <Left />
           <div id="routerView" class="routerView__container" data-scrollbar>
             <router-view />
           </div>
         </div>
         <div class="right-container">
-          <Right v-if="!$store.state.isMobile"/>
+          <Right v-if="!$store.state.isMobile" />
         </div>
         <Bottom v-if="$store.state.isMobile" />
       </div>
@@ -26,7 +26,7 @@ import Right from '@/layout/default/right.vue';
 import Bottom from '@/layout/default/bottomBar.vue';
 
 import JProgressBar from '@/components/progress/JProgressBar.vue';
-import { onMounted } from 'vue';
+import { onMounted, inject } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../store/mutation-types';
 import Scrollbar from 'smooth-scrollbar';
@@ -44,6 +44,8 @@ export default {
   },
   setup() {
     const store = useStore();
+    const _m: any = inject('MutationTypes', {});
+    if (store.state.rightDrawer) store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, false);
     onMounted(() => {
       const scrollbar = Scrollbar.init(document.querySelector('#routerView') as HTMLDivElement);
       scrollbar.addListener((status) => {
