@@ -15,7 +15,7 @@ export default {
 </script>
 <style>
 * {
-  font-family:  'Noto Sans CJK KR'
+  font-family: 'Noto Sans CJK KR';
 }
 html,
 body {
@@ -24,9 +24,11 @@ body {
   width: 100%;
   height: 100%;
   scroll-behavior: smooth;
+  font-size: 15px;
 }
 
-#app, #appContainer {
+#app,
+#appContainer {
   font-family: Avenir, Helvetica, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
