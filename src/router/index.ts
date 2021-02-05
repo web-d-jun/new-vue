@@ -2,6 +2,7 @@ import { createRouter, RouteRecordRaw, createWebHistory } from "vue-router";
 import defaultPages from "./defaultPages";
 import mainPageRouter from "./mainPages";
 import studyPagesRouter from "./studyPages";
+import designPageRouter from './designPages';
 import * as Comm from "../assets/ts/common";
 
 const routes: RouteRecordRaw[] = [
@@ -21,6 +22,15 @@ const routes: RouteRecordRaw[] = [
     },
     component: () => import("@/views/main.vue"),
     children: mainPageRouter,
+  },
+  {
+    path: "/design/",
+    name: "Design",
+    meta: {
+      title: "Design",
+    },
+    component: () => import("@/views/design.vue"),
+    children: designPageRouter,
   },
   {
     path: "/default/",

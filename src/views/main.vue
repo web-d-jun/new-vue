@@ -34,6 +34,14 @@
         </div>
       </div>
       <div class="wrap">
+        <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/design/')">
+          <img src="" alt />
+          <div class="image__title">
+            <small>design</small>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
         <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/study/')">
           <img :src="require('../assets/img/main/study.jpg')" alt />
           <div class="image__title">
@@ -55,8 +63,7 @@
   </div>
 </template>
 <script lang="ts">
-import { inject, ref } from 'vue';
-import axios, { AxiosResponse, AxiosInstance } from 'axios';
+import { inject } from 'vue';
 import JButton from '@/components/button/JButton.vue';
 
 export default {
