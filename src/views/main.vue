@@ -35,7 +35,7 @@
       </div>
       <div class="wrap">
         <div class="aos-item aos-item--custom" data-aos="zoom-out-down" @click="router.push('/design/')">
-          <img src="" alt />
+          <img :src="require('../assets/img/main/design.jpg')" alt />
           <div class="image__title">
             <small>design</small>
           </div>

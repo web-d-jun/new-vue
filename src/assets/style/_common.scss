@@ -21,3 +21,12 @@ $signColor2: #e53935;
 .justify-between {
   justify-content: space-between;
 }
+
+.cursor-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+  :hover {
+    cursor: pointer;
+  }
+}
