@@ -1,51 +1,15 @@
 <template>
   <div class="design__container">
-    <div :class="['header', { expand: headerExpand }]" @mouseover="headerExpand = true" @mouseleave="headerExpand = false">
+    <div :class="['header', { expand: headerExpand }]" @mouseover.prevent="headerExpand = true" @mouseleave="headerExpand = false">
       <div :class="['scrollbar', { expand: headerExpand }]">
         <div class="image__container">
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
-            <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
-          </div>
-          <div class="image__contents">
+          <div class="image__contents" @click="handleRouter('design-1/')">
             <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
           </div>
         </div>
       </div>
 
-      <div class="header-arrow-button__contents cursor-pointer" @click="headerExpand = !headerExpand">
+      <div class="header-arrow-button__contents cursor-pointer" @click.prevent="headerExpand = !headerExpand" v-if="$store.state.isMobile">
         <i class="material-icons" v-if="!headerExpand">keyboard_arrow_down</i>
         <i class="material-icons" v-else>keyboard_arrow_up</i>
       </div>
@@ -62,9 +26,13 @@ export default {
   setup() {
     const router = inject('routerSymbol', [{}]);
     const headerExpand = ref(false);
-    // router.push('design-1/');
+
+    const handleRouter: (name: string) => void = (routerName: string) => {
+      return router.push(routerName);
+    };
     return {
       headerExpand,
+      handleRouter,
     };
   },
 };
@@ -88,7 +56,7 @@ $keepHeight: 40px;
     }
     .scrollbar {
       width: calc(100% - 70px);
-      height: 60px;
+      height: 40px;
       overflow-x: auto;
       overflow-y: hidden;
       transition: all 0.3s ease-in-out;
@@ -102,14 +70,16 @@ $keepHeight: 40px;
         height: 100%;
 
         .image__contents {
-          width: 100%;
-          line-height: 1%;
+          height: 100%;
+          display: inline-flex;
+          align-items: center;
           .image {
-            width: 250px;
+            width: 110px;
             height: 25px;
             transition: all 0.3s ease-in-out;
             object-fit: contain;
             &.expand {
+              width: 250px;
               height: 150px;
             }
             &:hover {
