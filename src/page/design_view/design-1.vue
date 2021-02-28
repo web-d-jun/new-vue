@@ -5,14 +5,18 @@
       <div class="header">
         <div class="logo"></div>
         <div class="navigation__contents">
-          <div class="navigation navigation--default">Home</div>
-          <div class="navigation navigation--default">about</div>
-          <div class="navigation navigation--default">service</div>
-          <div class="navigation navigation--default">contact</div>
-          <div class="navigation navigation--button">문의하기</div>
+          <div class="navigation navigation"><button type="button" class="button button--default">Home</button></div>
+          <div class="navigation navigation"><button type="button" class="button button--default">about</button></div>
+          <div class="navigation navigation"><button type="button" class="button button--default">service</button></div>
+          <div class="navigation navigation"><button type="button" class="button button--default">contact</button></div>
+          <div class="navigation navigation">
+            <button type="button" class="button button--point">문의하기</button>
+          </div>
         </div>
       </div>
-      <div class="body">body</div>
+      <div class="body">
+        <div class="section">멋진 비즈니스 웹 사이트 만들기</div>
+      </div>
     </div>
     <div class="sub__contents">sub</div>
   </div>
@@ -52,20 +56,31 @@ $main-contents-height: 500px;
 
     .header {
       height: 80px;
-      border: 1px solid;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 80px;
+      z-index: 1;
       .navigation__contents {
         display: flex;
 
         .navigation {
           width: 100px;
-          font-size: 20px;
-          color: $defaultColor;
+
+          .button {
+            font-size: 20px;
+            color: $defaultColor;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
       }
+    }
+    .body {
     }
   }
   .sub__contents {
