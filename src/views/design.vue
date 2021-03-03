@@ -3,8 +3,12 @@
     <div :class="['header', { expand: headerExpand }]" @mouseover.prevent="headerExpand = true" @mouseleave="headerExpand = false">
       <div :class="['scrollbar', { expand: headerExpand }]">
         <div class="image__container">
-          <div class="image__contents" @click="handleRouter('design-1/')">
+          <div class="image__contents" @click="handleRouter('design-2/')">
             <img :src="require('../assets/img/main/design.jpg')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
+          </div>
+
+          <div class="image__contents" @click="handleRouter('design-1/')">
+            <img :src="require('../assets/img/design/image_2133224.png')" alt="" :class="['image cursor-pointer', { expand: headerExpand }]" />
           </div>
         </div>
       </div>
@@ -28,7 +32,7 @@ export default {
     const headerExpand = ref(false);
 
     const handleRouter: (name: string) => void = (routerName: string) => {
-      return router.push(routerName);
+      return router.push(`/design/${routerName}`);
     };
     return {
       headerExpand,
@@ -50,6 +54,7 @@ $keepHeight: 40px;
     left: 0;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
+    z-index: 1;
     @include signature-background();
     &.expand {
       height: 200px;
@@ -73,14 +78,16 @@ $keepHeight: 40px;
           height: 100%;
           display: inline-flex;
           align-items: center;
+          padding-left: 20px;
           .image {
             width: 110px;
-            height: 25px;
+            height: 40px;
             transition: all 0.3s ease-in-out;
-            object-fit: contain;
+            object-fit: cover;
             &.expand {
               width: 250px;
               height: 150px;
+              object-fit: cover;
             }
             &:hover {
               transform: scale(1.1);
@@ -102,7 +109,6 @@ $keepHeight: 40px;
   }
   .body {
     padding-top: $keepHeight;
-    border: 1px solid blue;
   }
 }
 </style>
