@@ -1,6 +1,6 @@
 <template>
   <div class="container-header">
-    header
+    <div class="logo">logo</div>
     <div class="menu-links">
       <div class="links">About</div>
       <div class="links">Works</div>
@@ -9,7 +9,9 @@
   </div>
   <section>
     <div class="scroll-horizon__wrap" :style="{ left: scroll.value + 'px' }">
-      <div id="intero__container">left</div>
+      <div id="intro__container">
+        <div class="intro__contents">intro</div>
+      </div>
       <div id="contents__wrap">
         <div class="contents" v-for="i in 6" :key="i">
           <div>right</div>
@@ -66,6 +68,10 @@ $main-contents-header: 80px;
   width: 100%;
   padding: 60px 60px 15px;
   box-sizing: border-box;
+  z-index: 1;
+  .logo {
+    float: left;
+  }
   .menu-links {
     float: right;
     .links {
@@ -80,12 +86,15 @@ $main-contents-header: 80px;
   height: 100%;
   position: fixed;
   left: 0;
-  top: 190px;
+  top: 0;
   white-space: nowrap;
-  #intero__container {
+  #intro__container {
     height: 100%;
     width: calc(60% - 22rem);
     display: inline-block;
+    .intro__contents {
+      padding: 15rem 6rem 0 6rem;
+    }
   }
   #contents__wrap {
     width: calc(100% + 22rem);
