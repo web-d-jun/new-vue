@@ -54,7 +54,7 @@ $keepHeight: 40px;
     left: 0;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
     @include signature-background();
     &.expand {
       height: 200px;

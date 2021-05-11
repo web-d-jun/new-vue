@@ -12,12 +12,12 @@
 
 <script lang="ts">
 import { onMounted, reactive } from 'vue';
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 /**
  * @type composables
  */
-import useProgressBar from '@/composables/useProgressBar.ts';
+import useProgressBar from '@/composables/useProgressBar';
 /**
  * @type components
  */
