@@ -1,8 +1,8 @@
-import { createStore } from "vuex";
-import { State, state } from "./state";
-import { Mutations, mutations } from "./mutations";
+import { createStore } from 'vuex';
+import { state } from './state';
+import { mutations } from './mutations';
 
 export const store = createStore({
   state,
-  mutations
+  mutations,
 });

@@ -1,18 +1,16 @@
 <template>
   <div id="rightContainer" :class="{ expand: $store.state.rightDrawer }">
-    <div class="right-container__tab" @click="showRightDrawer">
-      menu
-    </div>
+    <div class="right-container__tab" @click="showRightDrawer">menu</div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject, reactive, ref } from "vue";
-import { useStore } from "vuex";
+import { defineComponent, inject } from 'vue';
+import { useStore } from 'vuex';
 export default defineComponent({
-  name: "rightContainer",
+  name: 'rightContainer',
   setup() {
     const store = useStore();
-    const _m: any = inject("MutationTypes", {});
+    const _m: any = inject('MutationTypes', {});
     const useHandleRightDrawer = () => {
       const showRightDrawer = () => {
         store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, !store.state.rightDrawer);
@@ -22,9 +20,9 @@ export default defineComponent({
 
     const { showRightDrawer } = useHandleRightDrawer();
     return {
-      showRightDrawer
+      showRightDrawer,
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>

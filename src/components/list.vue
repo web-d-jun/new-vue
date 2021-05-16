@@ -13,7 +13,7 @@ export default defineComponent({
   name: "ListContainer",
   setup() {
     onMounted(() => {
-      Scrollbar.init(document.querySelector<any>("#listContainer"));
+      Scrollbar.init(document.querySelector('#listContainer') as HTMLDivElement);
     });
   }
 });

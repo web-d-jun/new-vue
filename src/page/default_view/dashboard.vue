@@ -2,7 +2,7 @@
   <JTitle title="Dashboard" />
   <div id="dashboardContainer">
     <!-- <canvas id="myChart"></canvas> -->
-    <div :class="['data-container__wrap', { mobileClick: mobileClickStatus }]" v-for="(item, index) in dashBoardDataState.value" :key="index">
+    <div :class="['data-container__wrap']" v-for="(item, index) in dashBoardDataState.value" :key="index">
       <div class="data-container front">
         <div class="data-contents">
           <div class="data__header">{{ item.title }}</div>
@@ -22,8 +22,8 @@
 </template>
 <script>
 import dashBoardData from '@/api/dashboard';
-import { reactive, onMounted, ref } from 'vue';
-import { useStore } from 'vuex';
+import { reactive, onMounted } from 'vue';
+// import { useStore } from 'vuex';
 /**
  * @type composables
  */
@@ -33,7 +33,7 @@ import useProgressBar from '@/composables/useProgressBar.ts';
  */
 import JTitle from '@/components/title/JTitle.vue';
 
-import Chart from 'chart.js';
+// import Chart from 'chart.js';
 
 export default {
   name: 'Dashboard',
@@ -42,7 +42,7 @@ export default {
   },
 
   setup() {
-    const store = useStore();
+    // const store = useStore();
     const dashBoardDataState = reactive({
       value: dashBoardData,
     });

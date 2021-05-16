@@ -34,7 +34,7 @@ export default {
     const scrollBarEvent = () => {
       const addEvent = () => {
         // const scrollBarElement = document.querySelector('#maskContainer') as HTMLDivElement;
-        document.addEventListener('scroll', (e: Event) => {
+        document.addEventListener('scroll', () => {
           scroll.value = `-${window.scrollY}`;
         });
       };

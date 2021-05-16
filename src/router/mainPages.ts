@@ -1,9 +1,3 @@
-interface RouterPage {
-  path: string;
-  component: object;
-  name: any;
-  meta: object;
-}
 
 const mainPageRouter: RouterPage[] = [
   {

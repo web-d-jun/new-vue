@@ -2,19 +2,9 @@
   <div class="loginContainer" v-if="deviceMode === 'pc'">
     <div class="left-contents">Welcome to my world</div>
     <div class="flip-container">
-      <div class="right-contents" :class="[{flip: signUpMode}]">
-        <j-input
-          :label="'아이디를 입력하세요'"
-          :mode="'input'"
-          :placeholder="'이메일을 입력하세요.'"
-          :value="'testt'"
-        />
-        <j-input
-          :label="'비밀번호를 입력하세요'"
-          :mode="'number'"
-          :placeholder="'비밀번호를 입력하세요.'"
-          :value="'testtest'"
-        />
+      <div class="right-contents" :class="[{ flip: signUpMode }]">
+        <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'" :value="'testt'" />
+        <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" :value="'testtest'" />
         <div class="button-wrap">
           <div class="button-container">
             <button class="button" @click="handleSignIn">로그인</button>
@@ -22,22 +12,10 @@
           </div>
         </div>
       </div>
-      <div class="sign-up-container" :class="[{flip: !signUpMode}]">
+      <div class="sign-up-container" :class="[{ flip: !signUpMode }]">
         <div class="sign-up-contents">
-          <j-input
-            :label="'아이디'"
-            :mode="'input'"
-            :value="personInfo.id"
-            @input="val => personInfo.id = val.target.value"
-            :placeholder="'ex) cjy874545@gamil.com'"
-          />
-          <j-input
-            :label="'비밀번호'"
-            :mode="'number'"
-            :value="personInfo.pw"
-            @input="val => personInfo.pw = val.target.value"
-            :placeholder="'비밀번호를 입력하세요.'"
-          />
+          <j-input :label="'아이디'" :mode="'input'" :value="personInfo.id" @input="(val) => (personInfo.id = val.target.value)" :placeholder="'ex) cjy874545@gamil.com'" />
+          <j-input :label="'비밀번호'" :mode="'number'" :value="personInfo.pw" @input="(val) => (personInfo.pw = val.target.value)" :placeholder="'비밀번호를 입력하세요.'" />
           <div class="button-wrap">
             <div class="button-container">
               <button class="button" @click="handleSignUpSave">가입하기</button>
@@ -52,22 +30,12 @@
   <div class="loginContainer" v-if="deviceMode === 'mob'">
     <div class="left-contents mobile">
       <div class="logo-container">
-        <img :src="require('../assets/img/logo.png')" alt="" style="width: 100px; height: 100px;">
+        <img :src="require('../assets/img/logo.png')" alt="" style="width: 100px; height: 100px" />
       </div>
       <div class="flip-container">
-        <div class="right-contents" :class="[{flip: signUpMode}]">
-          <j-input
-            :label="'아이디를 입력하세요'"
-            :mode="'input'"
-            :placeholder="'이메일을 입력하세요.'"
-            :value="'testt'"
-          />
-          <j-input
-            :label="'비밀번호를 입력하세요'"
-            :mode="'number'"
-            :placeholder="'비밀번호를 입력하세요.'"
-            :value="'testtest'"
-          />
+        <div class="right-contents" :class="[{ flip: signUpMode }]">
+          <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'" :value="'testt'" />
+          <j-input :label="'비밀번호를 입력하세요'" :mode="'number'" :placeholder="'비밀번호를 입력하세요.'" :value="'testtest'" />
           <div class="button-wrap">
             <div class="button-container">
               <button class="button" @click="handleSignIn">로그인</button>
@@ -75,22 +43,10 @@
             </div>
           </div>
         </div>
-        <div class="sign-up-container" :class="[{flip: !signUpMode}]">
+        <div class="sign-up-container" :class="[{ flip: !signUpMode }]">
           <div class="sign-up-contents">
-            <j-input
-              :label="'아이디'"
-              :mode="'input'"
-              :value="personInfo.id"
-              @input="val => personInfo.id = val.target.value"
-              :placeholder="'ex) cjy874545@gamil.com'"
-            />
-            <j-input
-              :label="'비밀번호'"
-              :mode="'number'"
-              :value="personInfo.pw"
-              @input="val => personInfo.pw = val.target.value"
-              :placeholder="'비밀번호를 입력하세요.'"
-            />
+            <j-input :label="'아이디'" :mode="'input'" :value="personInfo.id" @input="(val) => (personInfo.id = val.target.value)" :placeholder="'ex) cjy874545@gamil.com'" />
+            <j-input :label="'비밀번호'" :mode="'number'" :value="personInfo.pw" @input="(val) => (personInfo.pw = val.target.value)" :placeholder="'비밀번호를 입력하세요.'" />
             <div class="button-wrap">
               <div class="button-container">
                 <button class="button" @click="handleSignUpSave">가입하기</button>
@@ -103,36 +59,37 @@
   </div>
 </template>
 <script lang="ts">
-import { inject, ref, reactive } from "vue";
-import jInput from "@/components/input/JInput.vue";
+import { inject, ref, reactive } from 'vue';
+import jInput from '@/components/input/JInput.vue';
 interface PersonInfo {
   id: string;
   pw: string;
 }
 export default {
-  name: "loginContainer",
+  name: 'loginContainer',
   components: {
-    jInput
+    jInput,
   },
   setup() {
-    const router = inject("routerSymbol", [{}]);
-    const firebase = inject("firebaseSymbol", "");
-    console.log(firebase);
+    const router = inject('routerSymbol', [{}]);
+    // const firebase = inject("firebaseSymbol", "");
+
     const signUpMode = ref(false);
-    const deviceMode = ref("pc");
+    const deviceMode = ref('pc');
 
     if (window.innerWidth <= 1390) {
-      deviceMode.value = "mob";
+      deviceMode.value = 'mob';
     }
 
     const personInfo: PersonInfo = reactive({
-      id: "",
-      pw: ""
+      id: '',
+      pw: '',
     });
 
     const useHandleLogin = () => {
       const handleSignIn = () => {
-        router.push("/default/dashboard");
+        console.log('login');
+        router.push('/default/dashboard');
       };
       const handleSignUp = () => {
         signUpMode.value = true;
@@ -140,7 +97,7 @@ export default {
       const handleSignUpSave = () => {
         signUpMode.value = false;
         console.log(personInfo);
-        console.log("저장!");
+        console.log('저장!');
       };
       return { handleSignIn, handleSignUp, handleSignUpSave };
     };
@@ -152,13 +109,13 @@ export default {
       handleSignUp,
       handleSignUpSave,
       signUpMode,
-      deviceMode
+      deviceMode,
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Piedra&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
 .loginContainer {
   width: 100%;
   height: 100%;
@@ -174,18 +131,18 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url("../assets/default/background2.jpg");
+    background-image: url('../assets/default/background2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
     font-size: 5em;
-    font-family: "Piedra", cursive;
+    font-family: 'Piedra', cursive;
     &.mobile {
       font-size: 1.3em;
       flex: 1;
       width: 100%;
-      font-family: Georgia, "Malgun Gothic", serif;
+      font-family: Georgia, 'Malgun Gothic', serif;
       display: flex;
       align-items: center;
       .logo-container {
