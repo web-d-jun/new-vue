@@ -13,12 +13,6 @@ import { defineComponent, inject, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../../store/mutation-types';
 
-interface Buttons {
-  id: number;
-  name: string;
-  icon: string;
-  selected: boolean;
-}
 export default defineComponent({
   name: 'Bottom',
   setup() {
@@ -73,7 +67,7 @@ export default defineComponent({
           store.commit(MutationTypes.CHANGE_LEFT_DRAWER, !store.state.leftDrawer);
           break;
         case 'event':
-          router.push('/default/smartview-event-list/');
+          router.push('/default/smart-event-list/');
           break;
         case 'IAM':
           router.push('/main/');

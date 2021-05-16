@@ -18,7 +18,7 @@ const defaultPageRouter: RouterPage[] = [
     },
   },
   {
-    path: 'smartview-event-list/',
+    path: 'smart-event-list/',
     component: () => import('@/page/default_view/smartEventList.vue'),
     name: 'SmartSms',
     meta: {

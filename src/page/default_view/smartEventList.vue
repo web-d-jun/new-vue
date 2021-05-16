@@ -37,7 +37,7 @@ export default {
     });
 
     axios.get('/mock/smart-event-list.json').then((res: AxiosResponse) => {
-      console.log(res.data);
+      // console.log(res.data);
       data.list = res.data;
     });
     onMounted(() => {

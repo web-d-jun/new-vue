@@ -1,7 +1,3 @@
-interface Data {
-  title: string;
-  data: number;
-}
 
 const data: Data[] = [
   {
