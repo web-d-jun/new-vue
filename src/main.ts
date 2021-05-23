@@ -10,6 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import * as Comm from './assets/ts/common';
 import * as MutationTypes from './store/mutation-types';
+import * as Filters from '@/common/ts/filters';
 // import {http, AxiosResponse} from '@/http/common.ts';
 
 AOS.init({
@@ -24,6 +25,11 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 const app = createApp(App);
 firebase.initializeApp(fireBaseConfig);
+
+app.config.globalProperties.$filters = {
+  ...Filters,
+};
+
 app.use(router);
 app.use(store);
 // app.provide('http', http)

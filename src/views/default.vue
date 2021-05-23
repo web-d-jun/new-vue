@@ -45,7 +45,7 @@ export default {
   setup() {
     const store = useStore();
     const _m: any = inject('MutationTypes', {});
-    console.log(_m,'mmmm', typeof _m)
+
     if (store.state.rightDrawer) store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, false);
     onMounted(() => {
       const scrollbar = Scrollbar.init(document.querySelector('#routerView') as HTMLDivElement);
@@ -64,7 +64,7 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
-  background-color: #272525;
+  background: #232629;
   overflow: hidden;
 
   .body-contents {

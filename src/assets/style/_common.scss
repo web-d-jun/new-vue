@@ -7,6 +7,8 @@ $blackFontColor: #2d2d2d;
 $signColor: #d5007d;
 $signColor2: #e53935;
 
+$grayButtonFonttColor: #7f8489;
+
 .flex {
   display: flex;
 }
@@ -29,4 +31,44 @@ $signColor2: #e53935;
   :hover {
     cursor: pointer;
   }
+}
+
+/*
+* @button
+*/
+.default-button {
+  border: 0;
+  outline: 0;
+}
+
+/**
+ * @Neumorphism
+*/
+@mixin neumorphism-pressed() {
+  background: #232629;
+  box-shadow: inset 5px 5px 13px #141618, inset -5px -5px 13px #32363a;
+}
+
+.neumorphism {
+  &.active {
+    &:active {
+      @include neumorphism-pressed();
+    }
+  }
+}
+
+.neumorphism-flat {
+  background: #232629;
+  box-shadow: 5px 5px 13px #141618, -5px -5px 13px #32363a;
+}
+.neumorphism-concave {
+  background: linear-gradient(145deg, #202225, #25292c);
+  box-shadow: 5px 5px 13px #141618, -5px -5px 13px #32363a;
+}
+.neumorphism-convex {
+  background: linear-gradient(145deg, #25292c, #202225);
+  box-shadow: 5px 5px 13px #141618, -5px -5px 13px #32363a;
+}
+.neumorphism-pressed {
+  @include neumorphism-pressed();
 }

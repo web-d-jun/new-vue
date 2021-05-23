@@ -24,7 +24,7 @@ body {
   width: 100%;
   height: 100%;
   scroll-behavior: smooth;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 #app,

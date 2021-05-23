@@ -141,6 +141,7 @@ export default {
       .scroll__contents {
         .text {
           margin-bottom: 15px;
+          font-size: 1.5rem;
         }
         .icon {
           animation-name: moving;

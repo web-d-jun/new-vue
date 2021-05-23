@@ -1,12 +1,19 @@
 <template>
-  <JTitle title="smartEventList" />
+  <JTitle title="스마트전단지" />
   <div class="container">
-    <div class="wrap" v-for="(item, index) in data.list" :key="index">
-      <div class="contents">
-        <div class="header">{{ dayjs().format('YYYYMMDDHHmmss') }} - {{ item.title }}</div>
-        <JLines />
-      </div>
+    <div class="option__container">
+      <button type="button" class="button add default-button neumorphism neumorphism-convex active">등록</button>
+      <!-- <button type="button" class="button remove default-button"><i class="fas fa-minus"></i> 삭제</button> -->
     </div>
+    <Carousel :show="$store.state.isMobile" :sliderInitValue="640">
+      <template #default="propsObj">
+        <div class="smart-view-list__container">
+          <div :class="['smart-view-list-container__wrap', { mobile: $store.state.isMobile }]" :style="{ left: `${propsObj.sliderValue}px` }">
+            <div class="smart-view-box neumorphism neumorphism-flat" v-for="i in 5" :key="i"></div>
+          </div>
+        </div>
+      </template>
+    </Carousel>
   </div>
 </template>
 
@@ -22,13 +29,14 @@ import useProgressBar from '@/composables/useProgressBar';
  * @type components
  */
 import JTitle from '@/components/title/JTitle.vue';
-import JLines from '@/components/JLines.vue';
+import Carousel from '@/components/carousel/default.vue';
+// import JLines from '@/components/JLines.vue';
 
 export default {
   name: 'smartEventList',
   components: {
     JTitle,
-    JLines,
+    Carousel,
   },
   setup() {
     const { setProgressBar } = useProgressBar();
@@ -51,26 +59,5 @@ export default {
 };
 </script>
 <style lang="scss" scopd>
-.container {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  max-width: 900px;
-  margin: 0 auto;
-  .wrap {
-    width: 100%;
-    padding: 10px 0;
-    .contents {
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.1);
-      .header {
-        width: 100%;
-        height: 30px;
-        text-align: center;
-        color: $defaultColor;
-        line-height: 30px;
-      }
-    }
-  }
-}
+@import './scss/smartEventList.scss';
 </style>

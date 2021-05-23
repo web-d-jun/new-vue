@@ -1,6 +1,6 @@
 <template>
   <div class="loginContainer" v-if="deviceMode === 'pc'">
-    <div class="left-contents">Welcome to my world</div>
+    <div class="left-contents">I A M</div>
     <div class="flip-container">
       <div class="right-contents" :class="[{ flip: signUpMode }]">
         <j-input :label="'아이디를 입력하세요'" :mode="'input'" :placeholder="'이메일을 입력하세요.'" :value="'testt'" />
@@ -96,7 +96,7 @@ export default {
       };
       const handleSignUpSave = () => {
         signUpMode.value = false;
-        console.log(personInfo);
+        
         console.log('저장!');
       };
       return { handleSignIn, handleSignUp, handleSignUpSave };
