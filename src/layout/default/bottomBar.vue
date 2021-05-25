@@ -129,13 +129,14 @@ export default defineComponent({
       border: 0;
       position: relative;
       overflow: hidden;
+      background-color: #232629;
       .icon {
         font-size: 20px;
-        color: $blackFontColor;
+        color: $grayButtonFonttColor;
       }
       .name {
         font-size: 12px;
-        color: $blackFontColor;
+        color: $grayButtonFonttColor;
       }
       ::v-deep .ripple {
         position: absolute;
