@@ -64,7 +64,7 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
-  background: #232629;
+  background: #dfeef8;
   overflow: hidden;
 
   .body-contents {
