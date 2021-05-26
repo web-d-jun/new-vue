@@ -64,7 +64,7 @@ export default {
 #defaultView {
   width: 100%;
   height: 100%;
-  background: #2C2F33;
+  background: #2c2f33;
   overflow: hidden;
 
   .body-contents {
@@ -83,7 +83,7 @@ export default {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
   }
   .right-container {
     position: fixed;

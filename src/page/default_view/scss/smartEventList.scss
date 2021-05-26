@@ -5,7 +5,6 @@
   margin: 0 auto;
   padding-top: 1%;
   .option__container {
-    width: 100%;
     padding: 0 10px;
     .button {
       // background-color: rgba($color: #fff, $alpha: 0.8);
@@ -47,7 +46,7 @@
         max-width: 600px;
         height: 500px;
         display: inline-block;
-        margin-right: 40px;
+        // margin-right: 40px;
         border-radius: 20px;
         .contents-bottom {
           width: 100%;

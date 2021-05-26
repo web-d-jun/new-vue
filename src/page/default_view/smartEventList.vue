@@ -3,7 +3,6 @@
   <div class="container">
     <div class="option__container">
       <button type="button" class="button add default-button np-button np-button-flat active">등록</button>
-      <!-- <button type="button" class="button remove default-button"><i class="fas fa-minus"></i> 삭제</button> -->
     </div>
     <Carousel :show="$store.state.isMobile" :sliderInitValue="640">
       <template #default="propsObj">
