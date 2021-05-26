@@ -20,7 +20,12 @@
                 <div class="description" v-html="list.description"></div>
               </div>
               <div class="contents-bottom">
-                <div></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--copy">복사하기</button></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--pop">스마트POP</button></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--preview">미리보기</button></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--sms">단문발송</button></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--mms">장문발송</button></div>
+                <div class="button__wrap"><button type="button" class="default-button button button--edit">수정</button></div>
               </div>
             </div>
           </div>

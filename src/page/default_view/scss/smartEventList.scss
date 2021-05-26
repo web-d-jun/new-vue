@@ -48,6 +48,44 @@
         height: 500px;
         display: inline-block;
         margin-right: 40px;
+        .contents-bottom {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          .button__wrap {
+            flex: 1 1 200px;
+            height: 3.5vh;
+            padding: 10px 0px;
+            text-align: center;
+            border-radius: 10px;
+            .button {
+              border-radius: 10px;
+              width: 90%;
+              height: 100%;
+              @include cursor(pointer);
+              background: #d5007d;
+              box-shadow: 0px 0px 1px #ca0077, 0px -4px 20px #e00083;
+
+              color: $defaultColor;
+              font-size: 1.5rem;
+              &:active {
+                box-shadow: inset 0px 0px 1px #ca0077, inset 0px -4px 20px #e00083;
+              }
+              &--copy {
+              }
+              &--pop {
+              }
+              &--preview {
+              }
+              &--sms {
+              }
+              &--mms {
+              }
+              &--edit {
+              }
+            }
+          }
+        }
       }
     }
   }
