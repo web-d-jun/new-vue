@@ -162,6 +162,7 @@ export default {
   .aos__container {
     padding-bottom: 100px;
     overflow: hidden;
+    padding-top: 50px;
     // display: flex;
     // flex-wrap: wrap;
 
