@@ -41,6 +41,12 @@
           margin-bottom: 30px;
         }
       }
+      .wrapper {
+        padding-right: 40px;
+        display: inline-block;
+        width: 100%;
+        max-width: 600px;
+      }
       .smart-view-box {
         width: 100%;
         max-width: 600px;
@@ -48,6 +54,7 @@
         display: inline-block;
         // margin-right: 40px;
         border-radius: 20px;
+
         .contents-bottom {
           width: 100%;
           display: flex;
@@ -64,7 +71,7 @@
               height: 100%;
               @include cursor(pointer);
               // background: linear-gradient(90deg, #ffffff -22%, #ff8c31 27%);
-              
+
               color: #fd8711;
               font-size: 1.5rem;
               &--copy {

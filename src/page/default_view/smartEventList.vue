@@ -8,23 +8,25 @@
       <template #default="propsObj">
         <div class="smart-view-list__container">
           <div :class="['smart-view-list-container__wrap', { mobile: $store.state.isMobile }]" :style="{ left: `${propsObj.sliderValue}px` }">
-            <div class="smart-view-box np-button np-button-flat" v-for="(list, index) in data.list" :key="index">
-              <div class="contents-top flex">
-                <div class="image__container">대표전단 이미지</div>
-                <div class="infomation__container">
-                  <div>{{ list.title }}</div>
+            <div class="wrapper" v-for="(list, index) in data.list" :key="index">
+              <div class="smart-view-box np-button np-button-flat">
+                <div class="contents-top flex">
+                  <div class="image__container">대표전단 이미지</div>
+                  <div class="infomation__container">
+                    <div>{{ list.title }}</div>
+                  </div>
                 </div>
-              </div>
-              <div class="contents-middle">
-                <div class="description" v-html="list.description"></div>
-              </div>
-              <div class="contents-bottom">
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--copy">복사하기</button></div>
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--pop">스마트POP</button></div>
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--preview">미리보기</button></div>
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--sms">단문발송</button></div>
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--mms">장문발송</button></div>
-                <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--edit">수정</button></div>
+                <div class="contents-middle">
+                  <div class="description" v-html="list.description"></div>
+                </div>
+                <div class="contents-bottom">
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--copy">복사하기</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--pop">스마트POP</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--preview">미리보기</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--sms">단문발송</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--mms">장문발송</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--edit">수정</button></div>
+                </div>
               </div>
             </div>
           </div>
