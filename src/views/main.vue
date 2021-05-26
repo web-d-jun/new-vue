@@ -252,7 +252,7 @@ export default {
 
 @media screen and (max-width: 875px) {
   .aos__container {
-    padding: 0 20px;
+    // padding: 0 20px;
     .wrap {
       display: flex;
       width: 100% !important;
