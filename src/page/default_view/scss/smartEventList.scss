@@ -33,7 +33,7 @@
       width: auto;
       height: 100%;
       white-space: nowrap;
-      padding: 30px 10px 20px 10px;
+      padding: 30px 20px 20px 20px;
       left: 0;
       transition: left 0.5s ease-in-out;
       &.mobile {
@@ -48,6 +48,7 @@
         height: 500px;
         display: inline-block;
         margin-right: 40px;
+        border-radius: 20px;
         .contents-bottom {
           width: 100%;
           display: flex;

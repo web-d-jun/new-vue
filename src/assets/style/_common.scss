@@ -46,7 +46,7 @@ $grayButtonFonttColor: #7f8489;
 */
 @mixin neumorphism-pressed() {
   background: #dfeef8;
-  box-shadow: inset 7px 7px 27px #c5e1f3, inset -7px -7px 27px #ffffff;
+  box-shadow: inset 14px 13px 33px #becad3, inset -2px -2px 35px #7cf9ff;
 }
 
 .neumorphism {
@@ -59,7 +59,7 @@ $grayButtonFonttColor: #7f8489;
 
 .neumorphism-flat {
   background: #dfeef8;
-  box-shadow: 7px 7px 27px #c5e1f3, -7px -7px 27px #ffffff;
+  box-shadow: 14px 13px 33px #becad3, -2px -2px 35px #7cf9ff;
 }
 .neumorphism-concave {
   background: linear-gradient(145deg, #c9d6df, #efffff);
@@ -67,7 +67,11 @@ $grayButtonFonttColor: #7f8489;
 }
 .neumorphism-convex {
   background: linear-gradient(145deg, #efffff, #c9d6df);
-  box-shadow: 7px 7px 27px #c5e1f3, -7px -7px 27px #ffffff;
+  box-shadow: 14px 13px 33px #becad3, -2px -2px 35px #7cf9ff;
+  &--100 {
+    background: linear-gradient(145deg, #efffff, #c9d6df);
+    box-shadow: 14px 13px 33px #becad3, -2px -2px 35px #7cf9ff;
+  }
 }
 .neumorphism-pressed {
   @include neumorphism-pressed();
