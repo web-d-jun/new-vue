@@ -64,14 +64,10 @@
               width: 90%;
               height: 100%;
               @include cursor(pointer);
-              background: #d5007d;
-              box-shadow: 0px 0px 1px #ca0077, 0px -4px 20px #e00083;
-
-              color: $defaultColor;
+              // background: linear-gradient(90deg, #ffffff -22%, #ff8c31 27%);
+              
+              color: #fd8711;
               font-size: 1.5rem;
-              &:active {
-                box-shadow: inset 0px 0px 1px #ca0077, inset 0px -4px 20px #e00083;
-              }
               &--copy {
               }
               &--pop {

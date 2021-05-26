@@ -1,7 +1,7 @@
 <template>
   <div class="carousel__container">
-    <button type="button" class="button button--prev default-button neumorphism neumorphism-convex active" v-if="!props.show" @click="prev"><i class="fas fa-angle-left"></i></button>
-    <button type="button" class="button button--next default-button neumorphism neumorphism-convex active" v-if="!props.show" @click="next"><i class="fas fa-angle-right"></i></button>
+    <button type="button" class="button button--prev default-button np-button np-button-flat active" v-if="!props.show" @click="prev"><i class="fas fa-angle-left"></i></button>
+    <button type="button" class="button button--next default-button np-button np-button-flat active" v-if="!props.show" @click="next"><i class="fas fa-angle-right"></i></button>
     <slot :sliderValue="slider.value"></slot>
   </div>
 </template>
