@@ -9,7 +9,7 @@
     .button {
       // background-color: rgba($color: #fff, $alpha: 0.8);
       width: 100px;
-      height: 60px;
+      height: 5vh;
       @include cursor(pointer);
       &.add {
         color: $grayButtonFonttColor;
@@ -50,7 +50,7 @@
       .smart-view-box {
         width: 100%;
         max-width: 600px;
-        height: 500px;
+        height: 100%;
         display: inline-block;
         // margin-right: 40px;
         border-radius: 20px;
@@ -58,8 +58,22 @@
           width: 100%;
           width: 100%;
           .image__container {
-            width: 200px;
-            height: 200px;
+            width: 240px;
+            height: 240px;
+            padding: 0 10px;
+          }
+          .infomation__container {
+            color: $defaultColor;
+            padding: 0 10px;
+          }
+        }
+
+        .contents-middle {
+          height: 150px;
+          .description {
+            font-size: 1.5rem;
+            color: $defaultColor;
+            padding: 0 10px;
           }
         }
 
@@ -68,9 +82,9 @@
           display: flex;
           flex-wrap: wrap;
           .button__wrap {
-            flex: 1 1 30%;
+            flex: 1 1 25%;
             height: 3.5vh;
-            padding: 10px 0px;
+            padding: 10px;
             text-align: center;
             border-radius: 10px;
             .button {
