@@ -54,13 +54,21 @@
         display: inline-block;
         // margin-right: 40px;
         border-radius: 20px;
+        .contents-top {
+          width: 100%;
+          width: 100%;
+          .image__container {
+            width: 200px;
+            height: 200px;
+          }
+        }
 
         .contents-bottom {
           width: 100%;
           display: flex;
           flex-wrap: wrap;
           .button__wrap {
-            flex: 1 1 200px;
+            flex: 1 1 30%;
             height: 3.5vh;
             padding: 10px 0px;
             text-align: center;

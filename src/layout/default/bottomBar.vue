@@ -1,7 +1,7 @@
 <template>
   <div class="bottom__container">
     <div :class="['button__contents', { selected: item.selected }]" v-for="item in buttons.items" :key="item.id">
-      <button type="button" class="button" @click="[handleButtonOperation(item.name)]">
+      <button type="button" class="button ripple-button" @click="[handleButtonOperation(item.name)]">
         <div class="icon" v-html="item.icon" />
         <div class="name">{{ item.name }}</div>
       </button>
@@ -86,7 +86,7 @@ export default defineComponent({
       /**
        * @buttonRippleEvent
        */
-      const buttonsElement = rootDocument.getElementsByClassName('button');
+      const buttonsElement = rootDocument.getElementsByClassName('ripple-button');
       Array.prototype.forEach.call(buttonsElement, (e) => {
         e.addEventListener('click', (event: MouseEvent) => {
           const circle = document.createElement('div');

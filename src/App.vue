@@ -25,6 +25,7 @@ body {
   height: 100%;
   scroll-behavior: smooth;
   font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #app,
