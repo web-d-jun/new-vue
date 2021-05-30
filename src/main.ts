@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import * as Comm from './assets/ts/common';
 import * as MutationTypes from './store/mutation-types';
 import * as Filters from '@/common/ts/filters';
-// import {http, AxiosResponse} from '@/http/common.ts';
+import * as dayjs from 'dayjs';
 
 AOS.init({
   duration: 1200,
@@ -32,11 +32,12 @@ app.config.globalProperties.$filters = {
 
 app.use(router);
 app.use(store);
-// app.provide('http', http)
 app.provide('routerSymbol', router);
 app.provide('firebaseSymbol', firebase);
 app.provide('Comm', Comm);
 app.provide('MutationTypes', MutationTypes);
+app.provide('dayjs', dayjs);
+// app.config.globalProperties.$dayjs = dayjs;
 router.isReady().then(() => {
   app.mount('#app');
 });

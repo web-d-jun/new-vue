@@ -21,11 +21,14 @@ export default defineComponent({
       value: 0,
     });
     const prev = () => {
+      if (slider.value === 0) {
+        return;
+      }
       slider.value += props.sliderInitValue;
     };
     const next = () => {
       slider.value -= props.sliderInitValue;
-      console.log(slider.value);
+      // console.log(slider.value);
     };
 
     return {

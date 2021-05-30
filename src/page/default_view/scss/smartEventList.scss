@@ -1,3 +1,17 @@
+@mixin title-property {
+  height: 20px;
+  color: $grayColor;
+  position: relative;
+  line-height: 20px;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    border-top: 1px solid $grayColor;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 .container {
   width: 100%;
   height: 100%;
@@ -56,24 +70,59 @@
         border-radius: 20px;
         .contents-top {
           width: 100%;
-          width: 100%;
+          padding-top: 10px;
           .image__container {
             width: 240px;
             height: 240px;
             padding: 0 10px;
+            .image__container-title {
+              @include title-property();
+              &::after {
+                left: 80px;
+              }
+            }
+            .image__contents {
+              height: 240px;
+              .image {
+                object-fit: cover;
+                width: 100%;
+                height: calc(100% - 20px);
+              }
+            }
           }
           .infomation__container {
+            flex: 1;
             color: $defaultColor;
             padding: 0 10px;
+            .info-title {
+              @include title-property();
+              &::after {
+                left: 45px;
+              }
+            }
+            .info-contents {
+              font-size: 1.5rem;
+              color: $pointColor;
+              padding: 4px 0 4px 4px;
+            }
           }
         }
 
         .contents-middle {
           height: 150px;
-          .description {
-            font-size: 1.5rem;
-            color: $defaultColor;
-            padding: 0 10px;
+          .description__container {
+            padding: 10px;
+            .description-title {
+              @include title-property();
+              &::after {
+                left: 45px;
+              }
+            }
+            .description {
+              font-size: 1.5rem;
+              color: $defaultColor;
+              padding: 4px;
+            }
           }
         }
 
@@ -94,7 +143,7 @@
               @include cursor(pointer);
               // background: linear-gradient(90deg, #ffffff -22%, #ff8c31 27%);
 
-              color: #fd8711;
+              color: $pointColor;
               font-size: 1.5rem;
               &--copy {
               }

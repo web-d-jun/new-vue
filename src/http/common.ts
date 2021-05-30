@@ -1,6 +1,6 @@
-import axios  from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-const http = axios.create({
+const http: AxiosInstance = axios.create({
   baseURL: '/',
   headers: {
     'Content-type': 'application/json',
@@ -10,7 +10,4 @@ const http = axios.create({
 // export  interface Response {
 //     AxiosRespons: AxiosResponse
 // }
-export  {
-  http,
-}
-
+export { http, AxiosResponse };

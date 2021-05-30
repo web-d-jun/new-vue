@@ -11,13 +11,24 @@
             <div class="wrapper" v-for="(list, index) in data.list" :key="index">
               <div class="smart-view-box np-button np-button-flat">
                 <div class="contents-top flex">
-                  <div class="image__container">대표전단 이미지</div>
+                  <div class="image__container">
+                    <div class="image__container-title">대표전단 이미지</div>
+                    <div class="image__contents">
+                      <img :src="require(`~img/default/food_${list.img}.jpg`)" class="image" alt="" />
+                    </div>
+                  </div>
                   <div class="infomation__container">
-                    <div>{{ list.title }}</div>
+                    <div class="info-title">행사제목</div>
+                    <div class="info-contents">{{ list.title }}</div>
+                    <div class="info-title">행사날짜</div>
+                    <div class="info-contents">{{ list.range }}</div>
                   </div>
                 </div>
                 <div class="contents-middle">
-                  <div class="description" v-html="list.description"></div>
+                  <div class="description__container">
+                    <div class="description-title">상세내용</div>
+                    <div class="description" v-html="list.description"></div>
+                  </div>
                 </div>
                 <div class="contents-bottom">
                   <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--copy">복사하기</button></div>
@@ -38,7 +49,7 @@
 
 <script lang="ts">
 import { onMounted, reactive } from 'vue';
-import axios, { AxiosResponse } from 'axios';
+import { http, AxiosResponse } from '@/http/common';
 import dayjs from 'dayjs';
 /**
  * @type composables
@@ -63,9 +74,19 @@ export default {
       list: [],
     });
 
-    axios.get('/mock/smart-event-list.json').then((res: AxiosResponse) => {
-      data.list = res.data;
+    http.get('/mock/smart-event-list.json').then((res: AxiosResponse) => {
+      data.list = res.data.map((x: { title: string; description: string }) => {
+        return {
+          title: x.title,
+          description: x.description,
+          img: Math.floor(Math.random() * 5) + 1,
+          range: `${dayjs().format('YYYY-MM-DD')} ~ ${dayjs()
+            .add(Math.floor(Math.random() * 30) + 1, 'day')
+            .format('YYYY-MM-DD')}`,
+        };
+      });
     });
+
     onMounted(() => {
       setProgressBar();
     });
