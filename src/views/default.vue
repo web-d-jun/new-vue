@@ -28,10 +28,10 @@ import Bottom from '@/layout/default/bottomBar.vue';
 import JProgressBar from '@/components/progress/JProgressBar.vue';
 import { onMounted, inject } from 'vue';
 import { useStore } from 'vuex';
-import { MutationTypes } from '../store/mutation-types';
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
-Scrollbar.use(OverscrollPlugin);
+// import { MutationTypes } from '../store/mutation-types';
+// import Scrollbar from 'smooth-scrollbar';
+// import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+// Scrollbar.use(OverscrollPlugin);
 
 export default {
   name: 'Default',
@@ -48,14 +48,14 @@ export default {
 
     if (store.state.rightDrawer) store.commit(_m.MutationTypes.CHANGE_RIGHT_DRAWER, false);
     onMounted(() => {
-      const scrollbar = Scrollbar.init(document.querySelector('#routerView') as HTMLDivElement);
-      scrollbar.addListener((status) => {
-        if (status.offset.y > 0) {
-          store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
-        } else {
-          store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
-        }
-      });
+      // const scrollbar = document.querySelector('#routerView') as HTMLDivElement
+      // scrollbar.addEventListener((status) => {
+      //   if (status.offset.y > 0) {
+      //     store.commit(MutationTypes.SHOW_HEADER_SHADOW, true);
+      //   } else {
+      //     store.commit(MutationTypes.SHOW_HEADER_SHADOW, false);
+      //   }
+      // });
     });
   },
 };

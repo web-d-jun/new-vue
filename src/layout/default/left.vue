@@ -15,7 +15,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, readonly } from 'vue';
-import Menu from '@/menu.ts';
+import Menu from '@/menu';
 import { useStore } from 'vuex';
 import { MutationTypes } from '../../store/mutation-types';
 import List from '@/components/list.vue';
