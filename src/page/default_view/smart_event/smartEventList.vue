@@ -36,7 +36,7 @@
                   <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--preview">미리보기</button></div>
                   <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--sms">단문발송</button></div>
                   <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--mms">장문발송</button></div>
-                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--edit">수정</button></div>
+                  <div class="button__wrap"><button type="button" class="np-button np-button-flat active default-button button button--edit" @click="$router.push('detail/')">수정</button></div>
                 </div>
               </div>
             </div>
@@ -58,14 +58,12 @@ import useProgressBar from '@/composables/useProgressBar';
 /**
  * @type components
  */
-import JTitle from '@/components/title/JTitle.vue';
 import Carousel from '@/components/carousel/default.vue';
 // import JLines from '@/components/JLines.vue';
 
 export default {
   name: 'smartEventList',
   components: {
-    JTitle,
     Carousel,
   },
   setup() {

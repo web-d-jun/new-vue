@@ -1,8 +1,6 @@
 import router from '@/router';
-const useRouter = () => {
-  return router as typeof router;
+const useRouter = (): typeof router => {
+  return router;
 };
 
-export {
-  useRouter
-}
+export { useRouter };

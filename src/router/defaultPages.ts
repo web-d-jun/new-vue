@@ -1,5 +1,3 @@
-
-
 const defaultPageRouter: RouterPage[] = [
   {
     path: 'dashboard/',
@@ -19,10 +17,18 @@ const defaultPageRouter: RouterPage[] = [
   },
   {
     path: 'smart-event-list/',
-    component: () => import('@/page/default_view/smartEventList.vue'),
+    component: () => import('@/page/default_view/smart_event/smartEventList.vue'),
     name: 'SmartSms',
     meta: {
       title: 'SmartSms',
+    },
+  },
+  {
+    path: 'smart-event-list/detail/',
+    component: () => import('@/page/default_view/smart_event/smartEventDetail.vue'),
+    name: 'SmartViewDetail',
+    meta: {
+      title: 'SmartViewDetail',
     },
   },
 ];

@@ -13,6 +13,11 @@ import * as MutationTypes from './store/mutation-types';
 import * as Filters from '@/common/ts/filters';
 import * as dayjs from 'dayjs';
 
+/**
+ * @components
+ */
+import JTitle from '@/components/title/JTitle.vue';
+
 AOS.init({
   duration: 1200,
 });
@@ -38,6 +43,8 @@ app.provide('Comm', Comm);
 app.provide('MutationTypes', MutationTypes);
 app.provide('dayjs', dayjs);
 // app.config.globalProperties.$dayjs = dayjs;
+
+app.component('JTitle', JTitle);
 router.isReady().then(() => {
   app.mount('#app');
 });

@@ -31,14 +31,12 @@ import useProgressBar from '@/composables/useProgressBar.ts';
 /**
  * @type components
  */
-import JTitle from '@/components/title/JTitle.vue';
 
 // import Chart from 'chart.js';
 
 export default {
   name: 'Dashboard',
   components: {
-    JTitle,
   },
 
   setup() {

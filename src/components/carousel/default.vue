@@ -20,13 +20,13 @@ export default defineComponent({
     const slider = reactive({
       value: 0,
     });
-    const prev = () => {
+    const prev = (): void => {
       if (slider.value === 0) {
         return;
       }
       slider.value += props.sliderInitValue;
     };
-    const next = () => {
+    const next = (): void => {
       slider.value -= props.sliderInitValue;
       // console.log(slider.value);
     };

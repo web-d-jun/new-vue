@@ -5,16 +5,16 @@ export default function useProgressBar() {
   const store = useStore();
   const _m: any = inject('MutationTypes');
 
-  const showProgressBar = () => {
+  const showProgressBar = (): void => {
     store.commit(_m.MutationTypes.SHOW_PROGRESS_BAR, true);
   };
 
-  const resetProgressBar = () => {
+  const resetProgressBar = (): void => {
     store.commit(_m.MutationTypes.SHOW_PROGRESS_BAR, false);
     store.commit(_m.MutationTypes.CHANGE_PROGRESS_BAR_PERCENT, '0%');
   };
 
-  const setProgressBar = () => {
+  const setProgressBar = (): void => {
     showProgressBar();
     store.commit(_m.MutationTypes.CHANGE_PROGRESS_BAR_PERCENT, '100%');
     setTimeout(() => {
