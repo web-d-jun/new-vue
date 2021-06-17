@@ -10,7 +10,7 @@
           <div :class="['smart-view-list-container__wrap', { mobile: $store.state.isMobile }]" :style="{ left: `${propsObj.sliderValue}px` }">
             <div class="wrapper" v-for="(list, index) in data.list" :key="index">
               <div class="smart-view-box np-button np-button-flat">
-                <div class="contents-top flex">
+                <div class="contents-top flex cursor-pointer" @click="$router.push('detail/')">
                   <div class="image__container">
                     <div class="image__container-title">대표전단 이미지</div>
                     <div class="image__contents">
