@@ -36,8 +36,7 @@ import useProgressBar from '@/composables/useProgressBar.ts';
 
 export default {
   name: 'Dashboard',
-  components: {
-  },
+  components: {},
 
   setup() {
     // const store = useStore();
@@ -96,6 +95,7 @@ export default {
       border-radius: 10px;
       backface-visibility: hidden;
       transition: all 1.2s;
+      background-color: rgb(22, 22, 22);
       &.back {
         transform: rotateY(180deg);
         // backface-visibility: hidden;

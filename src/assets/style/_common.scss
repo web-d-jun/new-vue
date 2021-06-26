@@ -26,6 +26,10 @@ $pointColor: #fd8711;
   justify-content: space-between;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .cursor-pointer {
   &:hover {
     cursor: pointer;
@@ -39,6 +43,11 @@ $pointColor: #fd8711;
 * @button
 */
 .default-button {
+  border: 0;
+  outline: 0;
+}
+
+.default-input {
   border: 0;
   outline: 0;
 }
