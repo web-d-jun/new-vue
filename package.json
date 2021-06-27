@@ -19,7 +19,9 @@
     "core-js": "^3.6.4",
     "dayjs": "^1.10.3",
     "firebase": "^7.15.5",
+    "localforage": "^1.9.0",
     "material-design-icons": "^3.0.1",
+    "msw": "^0.30.0",
     "netlify-plugin-submit-sitemap": "^0.2.3",
     "particles.js": "^2.0.0",
     "register-service-worker": "^1.7.1",
@@ -82,5 +84,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "msw": {
+    "workerDirectory": "public"
+  }
 }

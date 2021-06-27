@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+
 import App from './App.vue';
 import router from './router';
 import { store } from './store';
@@ -12,6 +13,7 @@ import * as Comm from './assets/ts/common';
 import * as MutationTypes from './store/mutation-types';
 import * as Filters from '@/common/ts/filters';
 import * as dayjs from 'dayjs';
+import * as localforage from 'localforage';
 
 /**
  * @components
@@ -42,9 +44,13 @@ app.provide('firebaseSymbol', firebase);
 app.provide('Comm', Comm);
 app.provide('MutationTypes', MutationTypes);
 app.provide('dayjs', dayjs);
+app.provide('localforage', localforage);
 // app.config.globalProperties.$dayjs = dayjs;
 
 app.component('JTitle', JTitle);
+// import { worker } from '@/mocks/browser';
+// worker.start();
+
 router.isReady().then(() => {
   app.mount('#app');
 });

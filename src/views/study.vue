@@ -27,9 +27,9 @@ export default {
   },
   setup() {
     const http: AxiosInstance = axios;
-    http.get('/mock/test.json').then((res: AxiosResponse) => {
-      console.log(res);
-    });
+    // http.get('/mock/test.json').then((res: AxiosResponse) => {
+    //   console.log(res);
+    // });
     const store = useStore();
     const _m: any = inject('MutationTypes');
     const useHandleRightDrawer = () => {

@@ -49,12 +49,12 @@
 
 <script lang="ts">
 import { onMounted, reactive } from 'vue';
-import { http, AxiosResponse } from '@/http/common';
 import dayjs from 'dayjs';
 /**
  * @type composables
  */
 import useProgressBar from '@/composables/useProgressBar';
+import { smartEventList } from '@/serviece/index';
 /**
  * @type components
  */
@@ -66,28 +66,27 @@ export default {
   components: {
     Carousel,
   },
-  setup() {
+  async setup() {
     const { setProgressBar } = useProgressBar();
     const data = reactive({
       list: [],
     });
-
-    http.get('/mock/smart-event-list.json').then((res: AxiosResponse) => {
-      data.list = res.data.map((x: { title: string; description: string }) => {
-        return {
-          title: x.title,
-          description: x.description,
-          img: Math.floor(Math.random() * 5) + 1,
-          range: `${dayjs().format('YYYY-MM-DD')} ~ ${dayjs()
-            .add(Math.floor(Math.random() * 30) + 1, 'day')
-            .format('YYYY-MM-DD')}`,
-        };
-      });
-    });
-
     onMounted(() => {
       setProgressBar();
     });
+    const smartEventListData = await smartEventList();
+    data.list = smartEventListData.data.map((x: { title: string; description: string }) => {
+      return {
+        title: x.title,
+        description: x.description,
+        img: Math.floor(Math.random() * 5) + 1,
+        range: `${dayjs().format('YYYY-MM-DD')} ~ ${dayjs()
+          .add(Math.floor(Math.random() * 30) + 1, 'day')
+          .format('YYYY-MM-DD')}`,
+      };
+    });
+
+
     return {
       data,
       dayjs,

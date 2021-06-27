@@ -4,10 +4,19 @@
   </div>
 </template>
 <script>
+import { inject } from 'vue';
 export default {
   name: 'App',
 
   setup() {
+    const localforage = inject('localforage');
+    localforage.setItem('test', { test: '111' });
+    const getLocalforage = async () => {
+      const test =  await localforage.getItem('test');
+      // console.log(test,'test')
+      return test
+    };
+    // console.log(getLocalforage());
     // router.push("/main/");
     // router.push('recentPage')
   },
