@@ -18,7 +18,13 @@
             </div>
           </div>
           <div class="box__wrap">
-            <div class="box neumorphism-flat"></div>
+            <j-tab :tabs="tabs">
+              <template #default="slotProps">
+                <div class="tab__contents" label="top" v-show="slotProps.tab === 'top'">top</div>
+                <div class="tab__contents" label="middel" v-show="slotProps.tab === 'middle'">middle</div>
+                <div class="tab__contents" label="bottom" v-show="slotProps.tab === 'bottom'">bottom</div>
+              </template>
+            </j-tab>
           </div>
         </div>
       </div>
@@ -31,13 +37,29 @@ import { myNamespace } from 'globa-types';
 /**
  * @type components
  */
-
+import JTab from '@/components/tabs/JTab.vue';
 export default {
-  components: {},
+  components: {
+    JTab,
+  },
   setup() {
     const Foo: myNamespace.Foo = 'foo';
     console.log(Foo);
-    return {};
+    const tabs = [
+      {
+        key: 'top',
+        name: '위 이미지',
+      },
+      {
+        key: 'middle',
+        name: '중간 이미지',
+      },
+      {
+        key: 'bottom',
+        name: '아래 이미지',
+      },
+    ];
+    return { tabs };
   },
 };
 </script>

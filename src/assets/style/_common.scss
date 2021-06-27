@@ -60,11 +60,15 @@ $pointColor: #fd8711;
   box-shadow: inset -5px -5px 15px #3b4451, inset 5px 5px 15px #000000;
 }
 
-.np-button {
+.np-button,
+.neumorphism-flat {
   &.active {
     &:active {
       @include neumorphism-pressed();
     }
+  }
+  &.selected {
+    @include neumorphism-pressed();
   }
 }
 

@@ -6,6 +6,10 @@
   padding-top: 1%;
   .box__wrap {
     padding: 10px 0;
+    .tab__contents {
+      min-height: 100px;
+      font-size: 2rem;
+    }
   }
   .box {
     width: auto;
@@ -28,7 +32,6 @@
       background-color: transparent;
       color: $defaultColor;
       padding-left: 10px;
-      
     }
   }
 }
