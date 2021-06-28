@@ -82,3 +82,19 @@ $pointColor: #fd8711;
 .neumorphism-pressed {
   @include neumorphism-pressed();
 }
+
+.np-linear {
+  position: relative;
+  width: 100%;
+  padding: 30px 0;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    box-shadow: -1px -1px 5px #3b4451, 1px 1px 5px #000000;
+    border-bottom: 5px solid #2c2f33;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div id="jTabsContainer">
-    <div class="tab__title">Select Mode</div>
+    <slot name="title"></slot>
     <div class="tab__container">
       <div v-for="(tab, index) in tabs" :key="index" :class="['j-tab__contents__wrap']">
         <div :class="['j-tab__contents neumorphism-flat cursor-pointer', { selected: selectedTab.value === tab.key }]" @click="selectedTab.value = handleClickTab(tab.key)">
@@ -49,12 +49,7 @@ export default defineComponent({
 #jTabsContainer {
   width: 100%;
   height: 100%;
-  .tab__title {
-    font-size: 2rem;
-    color: $pointColor;
-    height: 40px;
-    line-height: 40px;
-  }
+  
   .tab__container {
     height: 50px;
     .j-tab__contents__wrap {

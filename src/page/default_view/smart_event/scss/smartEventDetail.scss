@@ -6,6 +6,12 @@
   padding-top: 1%;
   .box__wrap {
     padding: 10px 0;
+    .tab__title {
+      font-size: 2rem;
+      color: $pointColor;
+      height: 40px;
+      line-height: 40px;
+    }
     .tab__container {
       position: relative;
       .button-group {

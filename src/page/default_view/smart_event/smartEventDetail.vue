@@ -17,8 +17,12 @@
               </div>
             </div>
           </div>
+          <div class="np-linear"></div>
           <div class="box__wrap">
             <j-tab :tabs="tabs">
+              <template #title>
+                <div class="tab__title">Select Mode</div>
+              </template>
               <template #default="slotProps">
                 <div class="tab__container">
                   <div class="button-group flex">
@@ -39,6 +43,10 @@
                 </div>
               </template>
             </j-tab>
+          </div>
+          <div class="np-linear"></div>
+          <div class="box__wrap">
+            
           </div>
         </div>
       </div>
@@ -62,15 +70,15 @@ export default {
     const tabs = [
       {
         key: 'top',
-        name: '위 이미지',
+        name: '이미지1',
       },
       {
         key: 'middle',
-        name: '중간 이미지',
+        name: '이미지2',
       },
       {
         key: 'bottom',
-        name: '아래 이미지',
+        name: '이미지3',
       },
     ];
     return { tabs };
