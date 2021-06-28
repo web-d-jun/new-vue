@@ -20,9 +20,23 @@
           <div class="box__wrap">
             <j-tab :tabs="tabs">
               <template #default="slotProps">
-                <div class="tab__contents" label="top" v-show="slotProps.tab === 'top'">top</div>
-                <div class="tab__contents" label="middel" v-show="slotProps.tab === 'middle'">middle</div>
-                <div class="tab__contents" label="bottom" v-show="slotProps.tab === 'bottom'">bottom</div>
+                <div class="tab__container">
+                  <div class="button-group flex">
+                    <div class="button__wrap">
+                      <button type="button" class="cursor-pointer default-button np-button-flat np-button active button button--add">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="button__wrap">
+                      <button type="button" class="cursor-pointer default-button np-button-flat np-button active button button--delete">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tab__contents" label="top" v-show="slotProps.tab === 'top'">top image</div>
+                  <div class="tab__contents" label="middel" v-show="slotProps.tab === 'middle'">middle image</div>
+                  <div class="tab__contents" label="bottom" v-show="slotProps.tab === 'bottom'">bottom image</div>
+                </div>
               </template>
             </j-tab>
           </div>

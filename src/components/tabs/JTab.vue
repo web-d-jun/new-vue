@@ -83,6 +83,7 @@ export default defineComponent({
     position: relative;
     .body__contents {
       padding: 1rem;
+      border-radius: 10px;
     }
   }
 }

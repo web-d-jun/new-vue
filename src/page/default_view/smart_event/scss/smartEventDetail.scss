@@ -6,9 +6,32 @@
   padding-top: 1%;
   .box__wrap {
     padding: 10px 0;
-    .tab__contents {
-      min-height: 100px;
-      font-size: 2rem;
+    .tab__container {
+      position: relative;
+      .button-group {
+        position: absolute;
+        right: 0;
+        top: 0;
+        .button__wrap {
+          padding: 0 10px;
+        }
+        .button {
+          width: 35px;
+          height: 35px;
+          border-radius: 10px;
+          font-size: 1.6rem;
+          &--add {
+            color: $addColor;
+          }
+          &--delete {
+            color: $deleteColor;
+          }
+        }
+      }
+      .tab__contents {
+        min-height: 100px;
+        font-size: 2rem;
+      }
     }
   }
   .box {
