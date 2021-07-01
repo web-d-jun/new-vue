@@ -46,7 +46,18 @@
           </div>
           <div class="np-linear"></div>
           <div class="box__wrap">
-            
+            <div class="card__contents" v-for="i in 24" :key="i">
+              <Card>
+                <template #body>
+                  <div class="product-image__wrap">
+                    <div class="product-image__contents neumorphism-pressed">
+                      <img src="https://d2nic58uh63efu.cloudfront.net/product/8801007176376.png?w=400&f=webp&q=70" class="image" alt="" />
+                    </div>
+                  </div>
+                  <div class="product-"></div>
+                </template>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
@@ -60,9 +71,11 @@ import { myNamespace } from 'globa-types';
  * @type components
  */
 import JTab from '@/components/tabs/JTab.vue';
+import Card from '@/components/card/Card.vue';
 export default {
   components: {
     JTab,
+    Card,
   },
   setup() {
     const Foo: myNamespace.Foo = 'foo';
