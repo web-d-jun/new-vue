@@ -45,16 +45,30 @@
             </j-tab>
           </div>
           <div class="np-linear"></div>
-          <div class="box__wrap">
+          <div class="box__wrap flex flex-wrap">
             <div class="card__contents" v-for="i in 24" :key="i">
               <Card>
                 <template #body>
                   <div class="product-image__wrap">
-                    <div class="product-image__contents neumorphism-pressed">
-                      <img src="https://d2nic58uh63efu.cloudfront.net/product/8801007176376.png?w=400&f=webp&q=70" class="image" alt="" />
+                    <div class="product-image__contents">
+                      <img src="https://d2nic58uh63efu.cloudfront.net/product/8801500193672.png?w=400&f=webp&q=70" class="image" alt="" />
                     </div>
                   </div>
-                  <div class="product-"></div>
+                  <div class="product-info__contents flex">
+                    <div class="product-info-value"><input type="text" class="default-input neumorphism-pressed product-info-input" placeholder="상품명 입력" /></div>
+                  </div>
+                  <div class="product-info__contents flex">
+                    <div class="product-info-value flex">
+                      <input type="text" class="default-input neumorphism-pressed product-info-input price" placeholder="정상가 입력" />
+                      <div class="price-tail">원</div>
+                    </div>
+                  </div>
+                  <div class="product-info__contents flex">
+                    <div class="product-info-value flex">
+                      <input type="text" class="default-input neumorphism-pressed product-info-input price" placeholder="할인가 입력" />
+                      <div class="price-tail">원</div>
+                    </div>
+                  </div>
                 </template>
               </Card>
             </div>
